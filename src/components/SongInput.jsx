@@ -21,17 +21,23 @@ const SongInput = ({ token, onGuess, disabled }) => {
       } else {
         setResults([]);
       }
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(delayDebounceFn);
   }, [query, token]);
 
   return (
     <div className="song-input-container">
+      <span className="search-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16" y1="16" x2="22" y2="22" />
+        </svg>
+      </span>
       <input
         className="search-input"
         type="text"
-        placeholder="Search for the song..."
+        placeholder="Search a song"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         disabled={disabled}

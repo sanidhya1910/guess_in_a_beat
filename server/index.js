@@ -14,7 +14,7 @@ let access_token = null;
 let refresh_token = null;
 
 app.use(cors({
-    origin: ['http://127.0.0.1:5173', 'http://127.0.0.1:5174'],
+    origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
     credentials: true
 }));
 
@@ -63,7 +63,7 @@ app.get('/auth/callback', async (req, res) => {
         access_token = response.data.access_token;
         refresh_token = response.data.refresh_token;
 
-        res.redirect('http://127.0.0.1:5174/');
+        res.redirect('http://127.0.0.1:5173/');
     } catch (error) {
         console.error('Error getting token:', error.response?.data || error.message);
         res.status(500).send('Authentication failed');
