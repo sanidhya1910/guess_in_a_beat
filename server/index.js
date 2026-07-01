@@ -10,8 +10,15 @@ const spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 const spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const redirect_uri = 'http://127.0.0.1:5000/auth/callback';
 
+if (!spotify_client_id || !spotify_client_secret) {
+    console.error('FATAL: SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET must be set in .env');
+    process.exit(1);
+}
+
 let access_token = null;
 let refresh_token = null;
+const pendingStates = new Set();
+const PENDING_STATE_EXPIRY_MS = 10 * 60 * 1000;
 
 app.use(cors({
     origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
@@ -28,8 +35,10 @@ function generateRandomString(length) {
 }
 
 app.get('/auth/login', (req, res) => {
-    const scope = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state';
+    const scope = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state playlist-read-private playlist-read-collaborative';
     const state = generateRandomString(16);
+    pendingStates.add(state);
+    setTimeout(() => pendingStates.delete(state), PENDING_STATE_EXPIRY_MS);
 
     const auth_query_parameters = new URLSearchParams({
         response_type: 'code',
@@ -43,7 +52,12 @@ app.get('/auth/login', (req, res) => {
 });
 
 app.get('/auth/callback', async (req, res) => {
-    const code = req.query.code;
+    const { code, state } = req.query;
+
+    if (!state || !pendingStates.has(state)) {
+        return res.status(400).send('Authentication failed: invalid state parameter');
+    }
+    pendingStates.delete(state);
 
     try {
         const response = await axios.post('https://accounts.spotify.com/api/token', 

@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import { getPlaylistTracks, getSeveralTracks } from '../services/spotify';
+import { MusicIcon } from './Icons';
+
+const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+};
 
 const Setup = ({ token, onStartGame }) => {
     const [input, setInput] = useState('');
@@ -9,29 +19,34 @@ const Setup = ({ token, onStartGame }) => {
 
     const extractIdFromUrl = (url) => {
         try {
-            if (url.includes('spotify.com')) {
-                const parts = url.split('/');
-                const lastPart = parts[parts.length - 1];
-                return lastPart.split('?')[0];
+            const trimmedUrl = url.trim();
+
+            if (trimmedUrl.includes('spotify.com') || trimmedUrl.includes('spotify.link')) {
+                const playlistMatch = trimmedUrl.match(/\/playlist\/([a-zA-Z0-9]{22})/);
+                if (playlistMatch) return playlistMatch[1];
+
+                const trackMatch = trimmedUrl.match(/\/track\/([a-zA-Z0-9]{22})/);
+                if (trackMatch) return trackMatch[1];
+
+                const urlObj = new URL(trimmedUrl);
+                const pathParts = urlObj.pathname.split('/').filter(p => p);
+                if (pathParts.length >= 2) {
+                    const id = pathParts[pathParts.length - 1];
+                    if (/^[a-zA-Z0-9]{22}$/.test(id)) return id;
+                }
             }
-            return url.trim();
-        } catch (e) {
+
+            if (/^[a-zA-Z0-9]{22}$/.test(trimmedUrl)) return trimmedUrl;
+
+            return null;
+        } catch {
             return null;
         }
     };
 
-    const shuffleArray = (array) => {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    };
-
     const handleStart = async () => {
         if (!input.trim()) {
-            setError('Please provide a Playlist Link or a list of Song Links');
+            setError('Paste at least one playlist or track link to get started.');
             return;
         }
 
@@ -40,106 +55,120 @@ const Setup = ({ token, onStartGame }) => {
 
         try {
             let allTracks = [];
-            const lines = input.split(/[\n]/).map(line => line.trim()).filter(line => line);
-            
-            // Check if there are multiple playlist links
-            const playlistLinks = lines.filter(line => line.includes('/playlist/'));
-            const trackLinks = lines.filter(line => line.includes('/track/'));
-            
-            // Handle multiple playlists
-            if (playlistLinks.length > 0) {
-                for (const playlistUrl of playlistLinks) {
-                    const playlistId = extractIdFromUrl(playlistUrl);
-                    if (playlistId) {
-                        const tracks = await getPlaylistTracks(token, playlistId);
+            const lines = input.split('\n').map(l => l.trim()).filter(l => l);
+            const playlistLines = lines.filter(l => l.includes('/playlist/'));
+            const trackLines = lines.filter(l => l.includes('/track/'));
+            const failedPlaylists = [];
+
+            for (const url of playlistLines) {
+                const id = extractIdFromUrl(url);
+                if (id) {
+                    try {
+                        const tracks = await getPlaylistTracks(token, id);
                         allTracks = [...allTracks, ...tracks];
+                    } catch (err) {
+                        console.error(`Error fetching playlist ${id}:`, err);
+                        failedPlaylists.push(url);
                     }
+                } else {
+                    failedPlaylists.push(url);
                 }
             }
-            
-            // Handle individual track links
-            if (trackLinks.length > 0) {
-                const trackIds = trackLinks.map(line => extractIdFromUrl(line)).filter(id => id);
-                if (trackIds.length > 0) {
-                    const tracks = await getSeveralTracks(token, trackIds);
+
+            if (trackLines.length > 0) {
+                const ids = trackLines.map(l => extractIdFromUrl(l)).filter(Boolean);
+                if (ids.length > 0) {
+                    const tracks = await getSeveralTracks(token, ids);
                     allTracks = [...allTracks, ...tracks];
                 }
             }
 
-            // If no playlists or tracks found, try parsing as single playlist
-            if (allTracks.length === 0 && input.includes('/playlist/')) {
-                const playlistId = extractIdFromUrl(input);
-                allTracks = await getPlaylistTracks(token, playlistId);
-            }
-
             if (allTracks.length === 0) {
-                setError('No tracks found. Check your playlist link or song URLs.');
+                setError(
+                    failedPlaylists.length > 0
+                        ? 'Could not load playlists. Make sure they are public or shared with you.'
+                        : 'No tracks found. Check your playlist links or song URLs.'
+                );
                 return;
             }
 
-            // Remove duplicates based on track ID
-            const uniqueTracks = allTracks.filter((track, index, self) =>
-                index === self.findIndex(t => t.id === track.id)
-            );
+            // Dedupe and shuffle
+            const unique = allTracks.filter((t, i, arr) => i === arr.findIndex(x => x.id === t.id));
+            let shuffled = shuffleArray(unique);
 
-            // Shuffle tracks
-            let shuffled = shuffleArray(uniqueTracks);
-
-            // Apply song limit if specified
             const limit = parseInt(songLimit);
-            if (!isNaN(limit) && limit > 0) {
-                shuffled = shuffled.slice(0, limit);
-            }
+            if (!isNaN(limit) && limit > 0) shuffled = shuffled.slice(0, limit);
 
             onStartGame(shuffled);
         } catch (e) {
             console.error(e);
-            setError(e.message || 'Failed to load tracks. Check your input.');
+            setError(e.message || 'Failed to load tracks. Check your input and try again.');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="setup-container songless-setup">
-            <h1 className="setup-title">Guess in a Beat</h1>
-            <p className="setup-subtitle">Guess the song from short snippets</p>
+        <div className="setup-page">
+            <div className="setup-header">
+                <h1 className="setup-title">
+                    Guess in a <span>Beat</span>
+                </h1>
+                <p className="setup-subtitle">Identify songs from increasingly long snippets</p>
+            </div>
 
-            <div className="card setup-card">
-                <div className="info-box">
-                    <strong>📱 Make sure Spotify is open</strong>
-                    <p>Open Spotify on your desktop, mobile, or web browser before starting.</p>
+            <div className="setup-card">
+                <div className="setup-info">
+                    <span className="setup-info-icon">
+                        <MusicIcon size={16} />
+                    </span>
+                    <div className="setup-info-text">
+                        <strong>30-second previews</strong>
+                        Tracks stream directly in the browser. Some songs may fall back to
+                        Spotify Connect if no preview is available.
+                    </div>
                 </div>
 
-                <div className="form-group">
-                    <label>Spotify Playlist Links (one or more)</label>
+                <div className="field">
+                    <label className="field-label" htmlFor="playlist-input">
+                        Playlist Links
+                    </label>
                     <textarea
-                        className="input-field"
-                        rows="5"
+                        id="playlist-input"
+                        className="field-textarea"
+                        rows={5}
                         value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Paste Playlist URLs (one per line to merge multiple playlists)&#10;&#10;Example:&#10;https://open.spotify.com/playlist/abc123&#10;https://open.spotify.com/playlist/xyz789"
+                        onChange={e => setInput(e.target.value)}
+                        placeholder={
+                            'Paste one or more Spotify playlist URLs — one per line\n\n' +
+                            'https://open.spotify.com/playlist/…\n' +
+                            'https://open.spotify.com/playlist/…'
+                        }
                     />
-                    <span className="help-text">Paste multiple playlist links to merge and shuffle them together</span>
+                    <span className="field-hint">Multiple playlists are merged and shuffled together</span>
                 </div>
 
-                <div className="form-group">
-                    <label>Song Limit (optional)</label>
+                <div className="field">
+                    <label className="field-label" htmlFor="song-limit">
+                        Song Limit <span style={{ textTransform: 'none', fontWeight: 400 }}>(optional)</span>
+                    </label>
                     <input
+                        id="song-limit"
                         type="number"
-                        className="input-field limit-input"
+                        className="field-input"
                         value={songLimit}
-                        onChange={(e) => setSongLimit(e.target.value)}
-                        placeholder="Leave empty for all songs"
+                        onChange={e => setSongLimit(e.target.value)}
+                        placeholder="All songs"
                         min="1"
+                        style={{ maxWidth: '160px' }}
                     />
-                    <span className="help-text">Limit the number of songs loaded into the game</span>
+                    <span className="field-hint">Cap how many songs are loaded into the game</span>
                 </div>
 
-                {error && <div className="error-message">{error}</div>}
+                {error && <div className="setup-error">{error}</div>}
 
-                <button className="start-btn" onClick={handleStart} disabled={loading}>
-                    {loading ? 'Loading Tracks...' : 'Start Game'}
+                <button className="btn-primary" onClick={handleStart} disabled={loading}>
+                    {loading ? 'Loading tracks…' : 'Start Game'}
                 </button>
             </div>
         </div>

@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { playTrack, pausePlayback } from '../services/spotify';
 import SongInput from './SongInput';
+import { PlayIcon, SkipIcon, ArrowLeftIcon, ArrowRightIcon, CheckIcon, XIcon, MusicIcon, TrophyIcon } from './Icons';
+import { playTrack, pausePlayback, getFreshToken } from '../services/spotify';
 
 const DURATIONS = [0.1, 0.5, 1, 2, 5, 10];
-const POINTS = [6, 5, 4, 3, 2, 1]; // Points for guessing at each duration
+const POINTS    = [6, 5, 4, 3, 2, 1];
 const MAX_ATTEMPTS = 6;
+const TOTAL_DURATION = DURATIONS.reduce((a, b) => a + b, 0);
 
-const Game = ({ tracks, token, onExit }) => {
+const Game = ({ tracks, onExit }) => {
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     const [guessCount, setGuessCount] = useState(0);
-    const [gameState, setGameState] = useState('playing'); // playing, won, lost
+    const [gameState, setGameState] = useState('playing'); // 'playing' | 'won' | 'lost'
     const [guesses, setGuesses] = useState([]);
-    const [message, setMessage] = useState('');
     const [isPlaying, setIsPlaying] = useState(false);
     const [isContinuousPlay, setIsContinuousPlay] = useState(false);
     const [error, setError] = useState('');
@@ -19,16 +20,19 @@ const Game = ({ tracks, token, onExit }) => {
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [playProgress, setPlayProgress] = useState(0);
-    const timeoutRef = useRef(null);
+    const [useSpotifyConnect, setUseSpotifyConnect] = useState(false);
+    const timeoutRef  = useRef(null);
     const progressRef = useRef(null);
+    const audioRef    = useRef(null);
 
-    const currentTrack = tracks[currentTrackIndex];
+    const currentTrack   = tracks[currentTrackIndex];
     const currentDuration = DURATIONS[Math.min(guessCount, DURATIONS.length - 1)];
-    const currentPoints = POINTS[Math.min(guessCount, POINTS.length - 1)];
+    const currentPoints   = POINTS[Math.min(guessCount, POINTS.length - 1)];
+    const isGameOver = currentTrackIndex >= tracks.length - 1 && gameState !== 'playing';
 
-    // Normalize song name for comparison (remove special editions, remasters, etc.)
-    const normalizeName = (name) => {
-        return name
+    // ── Normalize song name for fuzzy matching ──────────────────────────────
+    const normalizeName = (name) =>
+        name
             .toLowerCase()
             .replace(/\s*[-–—]\s*(remaster(ed)?|deluxe|special|edition|version|live|acoustic|remix|radio edit|single|mix|mono|stereo|anniversary|extended|bonus|explicit|clean).*$/i, '')
             .replace(/\s*\((remaster(ed)?|deluxe|special|edition|version|live|acoustic|remix|radio edit|single|mix|mono|stereo|anniversary|extended|bonus|explicit|clean|feat\.?.*|ft\.?.*|\d{4})\)/gi, '')
@@ -36,56 +40,97 @@ const Game = ({ tracks, token, onExit }) => {
             .replace(/[''`]/g, "'")
             .replace(/[""]/g, '"')
             .trim();
-    };
 
-    // Check if the guessed track matches the current track
     const isCorrectGuess = (guessedTrack) => {
-        // Exact ID match
         if (guessedTrack.id === currentTrack.id) return true;
-        
-        // Normalize both names
-        const guessedName = normalizeName(guessedTrack.name);
-        const correctName = normalizeName(currentTrack.name);
-        
-        // Get primary artists (first artist is usually the main one)
-        const guessedArtist = guessedTrack.artists[0]?.name.toLowerCase().trim();
-        const correctArtist = currentTrack.artists[0]?.name.toLowerCase().trim();
-        
-        // Check if names match and at least one artist matches
-        if (guessedName === correctName && guessedArtist === correctArtist) {
-            return true;
-        }
-        
-        // Check if any artists overlap (for collaborations)
-        const guessedArtists = guessedTrack.artists.map(a => a.name.toLowerCase().trim());
-        const correctArtists = currentTrack.artists.map(a => a.name.toLowerCase().trim());
-        const hasMatchingArtist = guessedArtists.some(a => correctArtists.includes(a));
-        
-        if (guessedName === correctName && hasMatchingArtist) {
-            return true;
-        }
-        
+        const gName = normalizeName(guessedTrack.name);
+        const cName = normalizeName(currentTrack.name);
+        const gArtists = guessedTrack.artists.map(a => a.name.toLowerCase().trim());
+        const cArtists = currentTrack.artists.map(a => a.name.toLowerCase().trim());
+        if (gName === cName && gArtists.some(a => cArtists.includes(a))) return true;
         return false;
     };
 
+    // ── Cleanup on unmount / track change ──────────────────────────────────
     useEffect(() => {
         return () => {
-            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            if (timeoutRef.current)  clearTimeout(timeoutRef.current);
             if (progressRef.current) cancelAnimationFrame(progressRef.current);
         };
     }, []);
 
-    // Play song continuously when game ends (won or lost)
+    useEffect(() => {
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current = null;
+            }
+            if (useSpotifyConnect) {
+                getFreshToken().then(token => {
+                    if (token) pausePlayback(token).catch(() => {});
+                });
+            }
+        };
+    }, [currentTrackIndex, useSpotifyConnect]);
+
+    // ── Keyboard shortcuts ─────────────────────────────────────────────────
+    useEffect(() => {
+        const onKey = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.code === 'Space' && gameState === 'playing' && !isPlaying) {
+                e.preventDefault();
+                playSnippet();
+            }
+            if (e.code === 'Enter' && gameState !== 'playing' && currentTrackIndex < tracks.length - 1) {
+                e.preventDefault();
+                handleNextSong();
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [gameState, isPlaying, currentTrackIndex, tracks.length]);
+
+    // ── Continuous play (after result) ─────────────────────────────────────
     const playContinuously = async () => {
-        if (!currentTrack) return;
         setIsContinuousPlay(true);
-        try {
-            await playTrack(token, currentTrack.uri);
-        } catch (e) {
-            console.error('Error playing continuously:', e);
+        setIsPlaying(true);
+
+        if (audioRef.current) audioRef.current.pause();
+
+        if (currentTrack?.preview_url) {
+            setUseSpotifyConnect(false);
+            audioRef.current = new Audio(currentTrack.preview_url);
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().catch(e => console.error('Continuous play error:', e));
+            audioRef.current.onended = () => {
+                setIsPlaying(false);
+                setIsContinuousPlay(false);
+            };
+        } else {
+            setUseSpotifyConnect(true);
+            try {
+                const token = await getFreshToken();
+                if (token) {
+                    await playTrack(token, currentTrack.uri, 0);
+                    if (currentTrack.duration_ms) {
+                        timeoutRef.current = setTimeout(() => {
+                            setIsPlaying(false);
+                            setIsContinuousPlay(false);
+                        }, currentTrack.duration_ms);
+                    }
+                } else {
+                    setIsPlaying(false);
+                    setIsContinuousPlay(false);
+                }
+            } catch (e) {
+                console.error('Spotify Connect error:', e);
+                setIsPlaying(false);
+                setIsContinuousPlay(false);
+            }
         }
     };
 
+    // ── Play snippet ───────────────────────────────────────────────────────
     const playSnippet = async () => {
         if (isPlaying || !currentTrack) return;
 
@@ -93,266 +138,372 @@ const Game = ({ tracks, token, onExit }) => {
         setError('');
         setPlayProgress(0);
 
-        try {
-            await playTrack(token, currentTrack.uri);
+        if (audioRef.current) audioRef.current.pause();
 
-            // Animate progress bar
-            const startTime = Date.now();
-            const duration = currentDuration * 1000;
+        const startTime = Date.now();
+        const duration  = currentDuration * 1000;
+
+        if (currentTrack.preview_url) {
+            setUseSpotifyConnect(false);
+            audioRef.current = new Audio(currentTrack.preview_url);
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().catch(e => {
+                console.error('Audio play error:', e);
+                setError('Failed to play audio.');
+                setIsPlaying(false);
+                if (progressRef.current) cancelAnimationFrame(progressRef.current);
+                if (timeoutRef.current)  clearTimeout(timeoutRef.current);
+            });
+
             const animateProgress = () => {
-                const elapsed = Date.now() - startTime;
-                const progress = Math.min(elapsed / duration, 1);
+                const progress = Math.min((Date.now() - startTime) / duration, 1);
                 setPlayProgress(progress);
-                if (progress < 1) {
-                    progressRef.current = requestAnimationFrame(animateProgress);
-                }
+                if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
             };
             progressRef.current = requestAnimationFrame(animateProgress);
 
-            timeoutRef.current = setTimeout(async () => {
-                try {
-                    await pausePlayback(token);
-                } catch (e) {
-                    console.error('Error pausing:', e);
-                }
+            timeoutRef.current = setTimeout(() => {
+                if (audioRef.current) audioRef.current.pause();
                 setIsPlaying(false);
                 if (progressRef.current) cancelAnimationFrame(progressRef.current);
             }, duration);
-        } catch (e) {
-            console.error('Error playing:', e);
-            if (e.message && e.message.includes('NO_DEVICES')) {
-                setError('No Spotify devices found. Please open Spotify on your computer or phone and try again.');
-            } else if (e.response?.status === 403) {
-                setError('Spotify Premium is required to control playback. Please upgrade to Premium.');
-            } else if (e.response?.status === 404) {
-                setError('No active Spotify device found. Please open Spotify and play any song briefly, then try again.');
-            } else {
-                setError('Failed to play. Make sure Spotify is open and active on a device.');
+        } else {
+            setUseSpotifyConnect(true);
+            try {
+                const token = await getFreshToken();
+                if (!token) {
+                    setError('No Spotify token available.');
+                    setIsPlaying(false);
+                    return;
+                }
+                await playTrack(token, currentTrack.uri, 0);
+
+                const animateProgress = () => {
+                    const progress = Math.min((Date.now() - startTime) / duration, 1);
+                    setPlayProgress(progress);
+                    if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
+                };
+                progressRef.current = requestAnimationFrame(animateProgress);
+
+                timeoutRef.current = setTimeout(async () => {
+                    try {
+                        const freshToken = await getFreshToken();
+                        if (freshToken) await pausePlayback(freshToken);
+                    } catch {}
+                    setIsPlaying(false);
+                    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+                }, duration);
+            } catch (e) {
+                console.error('Spotify Connect error:', e);
+                setError(e.message?.includes('NO_DEVICES')
+                    ? 'Open Spotify on a device to play this track.'
+                    : 'Failed to play via Spotify.');
+                setIsPlaying(false);
             }
-            setIsPlaying(false);
         }
     };
 
-    const handleGuess = async (guessedTrack) => {
-        const isCorrect = isCorrectGuess(guessedTrack);
+    // ── Guess handling ─────────────────────────────────────────────────────
+    const handleGuess = (guessedTrack) => {
+        const correct = isCorrectGuess(guessedTrack);
+        const newGuess = { track: guessedTrack, isCorrect: correct, points: correct ? currentPoints : 0 };
+        setGuesses(prev => [...prev, newGuess]);
 
-        const newGuess = {
-            track: guessedTrack,
-            isCorrect: isCorrect,
-            points: isCorrect ? currentPoints : 0
-        };
-
-        setGuesses([...guesses, newGuess]);
-
-        if (isCorrect) {
-            setScore(score + currentPoints);
-            setCorrectAnswers(correctAnswers + 1);
+        if (correct) {
+            setScore(s => s + currentPoints);
+            setCorrectAnswers(c => c + 1);
             setGameState('won');
-            setMessage(`🎉 Correct! +${currentPoints} points!`);
-            // Play song continuously after correct guess
-            await playContinuously();
+            playContinuously();
         } else {
-            const nextGuessCount = guessCount + 1;
-            if (nextGuessCount >= DURATIONS.length) {
-                setGuessCount(nextGuessCount);
+            const next = guessCount + 1;
+            if (next >= DURATIONS.length) {
+                setGuessCount(next);
                 setGameState('lost');
-                setMessage(`Game Over! The song was "${currentTrack.name}" by ${currentTrack.artists[0].name}`);
-                // Play song continuously after reveal
-                await playContinuously();
+                playContinuously();
             } else {
-                setGuessCount(nextGuessCount);
-                setMessage(`❌ Wrong! Try again with ${DURATIONS[nextGuessCount]}s (${POINTS[nextGuessCount]} pts)`);
+                setGuessCount(next);
             }
         }
     };
 
-    const handleSkip = async () => {
-        const nextGuessCount = guessCount + 1;
-        setGuesses([...guesses, { track: { name: 'Skipped', artists: [{ name: '' }] }, isCorrect: false, skipped: true }]);
-        
-        if (nextGuessCount >= DURATIONS.length) {
-            setGuessCount(nextGuessCount);
+    const handleSkip = () => {
+        const next = guessCount + 1;
+        setGuesses(prev => [...prev, { track: { name: 'Skipped', artists: [{ name: '' }] }, isCorrect: false, skipped: true }]);
+        if (next >= DURATIONS.length) {
+            setGuessCount(next);
             setGameState('lost');
-            setMessage(`Game Over! The song was "${currentTrack.name}" by ${currentTrack.artists[0].name}`);
-            // Play song continuously after reveal
-            await playContinuously();
+            playContinuously();
         } else {
-            setGuessCount(nextGuessCount);
-            setMessage(`Skipped! Try with ${DURATIONS[nextGuessCount]}s (${POINTS[nextGuessCount]} pts)`);
+            setGuessCount(next);
         }
-    };
-
-    const handleGiveUp = async () => {
-        // Stop any currently playing music
-        try {
-            await pausePlayback(token);
-        } catch (e) {
-            console.log('Could not pause playback');
-        }
-        if (progressRef.current) cancelAnimationFrame(progressRef.current);
-        setIsPlaying(false);
-        setGameState('lost');
-        setMessage(`You gave up! The song was "${currentTrack.name}" by ${currentTrack.artists[0].name}`);
-        // Play song continuously after giving up
-        await playContinuously();
     };
 
     const handleNextSong = async () => {
-        // Stop any currently playing music
-        try {
-            await pausePlayback(token);
-        } catch (e) {
-            console.log('Could not pause playback');
-        }
+        if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+        if (timeoutRef.current)  clearTimeout(timeoutRef.current);
         if (progressRef.current) cancelAnimationFrame(progressRef.current);
-        setIsContinuousPlay(false);
 
-        setTotalQuestions(totalQuestions + 1);
+        if (useSpotifyConnect) {
+            try {
+                const token = await getFreshToken();
+                if (token) await pausePlayback(token);
+            } catch {}
+        }
+
+        setIsContinuousPlay(false);
+        setUseSpotifyConnect(false);
 
         if (currentTrackIndex < tracks.length - 1) {
-            setCurrentTrackIndex(currentTrackIndex + 1);
+            setTotalQuestions(q => q + 1);
+            setCurrentTrackIndex(i => i + 1);
             setGuessCount(0);
             setGameState('playing');
             setGuesses([]);
-            setMessage('');
             setError('');
             setPlayProgress(0);
             setIsPlaying(false);
-        } else {
-            setMessage("🎊 You've finished all the songs!");
         }
     };
 
-    // Build attempt bars for Songless-style UI
-    const getAttemptBars = () => {
-        const bars = [];
-        for (let i = 0; i < MAX_ATTEMPTS; i++) {
-            const guess = guesses[i];
-            let status = 'empty';
-            let label = '';
-            
-            if (guess) {
-                if (guess.isCorrect) {
-                    status = 'correct';
-                    label = `${guess.track.name} - ${guess.track.artists[0]?.name || ''}`;
-                } else if (guess.skipped) {
-                    status = 'skipped';
-                    label = 'Skipped';
-                } else {
-                    status = 'wrong';
-                    label = `${guess.track.name} - ${guess.track.artists[0]?.name || ''}`;
-                }
-            }
-            
-            bars.push({ status, label, duration: DURATIONS[i] });
-        }
-        return bars;
+    // ── Build attempt bar data ─────────────────────────────────────────────
+    const attemptBars = Array.from({ length: MAX_ATTEMPTS }, (_, i) => {
+        const guess = guesses[i];
+        if (!guess) return { status: 'empty', duration: DURATIONS[i], points: POINTS[i] };
+        if (guess.isCorrect) return {
+            status: 'correct',
+            trackName: guess.track.name,
+            trackArtist: guess.track.artists.map(a => a.name).join(', '),
+            points: guess.points,
+            duration: DURATIONS[i],
+        };
+        if (guess.skipped) return { status: 'skipped', trackName: 'Skipped', duration: DURATIONS[i] };
+        return {
+            status: 'wrong',
+            trackName: guess.track.name,
+            trackArtist: guess.track.artists.map(a => a.name).join(', '),
+            duration: DURATIONS[i],
+        };
+    });
+
+    // ── Timeline cursor position ───────────────────────────────────────────
+    const getTimelineLeft = () => {
+        let cumulative = 0;
+        for (let i = 0; i < guessCount; i++) cumulative += DURATIONS[i];
+        return (cumulative / TOTAL_DURATION) * 100;
     };
 
-    if (!currentTrack) return <div>No tracks available.</div>;
+    if (!currentTrack) return <div className="no-tracks">No tracks available.</div>;
 
-    const attemptBars = getAttemptBars();
+    const pointsEarned = guesses.find(g => g.isCorrect)?.points;
 
     return (
-        <div className="game-container songless-style">
-            {/* Header */}
-            <div className="header">
-                <div className="header-left">
-                    <button className="back-btn" onClick={onExit}>←</button>
-                </div>
-                <div className="header-center">
-                    <h1 className="game-title">Guess in a Beat</h1>
-                    <div className="header-stats">
-                        <span className="stat">{score} pts</span>
-                        <span className="stat">{currentTrackIndex + 1}/{tracks.length}</span>
+        <div className="game-page">
+            {/* ── Header ── */}
+            <header className="game-header">
+                <button className="game-header-back" onClick={onExit} title="Exit game">
+                    <ArrowLeftIcon size={20} />
+                </button>
+                <div className="game-header-center">
+                    <div className="game-wordmark">
+                        Guess in a <span>Beat</span>
+                    </div>
+                    <div className="game-header-meta">
+                        <span className="meta-pill score">
+                            <TrophyIcon size={11} />
+                            {score}
+                        </span>
+                        <span className="meta-pill">
+                            <MusicIcon size={11} />
+                            {currentTrackIndex + 1} / {tracks.length}
+                        </span>
                     </div>
                 </div>
-                <div className="header-right"></div>
-            </div>
+                <div className="game-header-spacer" />
+            </header>
 
-            {/* Attempt Bars */}
-            <div className="attempt-bars">
-                {attemptBars.map((bar, index) => (
-                    <div 
-                        key={index} 
-                        className={`attempt-bar ${bar.status}`}
-                    >
-                        {bar.label}
-                    </div>
-                ))}
-            </div>
+            {/* ── Main ── */}
+            <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
 
-            {/* Progress Timeline */}
-            <div className="timeline-container">
-                <div className="timeline-marker">
-                    <span>{currentDuration} seconds</span>
-                    <div className="marker-arrow">▼</div>
-                </div>
-                <div className="timeline">
-                    {DURATIONS.map((duration, index) => {
-                        const isActive = index < guessCount;
-                        const isCurrent = index === guessCount && gameState === 'playing';
-                        const width = (duration / DURATIONS.reduce((a, b) => a + b, 0)) * 100;
-                        
+                {/* Attempt bars */}
+                <div className="attempt-stack">
+                    {attemptBars.map((bar, i) => {
+                        const isCurrent = i === guessCount && gameState === 'playing';
+                        let rowClass = 'attempt-row';
+                        if (bar.status === 'correct') rowClass += ' is-correct';
+                        else if (bar.status === 'wrong') rowClass += ' is-wrong';
+                        else if (bar.status === 'skipped') rowClass += ' is-skipped';
+                        else if (isCurrent) rowClass += ' is-current';
+
                         return (
-                            <div
-                                key={index}
-                                className={`timeline-segment ${isActive ? 'active' : ''} ${isCurrent ? 'current' : ''}`}
-                                style={{ width: `${width}%` }}
-                            />
+                            <div key={i} className={rowClass}>
+                                <div className="attempt-row-inner">
+                                    <div className="attempt-icon">
+                                        {bar.status === 'correct' && <CheckIcon size={14} color="var(--green)" />}
+                                        {bar.status === 'wrong'   && <XIcon     size={14} color="var(--red)" />}
+                                        {bar.status === 'skipped' && <SkipIcon  size={12} color="var(--text-2)" />}
+                                    </div>
+
+                                    {bar.status !== 'empty' ? (
+                                        <div className="attempt-text">
+                                            <span className="attempt-track-name">{bar.trackName}</span>
+                                            {bar.trackArtist && (
+                                                <span className="attempt-track-artist">{bar.trackArtist}</span>
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <span className={`attempt-duration ${isCurrent ? 'is-current' : ''}`}>
+                                            {bar.duration}s
+                                        </span>
+                                    )}
+
+                                    {bar.status === 'correct' && (
+                                        <span className="attempt-points">+{bar.points}</span>
+                                    )}
+                                    {bar.status === 'empty' && isCurrent && (
+                                        <span className="attempt-hint">{bar.points} pts</span>
+                                    )}
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
-            </div>
 
-            {/* Play Button */}
-            <div className="player-section">
-                <button
-                    className="play-button-large"
-                    onClick={playSnippet}
-                    disabled={isPlaying || gameState !== 'playing'}
-                >
-                    {isPlaying ? '⏸' : '▶'}
-                </button>
-                {error && <div className="error-message">{error}</div>}
-            </div>
+                {/* Timeline */}
+                <div className="timeline-section">
+                    <div className="timeline-cursor" style={{ left: `${getTimelineLeft()}%` }}>
+                        <span className="timeline-cursor-label">{currentDuration}s</span>
+                    </div>
+                    <div className="timeline-track">
+                        {DURATIONS.map((dur, i) => {
+                            const width = (dur / TOTAL_DURATION) * 100;
+                            const isDone    = i < guessCount;
+                            const isCurrent = i === guessCount && gameState === 'playing';
+                            let segClass = 'timeline-seg';
+                            if (isDone) segClass += ' seg-done';
+                            else if (isCurrent) segClass += ' seg-active';
 
-            {/* Next Button - Above Album Art when game ends */}
-            {gameState !== 'playing' && (
-                <div className="next-button-container">
-                    {currentTrackIndex < tracks.length - 1 ? (
-                        <button className="next-btn-large" onClick={handleNextSong}>
-                            Next Song →
-                        </button>
-                    ) : (
-                        <div className="final-score-mini">
-                            <span>🎊 Complete! {score} pts | {correctAnswers}/{totalQuestions + 1}</span>
-                        </div>
-                    )}
+                            return (
+                                <div key={i} className={segClass} style={{ width: `${width}%` }}>
+                                    {isPlaying && isCurrent && (
+                                        <div className="timeline-seg-fill" style={{ width: `${playProgress * 100}%` }} />
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
-            )}
 
-            {/* Album Art Reveal */}
-            {gameState !== 'playing' && (
-                <div className="track-reveal">
-                    {currentTrack.album?.images?.[0] && (
-                        <img src={currentTrack.album.images[0].url} alt="Album Art" className="album-art" />
-                    )}
-                    <h3>{currentTrack.name}</h3>
-                    <p>{currentTrack.artists.map(a => a.name).join(', ')}</p>
-                    {isContinuousPlay && <p className="now-playing">🎵 Now Playing...</p>}
-                </div>
-            )}
-
-            {/* Search Input */}
-            {gameState === 'playing' && (
-                <div className="input-section">
-                    <SongInput token={token} onGuess={handleGuess} />
-                    <button className="skip-btn-modern" onClick={handleSkip}>
-                        Skip
+                {/* Play button */}
+                <div className="player-section">
+                    <button
+                        className={`play-btn${isPlaying ? ' is-playing' : ''}`}
+                        onClick={playSnippet}
+                        disabled={isPlaying || gameState !== 'playing'}
+                        title={isPlaying ? 'Playing…' : 'Play snippet (Space)'}
+                        aria-label={isPlaying ? 'Playing' : 'Play snippet'}
+                    >
+                        {isPlaying ? (
+                            <div className="sound-bars" aria-hidden="true">
+                                <span /><span /><span /><span /><span />
+                            </div>
+                        ) : (
+                            <PlayIcon size={30} />
+                        )}
                     </button>
+                    {error && <p className="player-error">{error}</p>}
                 </div>
-            )}
+
+                {/* Result section */}
+                {gameState !== 'playing' && (
+                    <div className="result-section">
+                        {/* Verdict badge */}
+                        <div className={`result-verdict ${gameState}`}>
+                            {gameState === 'won' ? (
+                                <><CheckIcon size={13} color="var(--green)" /> +{pointsEarned} points</>
+                            ) : (
+                                <><XIcon size={13} color="var(--red)" /> Better luck next time</>
+                            )}
+                        </div>
+
+                        {/* Track reveal */}
+                        <div className="track-reveal">
+                            {currentTrack.album?.images?.[0] && (
+                                <img
+                                    src={currentTrack.album.images[0].url}
+                                    alt={`${currentTrack.name} album art`}
+                                    className={`album-art ${gameState}`}
+                                />
+                            )}
+                            <div className="reveal-info">
+                                <h3 className="reveal-title">{currentTrack.name}</h3>
+                                <p className="reveal-artist">
+                                    {currentTrack.artists.map(a => a.name).join(', ')}
+                                </p>
+                                {isContinuousPlay && (
+                                    <div className="now-playing">
+                                        <div className="np-bars" aria-hidden="true">
+                                            <span /><span /><span />
+                                        </div>
+                                        Now Playing
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Next / Final */}
+                        {isGameOver ? (
+                            <div className="final-card">
+                                <h2 className="final-heading">Game Over</h2>
+                                <p className="final-sub">
+                                    {correctAnswers === totalQuestions + 1
+                                        ? 'Perfect — you got them all!'
+                                        : `${correctAnswers} of ${totalQuestions + 1} songs guessed correctly`}
+                                </p>
+                                <div className="stats-row">
+                                    <div className="stat-cell">
+                                        <span className="stat-num">{score}</span>
+                                        <span className="stat-label">Points</span>
+                                    </div>
+                                    <div className="stat-cell">
+                                        <span className="stat-num">{correctAnswers}/{totalQuestions + 1}</span>
+                                        <span className="stat-label">Correct</span>
+                                    </div>
+                                    <div className="stat-cell">
+                                        <span className="stat-num">
+                                            {Math.round((correctAnswers / (totalQuestions + 1)) * 100)}%
+                                        </span>
+                                        <span className="stat-label">Accuracy</span>
+                                    </div>
+                                </div>
+                                <button className="play-again-btn" onClick={onExit}>
+                                    Play Again
+                                </button>
+                            </div>
+                        ) : (
+                            <button className="next-btn" onClick={handleNextSong}>
+                                Next Song <ArrowRightIcon size={16} />
+                            </button>
+                        )}
+                    </div>
+                )}
+
+                {/* Guess input */}
+                {gameState === 'playing' && (
+                    <div className="guess-row">
+                        <SongInput onGuess={handleGuess} />
+                        <button className="skip-btn" onClick={handleSkip} title="Skip this attempt">
+                            <SkipIcon size={14} />
+                            Skip
+                        </button>
+                    </div>
+                )}
+            </main>
+
+            {/* Keyboard hints */}
+            <footer className="key-hints" aria-label="Keyboard shortcuts">
+                <span className="key-hint"><kbd>Space</kbd> Play</span>
+                <span className="key-hint"><kbd>Enter</kbd> Next song</span>
+            </footer>
         </div>
     );
 };

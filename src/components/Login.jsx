@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpotifyIcon } from './Icons';
 
 const Login = () => {
     const handleLogin = () => {
@@ -6,15 +7,30 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <h1>GuessInABeat</h1>
-            <p>Test your music knowledge! Guess the song from short snippets.</p>
-            <p className="requirement-note">
-                ⚠️ Requires Spotify Premium and an active Spotify player (desktop, mobile, or web).
+        <div className="login-page">
+            <p className="login-eyebrow">Music Knowledge Test</p>
+
+            <h1 className="login-title">
+                Guess in a<br />
+                <span className="login-title-beat">Beat</span>
+            </h1>
+
+            <p className="login-tagline">
+                Identify songs from clips as short as 0.1 seconds.
+                Six chances. Fewer seconds, more points.
             </p>
-            <button className="login-btn" onClick={handleLogin}>
-                Login with Spotify
-            </button>
+
+            <div className="login-cta">
+                <button className="login-btn" onClick={handleLogin}>
+                    <SpotifyIcon size={19} />
+                    Continue with Spotify
+                </button>
+
+                <p className="login-note">
+                    Requires Spotify Premium for full playback.
+                    30-second previews work without Premium.
+                </p>
+            </div>
         </div>
     );
 };

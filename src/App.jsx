@@ -6,10 +6,10 @@ import { getToken, logout } from './services/spotify';
 import './App.css';
 
 function App() {
-    const [token, setToken] = useState(null);
-    const [tracks, setTracks] = useState([]);
+    const [token, setToken]           = useState(null);
+    const [tracks, setTracks]         = useState([]);
     const [gameStarted, setGameStarted] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading]       = useState(true);
 
     useEffect(() => {
         const fetchToken = async () => {
@@ -25,7 +25,7 @@ function App() {
         setGameStarted(true);
     };
 
-    const handleExit = async () => {
+    const handleExit = () => {
         setGameStarted(false);
         setTracks([]);
     };
@@ -40,7 +40,10 @@ function App() {
     if (loading) {
         return (
             <div className="App">
-                <div className="loading-screen">Loading...</div>
+                <div className="loading-screen">
+                    <div className="spinner loading-spinner" />
+                    <span>Connecting to Spotify…</span>
+                </div>
             </div>
         );
     }
@@ -50,14 +53,14 @@ function App() {
             {!token ? (
                 <Login />
             ) : !gameStarted ? (
-                <div>
+                <>
                     <Setup token={token} onStartGame={handleStartGame} />
                     <button className="logout-btn" onClick={handleLogout}>
                         Logout
                     </button>
-                </div>
+                </>
             ) : (
-                <Game tracks={tracks} token={token} onExit={handleExit} />
+                <Game tracks={tracks} onExit={handleExit} />
             )}
         </div>
     );
