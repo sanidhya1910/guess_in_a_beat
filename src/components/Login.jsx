@@ -1,9 +1,9 @@
 import React from 'react';
 import { SpotifyIcon } from './Icons';
 
-const Login = () => {
+const Login = ({ serverDown }) => {
     const handleLogin = () => {
-        window.location.href = 'http://127.0.0.1:5000/auth/login';
+        window.location.href = '/auth/login';
     };
 
     return (
@@ -20,15 +20,22 @@ const Login = () => {
                 Six chances. Fewer seconds, more points.
             </p>
 
+            {serverDown && (
+                <div className="login-error" role="alert">
+                    <strong>Can’t reach the login server.</strong>
+                    Start the app with <code>npm run dev</code>, then reload this page.
+                </div>
+            )}
+
             <div className="login-cta">
-                <button className="login-btn" onClick={handleLogin}>
+                <button className="login-btn" onClick={handleLogin} disabled={serverDown}>
                     <SpotifyIcon size={19} />
                     Continue with Spotify
                 </button>
 
                 <p className="login-note">
                     Requires Spotify Premium for full playback.
-                    30-second previews work without Premium.
+                    Song previews work without Premium.
                 </p>
             </div>
         </div>

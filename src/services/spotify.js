@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = 'http://127.0.0.1:5000';
+// Auth endpoints are served on the same origin as the app (Vite dev server in
+// development, Express in production), so relative paths work everywhere.
+const API_BASE = '';
 const SPOTIFY_API = 'https://api.spotify.com/v1';
 
 // Cache the token to avoid repeated requests
@@ -15,6 +17,14 @@ export const getToken = async () => {
         return cachedToken;
     } catch (error) {
         cachedToken = null;
+        // No HTTP response at all means the auth server is unreachable — surface
+        // that so the UI can tell the user to start it. A 401 just means the
+        // user isn't logged in yet, which is normal.
+        if (!error.response) {
+            const unreachable = new Error('AUTH_SERVER_UNREACHABLE');
+            unreachable.code = 'AUTH_SERVER_UNREACHABLE';
+            throw unreachable;
+        }
         return null;
     }
 };
@@ -235,7 +245,11 @@ export const pausePlayback = async (token) => {
 // Get a fresh token (from cache or refresh if needed)
 export const getFreshToken = async () => {
     if (cachedToken) return cachedToken;
-    const token = await getToken();
-    if (!token) return await refreshToken();
-    return token;
+    try {
+        const token = await getToken();
+        if (token) return token;
+    } catch {
+        // auth server unreachable — fall through to a refresh attempt
+    }
+    return await refreshToken();
 };

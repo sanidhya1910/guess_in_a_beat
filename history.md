@@ -72,6 +72,33 @@ A large redesign is currently staged in the working tree (~+1843 / −916 across
 
 ---
 
+## Working tree — one-command login & iTunes preview fallback (uncommitted)
+
+Reworked auth and playback to remove the two biggest sources of friction (a
+separate server that had to be running, and the Spotify Premium requirement)
+while keeping the Spotify login.
+
+- **One-command dev** — the Spotify OAuth flow was moved out of the standalone
+  Express server and into a Vite plugin (`spotifyAuth` in `vite.config.ts`), so
+  `npm run dev` alone serves both the app and the `/auth/*` endpoints on
+  `:5173`. This fixes the "site can't be reached" failure that happened when the
+  port-5000 server wasn't started. The OAuth redirect URI is now
+  `http://127.0.0.1:5173/auth/callback` (must be registered in the Spotify
+  dashboard). `server/index.js` still provides the same flow for production.
+- **iTunes preview fallback** — playback no longer uses the Spotify Connect /
+  Premium path. `Game.jsx` resolves a preview per track: Spotify's `preview_url`
+  when present, otherwise a 30-second preview from the **iTunes Search API**
+  (`services/music.js`), matched by title + artist and cached per track. Since
+  snippets are at most 10s, previews are always enough — **no Premium or open
+  Spotify client needed**. iTunes is reached via a `/api/itunes` proxy (Vite in
+  dev, Express in prod) to sidestep CORS.
+- **Loud server-down error** — `spotify.js` distinguishes an unreachable auth
+  server (no HTTP response) from a normal 401, and `Login.jsx` shows a clear
+  "start the app with `npm run dev`" banner instead of a dead redirect.
+- **Docs** — README, `summary.md`, and this file updated. Lint and build pass.
+
+---
+
 ## Ideas / possible next steps
 
 - Persist tokens (and support multiple users) instead of in-memory storage.

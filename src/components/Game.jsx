@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SongInput from './SongInput';
 import { PlayIcon, SkipIcon, ArrowLeftIcon, ArrowRightIcon, CheckIcon, XIcon, MusicIcon, TrophyIcon } from './Icons';
-import { playTrack, pausePlayback, getFreshToken } from '../services/spotify';
+import { findPreviewUrl } from '../services/music';
 
 const DURATIONS = [0.1, 0.5, 1, 2, 5, 10];
 const POINTS    = [6, 5, 4, 3, 2, 1];
@@ -20,10 +20,10 @@ const Game = ({ tracks, onExit }) => {
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [playProgress, setPlayProgress] = useState(0);
-    const [useSpotifyConnect, setUseSpotifyConnect] = useState(false);
     const timeoutRef  = useRef(null);
     const progressRef = useRef(null);
     const audioRef    = useRef(null);
+    const previewCacheRef = useRef({}); // track id → resolved preview URL (or null)
 
     const currentTrack   = tracks[currentTrackIndex];
     const currentDuration = DURATIONS[Math.min(guessCount, DURATIONS.length - 1)];
@@ -65,13 +65,19 @@ const Game = ({ tracks, onExit }) => {
                 audioRef.current.pause();
                 audioRef.current = null;
             }
-            if (useSpotifyConnect) {
-                getFreshToken().then(token => {
-                    if (token) pausePlayback(token).catch(() => {});
-                });
-            }
         };
-    }, [currentTrackIndex, useSpotifyConnect]);
+    }, [currentTrackIndex]);
+
+    // Resolve a playable preview URL for a track: use Spotify's when present,
+    // otherwise fall back to an iTunes preview (cached per track).
+    const resolvePreview = async (track) => {
+        if (track.preview_url) return track.preview_url;
+        if (track.id in previewCacheRef.current) return previewCacheRef.current[track.id];
+        const artist = track.artists.map(a => a.name).join(' ');
+        const url = await findPreviewUrl(track.name, artist);
+        previewCacheRef.current[track.id] = url;
+        return url;
+    };
 
     // ── Keyboard shortcuts ─────────────────────────────────────────────────
     useEffect(() => {
@@ -97,9 +103,9 @@ const Game = ({ tracks, onExit }) => {
 
         if (audioRef.current) audioRef.current.pause();
 
-        if (currentTrack?.preview_url) {
-            setUseSpotifyConnect(false);
-            audioRef.current = new Audio(currentTrack.preview_url);
+        const url = await resolvePreview(currentTrack);
+        if (url) {
+            audioRef.current = new Audio(url);
             audioRef.current.currentTime = 0;
             audioRef.current.play().catch(e => console.error('Continuous play error:', e));
             audioRef.current.onended = () => {
@@ -107,26 +113,8 @@ const Game = ({ tracks, onExit }) => {
                 setIsContinuousPlay(false);
             };
         } else {
-            setUseSpotifyConnect(true);
-            try {
-                const token = await getFreshToken();
-                if (token) {
-                    await playTrack(token, currentTrack.uri, 0);
-                    if (currentTrack.duration_ms) {
-                        timeoutRef.current = setTimeout(() => {
-                            setIsPlaying(false);
-                            setIsContinuousPlay(false);
-                        }, currentTrack.duration_ms);
-                    }
-                } else {
-                    setIsPlaying(false);
-                    setIsContinuousPlay(false);
-                }
-            } catch (e) {
-                console.error('Spotify Connect error:', e);
-                setIsPlaying(false);
-                setIsContinuousPlay(false);
-            }
+            setIsPlaying(false);
+            setIsContinuousPlay(false);
         }
     };
 
@@ -140,67 +128,38 @@ const Game = ({ tracks, onExit }) => {
 
         if (audioRef.current) audioRef.current.pause();
 
-        const startTime = Date.now();
-        const duration  = currentDuration * 1000;
+        const duration = currentDuration * 1000;
 
-        if (currentTrack.preview_url) {
-            setUseSpotifyConnect(false);
-            audioRef.current = new Audio(currentTrack.preview_url);
-            audioRef.current.currentTime = 0;
-            audioRef.current.play().catch(e => {
-                console.error('Audio play error:', e);
-                setError('Failed to play audio.');
-                setIsPlaying(false);
-                if (progressRef.current) cancelAnimationFrame(progressRef.current);
-                if (timeoutRef.current)  clearTimeout(timeoutRef.current);
-            });
-
-            const animateProgress = () => {
-                const progress = Math.min((Date.now() - startTime) / duration, 1);
-                setPlayProgress(progress);
-                if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
-            };
-            progressRef.current = requestAnimationFrame(animateProgress);
-
-            timeoutRef.current = setTimeout(() => {
-                if (audioRef.current) audioRef.current.pause();
-                setIsPlaying(false);
-                if (progressRef.current) cancelAnimationFrame(progressRef.current);
-            }, duration);
-        } else {
-            setUseSpotifyConnect(true);
-            try {
-                const token = await getFreshToken();
-                if (!token) {
-                    setError('No Spotify token available.');
-                    setIsPlaying(false);
-                    return;
-                }
-                await playTrack(token, currentTrack.uri, 0);
-
-                const animateProgress = () => {
-                    const progress = Math.min((Date.now() - startTime) / duration, 1);
-                    setPlayProgress(progress);
-                    if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
-                };
-                progressRef.current = requestAnimationFrame(animateProgress);
-
-                timeoutRef.current = setTimeout(async () => {
-                    try {
-                        const freshToken = await getFreshToken();
-                        if (freshToken) await pausePlayback(freshToken);
-                    } catch {}
-                    setIsPlaying(false);
-                    if (progressRef.current) cancelAnimationFrame(progressRef.current);
-                }, duration);
-            } catch (e) {
-                console.error('Spotify Connect error:', e);
-                setError(e.message?.includes('NO_DEVICES')
-                    ? 'Open Spotify on a device to play this track.'
-                    : 'Failed to play via Spotify.');
-                setIsPlaying(false);
-            }
+        const url = await resolvePreview(currentTrack);
+        if (!url) {
+            setError('No preview available for this track.');
+            setIsPlaying(false);
+            return;
         }
+
+        const startTime = Date.now();
+        audioRef.current = new Audio(url);
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(e => {
+            console.error('Audio play error:', e);
+            setError('Failed to play audio.');
+            setIsPlaying(false);
+            if (progressRef.current) cancelAnimationFrame(progressRef.current);
+            if (timeoutRef.current)  clearTimeout(timeoutRef.current);
+        });
+
+        const animateProgress = () => {
+            const progress = Math.min((Date.now() - startTime) / duration, 1);
+            setPlayProgress(progress);
+            if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
+        };
+        progressRef.current = requestAnimationFrame(animateProgress);
+
+        timeoutRef.current = setTimeout(() => {
+            if (audioRef.current) audioRef.current.pause();
+            setIsPlaying(false);
+            if (progressRef.current) cancelAnimationFrame(progressRef.current);
+        }, duration);
     };
 
     // ── Guess handling ─────────────────────────────────────────────────────
@@ -243,15 +202,7 @@ const Game = ({ tracks, onExit }) => {
         if (timeoutRef.current)  clearTimeout(timeoutRef.current);
         if (progressRef.current) cancelAnimationFrame(progressRef.current);
 
-        if (useSpotifyConnect) {
-            try {
-                const token = await getFreshToken();
-                if (token) await pausePlayback(token);
-            } catch {}
-        }
-
         setIsContinuousPlay(false);
-        setUseSpotifyConnect(false);
 
         if (currentTrackIndex < tracks.length - 1) {
             setTotalQuestions(q => q + 1);

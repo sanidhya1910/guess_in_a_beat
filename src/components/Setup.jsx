@@ -123,9 +123,9 @@ const Setup = ({ token, onStartGame }) => {
                         <MusicIcon size={16} />
                     </span>
                     <div className="setup-info-text">
-                        <strong>30-second previews</strong>
-                        Tracks stream directly in the browser. Some songs may fall back to
-                        Spotify Connect if no preview is available.
+                        <strong>Instant previews</strong>
+                        Snippets play right in the browser — no Spotify Premium needed. Tracks
+                        without a Spotify preview fall back to an iTunes preview automatically.
                     </div>
                 </div>
 

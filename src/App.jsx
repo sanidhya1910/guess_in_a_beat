@@ -10,12 +10,18 @@ function App() {
     const [tracks, setTracks]         = useState([]);
     const [gameStarted, setGameStarted] = useState(false);
     const [loading, setLoading]       = useState(true);
+    const [serverDown, setServerDown] = useState(false);
 
     useEffect(() => {
         const fetchToken = async () => {
-            const accessToken = await getToken();
-            setToken(accessToken);
-            setLoading(false);
+            try {
+                const accessToken = await getToken();
+                setToken(accessToken);
+            } catch (e) {
+                if (e.code === 'AUTH_SERVER_UNREACHABLE') setServerDown(true);
+            } finally {
+                setLoading(false);
+            }
         };
         fetchToken();
     }, []);
@@ -51,7 +57,7 @@ function App() {
     return (
         <div className="App">
             {!token ? (
-                <Login />
+                <Login serverDown={serverDown} />
             ) : !gameStarted ? (
                 <>
                     <Setup token={token} onStartGame={handleStartGame} />
