@@ -58,9 +58,15 @@ export const useSnippetPlayer = () => {
         }
 
         const startTime = Date.now();
-        audioRef.current = new Audio(url);
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch((e) => {
+        const audio = new Audio(url);
+        audioRef.current = audio;
+        audio.currentTime = 0;
+        audio.play().catch((e) => {
+            // The very short snippets (0.1s, 0.5s) pause the clip almost
+            // immediately, so play()'s promise is often interrupted by our own
+            // pause() — that AbortError is expected and harmless, not a failure.
+            // Also ignore errors from a clip we've already replaced with a newer one.
+            if (e?.name === 'AbortError' || audioRef.current !== audio) return;
             console.error('Audio play error:', e);
             setError('Failed to play audio.');
             setIsPlaying(false);

@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { SpotifyIcon, AppleMusicIcon, DeezerIcon, AppleIcon } from './Icons';
 
 const Login = ({ serverDown, onSelectProvider }) => {
+    // Which providers the server can actually use — Apple Music needs paid
+    // developer credentials, so it may be unavailable.
+    const [available, setAvailable] = useState({ spotify: true, apple: true, deezer: true, itunes: true });
+
+    useEffect(() => {
+        axios
+            .get('/api/providers')
+            .then(({ data }) => setAvailable(data))
+            .catch(() => {}); // keep optimistic defaults if the check fails
+    }, []);
+
     const handleLogin = () => {
         window.location.href = '/auth/login';
     };
@@ -33,10 +45,17 @@ const Login = ({ serverDown, onSelectProvider }) => {
                     Continue with Spotify
                 </button>
 
-                <button className="login-btn login-btn--apple" onClick={() => onSelectProvider('apple')}>
-                    <AppleMusicIcon size={19} color="#fff" />
-                    Continue with Apple Music
-                </button>
+                {available.apple ? (
+                    <button className="login-btn login-btn--apple" onClick={() => onSelectProvider('apple')}>
+                        <AppleMusicIcon size={19} color="#fff" />
+                        Continue with Apple Music
+                    </button>
+                ) : (
+                    <button className="login-btn login-btn--apple" disabled title="Apple Music needs an Apple Developer account configured on the server">
+                        <AppleMusicIcon size={19} color="#fff" />
+                        Apple Music (not set up)
+                    </button>
+                )}
 
                 <button className="login-btn login-btn--deezer" onClick={() => onSelectProvider('deezer')}>
                     <DeezerIcon size={19} color="#fff" />
@@ -49,8 +68,9 @@ const Login = ({ serverDown, onSelectProvider }) => {
                 </button>
 
                 <p className="login-note">
-                    Spotify requires Premium for full playback (song previews work without it).
-                    Apple Music, Deezer, and iTunes need no login at all.
+                    {available.apple
+                        ? 'Spotify requires Premium for full playback (song previews work without it). Apple Music, Deezer, and iTunes need no login at all.'
+                        : 'Deezer and iTunes are free and need no login — start there. Apple Music isn’t set up on this server (it needs a paid Apple Developer account).'}
                 </p>
             </div>
         </div>

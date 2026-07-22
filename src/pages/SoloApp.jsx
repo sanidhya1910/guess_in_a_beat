@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Login from '../components/Login';
 import Setup from '../components/Setup';
 import Game from '../components/Game';
+import PlaylistPicker from './PlaylistPicker';
 import { ArrowLeftIcon } from '../components/Icons';
 import { getToken, logout } from '../services/spotify';
 
@@ -12,36 +13,43 @@ const NO_AUTH_PROVIDERS = ['apple', 'deezer', 'itunes'];
 
 function SoloApp() {
     const navigate = useNavigate();
-    const [provider, setProvider]     = useState(null); // 'spotify' | 'apple' | 'deezer' | 'itunes' | null
-    const [token, setToken]           = useState(null);
-    const [tracks, setTracks]         = useState([]);
+    // 'featured' = curated playlist picker (default, no login); 'custom' = the
+    // paste-your-own-link flow with provider selection.
+    const [mode, setMode] = useState('featured');
+
+    const [tracks, setTracks] = useState([]);
+    const [gameProvider, setGameProvider] = useState('deezer');
     const [gameStarted, setGameStarted] = useState(false);
-    const [loading, setLoading]       = useState(true);
+
+    // Custom-flow state.
+    const [provider, setProvider] = useState(null);
+    const [token, setToken] = useState(null);
     const [serverDown, setServerDown] = useState(false);
 
+    // Only try to restore a Spotify session once the user opts into the custom
+    // flow — the featured picker never needs it.
     useEffect(() => {
-        const fetchToken = async () => {
-            try {
-                const accessToken = await getToken();
+        if (mode !== 'custom') return;
+        let done = false;
+        getToken()
+            .then((accessToken) => {
+                if (done) return;
                 if (accessToken) {
                     setToken(accessToken);
                     setProvider('spotify');
                 }
-            } catch (e) {
+            })
+            .catch((e) => {
                 if (e.code === 'AUTH_SERVER_UNREACHABLE') setServerDown(true);
-            } finally {
-                setLoading(false);
-            }
+            });
+        return () => {
+            done = true;
         };
-        fetchToken();
-    }, []);
+    }, [mode]);
 
-    const handleSelectProvider = (selected) => {
-        setProvider(selected);
-    };
-
-    const handleStartGame = (playlistTracks) => {
-        setTracks(playlistTracks);
+    const startGame = (loadedTracks, prov) => {
+        setTracks(loadedTracks);
+        setGameProvider(prov);
         setGameStarted(true);
     };
 
@@ -54,44 +62,39 @@ function SoloApp() {
         if (provider === 'spotify') await logout();
         setToken(null);
         setProvider(null);
-        setGameStarted(false);
-        setTracks([]);
+        setMode('featured');
     };
 
-    if (loading) {
-        return (
-            <div className="loading-screen">
-                <div className="spinner loading-spinner" />
-                <span>Connecting to Spotify…</span>
-            </div>
-        );
+    if (gameStarted) {
+        return <Game provider={gameProvider} token={token} tracks={tracks} onExit={handleExit} />;
     }
 
+    if (mode === 'featured') {
+        return <PlaylistPicker onPlay={startGame} onUseCustom={() => setMode('custom')} />;
+    }
+
+    // Custom flow: pick a provider (login for Spotify), then paste links.
     const isReady = provider && (NO_AUTH_PROVIDERS.includes(provider) || token);
 
     if (!isReady) {
         return (
             <>
-                <button className="back-link" onClick={() => navigate('/')}>
-                    <ArrowLeftIcon size={16} /> Back
+                <button className="back-link" onClick={() => setMode('featured')}>
+                    <ArrowLeftIcon size={16} /> Back to playlists
                 </button>
-                <Login serverDown={serverDown} onSelectProvider={handleSelectProvider} />
+                <Login serverDown={serverDown} onSelectProvider={setProvider} />
             </>
         );
     }
 
-    if (!gameStarted) {
-        return (
-            <>
-                <Setup provider={provider} token={token} onStartGame={handleStartGame} />
-                <button className="logout-btn" onClick={handleLogout}>
-                    Logout
-                </button>
-            </>
-        );
-    }
-
-    return <Game provider={provider} token={token} tracks={tracks} onExit={handleExit} />;
+    return (
+        <>
+            <Setup provider={provider} token={token} onStartGame={(t) => startGame(t, provider)} />
+            <button className="logout-btn" onClick={handleLogout}>
+                {provider === 'spotify' ? 'Logout' : 'Back to playlists'}
+            </button>
+        </>
+    );
 }
 
 export default SoloApp;

@@ -105,6 +105,38 @@ export const getPlaylistTracks = async (token, playlistId) => {
     }
 };
 
+export const getAlbumTracks = async (token, albumId) => {
+    const doFetch = async (currentToken) => {
+        // One album call gives the album-level artwork plus the first page of
+        // tracks; the album track objects are "simplified" (no album field),
+        // so we graft the album's images onto each for a consistent shape.
+        const albumResp = await axios.get(`${SPOTIFY_API}/albums/${albumId}`, {
+            headers: { Authorization: `Bearer ${currentToken}` },
+        });
+        const album = albumResp.data;
+        const images = album.images || [];
+
+        let items = album.tracks.items;
+        let next = album.tracks.next;
+        while (next) {
+            const page = await axios.get(next, { headers: { Authorization: `Bearer ${currentToken}` } });
+            items = [...items, ...page.data.items];
+            next = page.data.next;
+        }
+
+        return items
+            .filter((t) => t && t.uri)
+            .map((t) => ({ ...t, album: { images } }));
+    };
+
+    try {
+        return await spotifyRequest(doFetch, token);
+    } catch (error) {
+        console.error('Error fetching album tracks:', error);
+        throw error;
+    }
+};
+
 export const getSeveralTracks = async (token, trackIds) => {
     const doFetch = async (currentToken) => {
         const chunks = [];

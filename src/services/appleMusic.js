@@ -59,6 +59,12 @@ export const getPlaylistTracks = async (storefront, playlistId) => {
     return tracks.filter((t) => t.type === 'songs').map(normalizeTrack);
 };
 
+export const getAlbumTracks = async (storefront, albumId) => {
+    const { data } = await catalogRequest(`/albums/${albumId}`, { include: 'tracks' }, storefront);
+    const tracks = data.data?.[0]?.relationships?.tracks?.data || [];
+    return tracks.filter((t) => t.type === 'songs').map(normalizeTrack);
+};
+
 export const getSeveralTracks = async (storefront, ids) => {
     const chunks = [];
     for (let i = 0; i < ids.length; i += 50) chunks.push(ids.slice(i, i + 50));

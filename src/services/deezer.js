@@ -35,6 +35,27 @@ export const getPlaylistTracks = async (playlistId) => {
     return tracks.filter((t) => t.type === 'track').map(normalizeTrack);
 };
 
+export const getAlbumTracks = async (albumId) => {
+    const tracks = [];
+    let next = `${DEEZER}/album/${albumId}/tracks?limit=100`;
+    while (next) {
+        const { data } = await axios.get(next);
+        tracks.push(...(data.data || []));
+        next = data.next ? DEEZER + new URL(data.next).pathname + new URL(data.next).search : null;
+    }
+    // Album-track objects omit the album cover; fetch the album once for artwork.
+    let images = [];
+    try {
+        const { data: album } = await axios.get(`${DEEZER}/album/${albumId}`);
+        images = [{ url: album.cover_big }, { url: album.cover_medium }, { url: album.cover_small }];
+    } catch {
+        // artwork is optional — proceed without it
+    }
+    return tracks
+        .filter((t) => t.type === 'track')
+        .map((t) => ({ ...normalizeTrack(t), album: { images } }));
+};
+
 export const getSeveralTracks = async (ids) => {
     const results = await Promise.all(
         ids.map(async (id) => {

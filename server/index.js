@@ -34,10 +34,21 @@ if (!spotify_client_id || !spotify_client_secret) {
 const apple_team_id = process.env.APPLE_TEAM_ID;
 const apple_key_id = process.env.APPLE_KEY_ID;
 const apple_private_key = process.env.APPLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const appleConfigured = Boolean(apple_team_id && apple_key_id && apple_private_key);
 
-if (!apple_team_id || !apple_key_id || !apple_private_key) {
-    console.warn('[apple-auth] APPLE_TEAM_ID / APPLE_KEY_ID / APPLE_PRIVATE_KEY missing from .env — Apple Music will fail.');
+if (!appleConfigured) {
+    console.warn('[apple-auth] APPLE_TEAM_ID / APPLE_KEY_ID / APPLE_PRIVATE_KEY missing from .env — Apple Music is disabled.');
 }
+
+// Keep the dev server alive: a single bad request or provider hiccup should
+// never take the whole process down (which is what forced re-running
+// `npm run dev`). Log and carry on instead of crashing.
+process.on('uncaughtException', (err) => {
+    console.error('[uncaughtException]', err);
+});
+process.on('unhandledRejection', (reason) => {
+    console.error('[unhandledRejection]', reason);
+});
 
 let apple_developer_token = null;
 let apple_token_expires_at = 0;
@@ -165,7 +176,21 @@ app.get('/auth/logout', (req, res) => {
     res.json({ success: true });
 });
 
+// Which providers this server can actually use, so the UI can hide/disable
+// ones that aren't configured instead of failing with a misleading error.
+app.get('/api/providers', (req, res) => {
+    res.json({
+        spotify: Boolean(spotify_client_id && spotify_client_secret),
+        apple: appleConfigured,
+        deezer: true,
+        itunes: true,
+    });
+});
+
 app.get('/auth/apple/developer-token', (req, res) => {
+    if (!appleConfigured) {
+        return res.status(503).json({ error: 'APPLE_MUSIC_NOT_CONFIGURED' });
+    }
     try {
         res.json({ developer_token: getAppleDeveloperToken() });
     } catch (error) {

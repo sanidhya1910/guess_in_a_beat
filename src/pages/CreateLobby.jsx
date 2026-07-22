@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { searchTracks as searchItunesTracks } from '../services/music';
 import { connectSocket, emitAck, storeSession } from '../services/socket';
+import { FEATURED_PLAYLISTS, FEATURED_PROVIDER } from '../data/featuredPlaylists';
 import { ArrowLeftIcon, XIcon } from '../components/Icons';
 
 const PROVIDERS = [
@@ -12,20 +14,45 @@ const PROVIDERS = [
 ];
 
 const PLACEHOLDERS = {
-    spotify: 'Paste one or more Spotify playlist/track URLs — one per line',
-    apple: 'Paste one or more Apple Music playlist/song URLs — one per line',
-    deezer: 'Paste one or more Deezer playlist/track URLs — one per line',
+    spotify: 'Paste Spotify playlist, album, or track URLs — one per line',
+    apple: 'Paste Apple Music playlist, album, or song URLs — one per line',
+    deezer: 'Paste Deezer playlist, album, or track URLs — one per line',
 };
 
 const CreateLobby = () => {
     const navigate = useNavigate();
     const [displayName, setDisplayName] = useState('');
+    const [sourceMode, setSourceMode] = useState('featured'); // 'featured' | 'custom'
+    const [selectedFeatured, setSelectedFeatured] = useState(null); // featured playlist id
+    const [featuredMeta, setFeaturedMeta] = useState({}); // id -> { cover, count }
     const [provider, setProvider] = useState('spotify');
     const [sourceInput, setSourceInput] = useState('');
     const [maxPlayers, setMaxPlayers] = useState(4);
     const [songLimit, setSongLimit] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [availableProviders, setAvailableProviders] = useState({ spotify: true, apple: true, deezer: true, itunes: true });
+
+    useEffect(() => {
+        axios.get('/api/providers').then(({ data }) => setAvailableProviders(data)).catch(() => {});
+    }, []);
+
+    useEffect(() => {
+        let cancelled = false;
+        Promise.all(
+            FEATURED_PLAYLISTS.map(async (p) => {
+                try {
+                    const { data } = await axios.get(`/api/deezer/playlist/${p.id}`);
+                    return [p.id, { cover: data.picture_medium, count: data.nb_tracks }];
+                } catch {
+                    return [p.id, {}];
+                }
+            })
+        ).then((entries) => {
+            if (!cancelled) setFeaturedMeta(Object.fromEntries(entries));
+        });
+        return () => { cancelled = true; };
+    }, []);
 
     // iTunes-only search-and-add lineup building (mirrors Setup.jsx).
     const [query, setQuery] = useState('');
@@ -64,11 +91,22 @@ const CreateLobby = () => {
 
     const handleCreate = async () => {
         if (!displayName.trim()) return setError('Enter your name to get started.');
-        if (provider === 'itunes' && selectedTracks.length === 0) {
-            return setError('Search for and add at least one song.');
-        }
-        if (provider !== 'itunes' && !sourceInput.trim()) {
-            return setError('Paste at least one playlist or track link.');
+
+        let payload;
+        if (sourceMode === 'featured') {
+            if (!selectedFeatured) return setError('Pick a featured playlist to get started.');
+            // Featured playlists are public Deezer playlists — hand the server
+            // the Deezer URL and let its existing resolver load the tracks.
+            payload = {
+                provider: FEATURED_PROVIDER,
+                sourceInput: `https://www.deezer.com/playlist/${selectedFeatured}`,
+            };
+        } else if (provider === 'itunes') {
+            if (selectedTracks.length === 0) return setError('Search for and add at least one song.');
+            payload = { provider, trackIds: selectedTracks.map((t) => t.id) };
+        } else {
+            if (!sourceInput.trim()) return setError('Paste at least one playlist or track link.');
+            payload = { provider, sourceInput };
         }
 
         setLoading(true);
@@ -76,16 +114,12 @@ const CreateLobby = () => {
 
         try {
             connectSocket();
-            const payload = {
+            const res = await emitAck('create_lobby', {
                 displayName: displayName.trim(),
-                provider,
                 maxPlayers,
                 songLimit: songLimit ? parseInt(songLimit, 10) : undefined,
-                ...(provider === 'itunes'
-                    ? { trackIds: selectedTracks.map((t) => t.id) }
-                    : { sourceInput }),
-            };
-            const res = await emitAck('create_lobby', payload);
+                ...payload,
+            });
             storeSession(res.code, res.playerId);
             navigate(`/lobby/${res.code}`);
         } catch (e) {
@@ -123,16 +157,69 @@ const CreateLobby = () => {
                 <div className="field">
                     <label className="field-label">Music Source</label>
                     <div className="provider-select">
-                        {PROVIDERS.map((p) => (
-                            <button
-                                key={p.id}
-                                type="button"
-                                className={`provider-chip${provider === p.id ? ' is-active' : ''}`}
-                                onClick={() => setProvider(p.id)}
-                            >
-                                {p.label}
-                            </button>
-                        ))}
+                        <button
+                            type="button"
+                            className={`provider-chip${sourceMode === 'featured' ? ' is-active' : ''}`}
+                            onClick={() => setSourceMode('featured')}
+                        >
+                            Featured
+                        </button>
+                        <button
+                            type="button"
+                            className={`provider-chip${sourceMode === 'custom' ? ' is-active' : ''}`}
+                            onClick={() => setSourceMode('custom')}
+                        >
+                            Your own playlist
+                        </button>
+                    </div>
+                </div>
+
+                {sourceMode === 'featured' ? (
+                    <div className="field">
+                        <label className="field-label">Pick a Playlist</label>
+                        <div className="playlist-grid playlist-grid--compact">
+                            {FEATURED_PLAYLISTS.map((p) => {
+                                const info = featuredMeta[p.id] || {};
+                                return (
+                                    <button
+                                        key={p.id}
+                                        type="button"
+                                        className={`playlist-card${selectedFeatured === p.id ? ' is-selected' : ''}`}
+                                        onClick={() => setSelectedFeatured(p.id)}
+                                        style={{ '--accent': p.accent }}
+                                    >
+                                        <span className="playlist-cover" aria-hidden="true">
+                                            {info.cover ? <img src={info.cover} alt="" loading="lazy" /> : <span className="playlist-emoji">{p.emoji}</span>}
+                                        </span>
+                                        <span className="playlist-info">
+                                            <span className="playlist-name">{p.emoji} {p.name}</span>
+                                            {info.count != null && <span className="playlist-count">{info.count} songs</span>}
+                                        </span>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ) : (
+                <>
+                <div className="field">
+                    <label className="field-label">Provider</label>
+                    <div className="provider-select">
+                        {PROVIDERS.map((p) => {
+                            const disabled = availableProviders[p.id] === false;
+                            return (
+                                <button
+                                    key={p.id}
+                                    type="button"
+                                    className={`provider-chip${provider === p.id ? ' is-active' : ''}`}
+                                    onClick={() => setProvider(p.id)}
+                                    disabled={disabled}
+                                    title={disabled ? 'Not set up on this server' : undefined}
+                                >
+                                    {p.label}{disabled ? ' (not set up)' : ''}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
 
@@ -195,6 +282,8 @@ const CreateLobby = () => {
                             placeholder={PLACEHOLDERS[provider]}
                         />
                     </div>
+                )}
+                </>
                 )}
 
                 <div className="field">

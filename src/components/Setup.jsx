@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getPlaylistTracks as getSpotifyPlaylistTracks, getSeveralTracks as getSpotifySeveralTracks } from '../services/spotify';
-import { getPlaylistTracks as getApplePlaylistTracks, getSeveralTracks as getAppleSeveralTracks } from '../services/appleMusic';
-import { getPlaylistTracks as getDeezerPlaylistTracks, getSeveralTracks as getDeezerSeveralTracks } from '../services/deezer';
+import { getPlaylistTracks as getSpotifyPlaylistTracks, getSeveralTracks as getSpotifySeveralTracks, getAlbumTracks as getSpotifyAlbumTracks } from '../services/spotify';
+import { getPlaylistTracks as getApplePlaylistTracks, getSeveralTracks as getAppleSeveralTracks, getAlbumTracks as getAppleAlbumTracks } from '../services/appleMusic';
+import { getPlaylistTracks as getDeezerPlaylistTracks, getSeveralTracks as getDeezerSeveralTracks, getAlbumTracks as getDeezerAlbumTracks } from '../services/deezer';
 import { searchTracks as searchItunesTracks } from '../services/music';
 import { parseLines } from '../utils/parsePlaylistInput';
 import { MusicIcon, SearchIcon, XIcon } from './Icons';
@@ -24,17 +24,17 @@ const PROVIDER_LABELS = {
 
 const PLACEHOLDERS = {
     spotify:
-        'Paste one or more Spotify playlist URLs — one per line\n\n' +
+        'Paste Spotify playlist, album, or track URLs — one per line\n\n' +
         'https://open.spotify.com/playlist/…\n' +
-        'https://open.spotify.com/playlist/…',
+        'https://open.spotify.com/album/…',
     apple:
-        'Paste one or more Apple Music playlist/song URLs — one per line\n\n' +
+        'Paste Apple Music playlist, album, or song URLs — one per line\n\n' +
         'https://music.apple.com/us/playlist/…/pl.…\n' +
-        'https://music.apple.com/us/song/…',
+        'https://music.apple.com/us/album/…',
     deezer:
-        'Paste one or more Deezer playlist/track URLs — one per line\n\n' +
+        'Paste Deezer playlist, album, or track URLs — one per line\n\n' +
         'https://www.deezer.com/playlist/…\n' +
-        'https://www.deezer.com/track/…',
+        'https://www.deezer.com/album/…',
 };
 
 const Setup = ({ provider, token, onStartGame }) => {
@@ -103,7 +103,7 @@ const Setup = ({ provider, token, onStartGame }) => {
         setError('');
 
         try {
-            const { playlists, tracks: trackEntries, failed } = parseLines(input, provider);
+            const { playlists, albums, tracks: trackEntries, failed } = parseLines(input, provider);
             let allTracks = [];
             let sawNotFound = false;   // 404 — for Spotify, an editorial/algorithmic playlist
             let sawForbidden = false;  // 401/403 — auth expired, or app in Spotify Development Mode
@@ -125,6 +125,18 @@ const Setup = ({ provider, token, onStartGame }) => {
                     allTracks = [...allTracks, ...tracks];
                 } catch (err) {
                     noteError(err, `playlist ${p.id}`);
+                }
+            }
+
+            for (const a of albums) {
+                try {
+                    let tracks;
+                    if (provider === 'spotify') tracks = await getSpotifyAlbumTracks(token, a.id);
+                    else if (provider === 'apple') tracks = await getAppleAlbumTracks(a.storefront, a.id);
+                    else tracks = await getDeezerAlbumTracks(a.id);
+                    allTracks = [...allTracks, ...tracks];
+                } catch (err) {
+                    noteError(err, `album ${a.id}`);
                 }
             }
 
@@ -152,8 +164,10 @@ const Setup = ({ provider, token, onStartGame }) => {
                         'Use a playlist made by a person, or try the Deezer / Apple Music / iTunes options.';
                 } else if (provider === 'spotify' && sawForbidden) {
                     message =
-                        'Spotify denied access. Log out and back in, and if this is your own Spotify app in ' +
-                        'Development Mode, add your account under Users and Access in the Spotify dashboard.';
+                        'Spotify says your account isn’t registered for this app. New Spotify apps run in ' +
+                        'Development Mode, where only allow-listed accounts can be used. Open your app at ' +
+                        'developer.spotify.com/dashboard → Settings → User Management, add the name and email ' +
+                        'of the Spotify account you log in with, then log out and back in here.';
                 } else if (failed.length > 0) {
                     message = 'Could not load those links. Make sure they are public and correctly formatted.';
                 } else {

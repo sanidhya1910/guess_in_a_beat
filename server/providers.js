@@ -21,18 +21,29 @@ const normalizeSpotify = (t) => ({
 
 async function resolveSpotify(sourceInput, token) {
     const headers = { Authorization: `Bearer ${token}` };
-    const { playlists, tracks: trackEntries } = parseLines(sourceInput, 'spotify');
-    const playlistIds = playlists.map((e) => e.id);
+    const { playlists, albums, tracks: trackEntries } = parseLines(sourceInput, 'spotify');
     const trackIds = trackEntries.map((e) => e.id);
 
     let tracks = [];
-    for (const playlistId of playlistIds) {
+    for (const { id: playlistId } of playlists) {
         let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`;
         while (url) {
             const { data } = await axios.get(url, { headers });
             tracks.push(...data.items.map((i) => i.track).filter((t) => t?.uri));
             url = data.next;
         }
+    }
+    for (const { id: albumId } of albums) {
+        const { data: album } = await axios.get(`https://api.spotify.com/v1/albums/${albumId}`, { headers });
+        const images = album.images || [];
+        let items = album.tracks.items;
+        let next = album.tracks.next;
+        while (next) {
+            const { data } = await axios.get(next, { headers });
+            items = [...items, ...data.items];
+            next = data.next;
+        }
+        tracks.push(...items.filter((t) => t?.uri).map((t) => ({ ...t, album: { images } })));
     }
     for (let i = 0; i < trackIds.length; i += 50) {
         const chunk = trackIds.slice(i, i + 50);
@@ -65,12 +76,21 @@ const normalizeApple = (song) => {
 async function resolveApple(sourceInput, getDeveloperToken) {
     const token = getDeveloperToken();
     const headers = { Authorization: `Bearer ${token}` };
-    const { playlists, tracks: trackEntries } = parseLines(sourceInput, 'apple');
+    const { playlists, albums, tracks: trackEntries } = parseLines(sourceInput, 'apple');
 
     let tracks = [];
     for (const entry of playlists) {
         const { data } = await axios.get(
             `https://api.music.apple.com/v1/catalog/${entry.storefront}/playlists/${entry.id}`,
+            { headers, params: { include: 'tracks' } }
+        );
+        const songs = (data.data?.[0]?.relationships?.tracks?.data || []).filter((t) => t.type === 'songs');
+        tracks.push(...songs);
+    }
+
+    for (const entry of albums) {
+        const { data } = await axios.get(
+            `https://api.music.apple.com/v1/catalog/${entry.storefront}/albums/${entry.id}`,
             { headers, params: { include: 'tracks' } }
         );
         const songs = (data.data?.[0]?.relationships?.tracks?.data || []).filter((t) => t.type === 'songs');
@@ -101,11 +121,19 @@ const normalizeDeezer = (t) => ({
 });
 
 async function resolveDeezer(sourceInput) {
-    const { playlists, tracks: trackEntries } = parseLines(sourceInput, 'deezer');
+    const { playlists, albums, tracks: trackEntries } = parseLines(sourceInput, 'deezer');
 
     let tracks = [];
     for (const entry of playlists) {
         let url = `https://api.deezer.com/playlist/${entry.id}/tracks?limit=100`;
+        while (url) {
+            const { data } = await axios.get(url);
+            tracks.push(...(data.data || []));
+            url = data.next || null;
+        }
+    }
+    for (const entry of albums) {
+        let url = `https://api.deezer.com/album/${entry.id}/tracks?limit=100`;
         while (url) {
             const { data } = await axios.get(url);
             tracks.push(...(data.data || []));
