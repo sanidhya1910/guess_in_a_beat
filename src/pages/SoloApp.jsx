@@ -6,6 +6,7 @@ import Game from '../components/Game';
 import PlaylistPicker from './PlaylistPicker';
 import { ArrowLeftIcon } from '../components/Icons';
 import { getToken, logout } from '../services/spotify';
+import { setActiveProvider, addHistoryEntry } from '../services/profile';
 
 // Only Spotify needs a real login/session — the other providers work off a
 // pasted link or a search, no auth at all.
@@ -50,7 +51,12 @@ function SoloApp() {
     const startGame = (loadedTracks, prov) => {
         setTracks(loadedTracks);
         setGameProvider(prov);
+        setActiveProvider(prov);
         setGameStarted(true);
+    };
+
+    const handleComplete = (stats) => {
+        addHistoryEntry({ mode: 'solo', provider: gameProvider, ...stats });
     };
 
     const handleExit = () => {
@@ -66,7 +72,7 @@ function SoloApp() {
     };
 
     if (gameStarted) {
-        return <Game provider={gameProvider} token={token} tracks={tracks} onExit={handleExit} />;
+        return <Game provider={gameProvider} token={token} tracks={tracks} onExit={handleExit} onComplete={handleComplete} />;
     }
 
     if (mode === 'featured') {

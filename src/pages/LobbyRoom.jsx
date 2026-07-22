@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { connectSocket, emitAck, getStoredSession, clearSession } from '../services/socket';
+import { setActiveProvider, addHistoryEntry } from '../services/profile';
 import { ArrowLeftIcon, CheckIcon, XIcon } from '../components/Icons';
 import MultiplayerGame from './MultiplayerGame';
 
@@ -15,6 +16,7 @@ const LobbyRoom = () => {
     const [gameData, setGameData] = useState(null); // { tracks, durations, trackIndex }
     const [error, setError] = useState('');
     const [starting, setStarting] = useState(false);
+    const providerRef = useRef(null); // latest provider, for the game_over handler closure
 
     useEffect(() => {
         if (!session || session.code !== code) {
@@ -33,6 +35,16 @@ const LobbyRoom = () => {
             setGameData({ tracks: data.tracks, durations: data.durations, trackIndex: 0 });
         };
         const onGameOver = (data) => {
+            // Save this player's result to local score history before leaving.
+            const me = data.finalScores?.find((p) => p.id === session.playerId);
+            if (me) {
+                addHistoryEntry({
+                    mode: 'multiplayer',
+                    provider: providerRef.current || 'deezer',
+                    score: me.score,
+                    correct: me.correctCount,
+                });
+            }
             clearSession();
             navigate(`/results/${data.lobbyId}`);
         };
@@ -45,6 +57,8 @@ const LobbyRoom = () => {
             .then((res) => {
                 setStatus(res.status);
                 setProvider(res.provider);
+                providerRef.current = res.provider;
+                if (res.provider) setActiveProvider(res.provider);
                 if (res.tracks) setGameData({ tracks: res.tracks, durations: res.durations, trackIndex: res.trackIndex });
             })
             .catch(() => {

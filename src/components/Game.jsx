@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SongInput from './SongInput';
 import { PlayIcon, SkipIcon, ArrowLeftIcon, ArrowRightIcon, CheckIcon, XIcon, MusicIcon, TrophyIcon } from './Icons';
 import { isCorrectGuess as checkGuess } from '../utils/matching';
@@ -9,7 +9,7 @@ const POINTS    = [6, 5, 4, 3, 2, 1];
 const MAX_ATTEMPTS = 6;
 const TOTAL_DURATION = DURATIONS.reduce((a, b) => a + b, 0);
 
-const Game = ({ provider, token, tracks, onExit }) => {
+const Game = ({ provider, token, tracks, onExit, onComplete }) => {
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     const [guessCount, setGuessCount] = useState(0);
     const [gameState, setGameState] = useState('playing'); // 'playing' | 'won' | 'lost'
@@ -28,6 +28,15 @@ const Game = ({ provider, token, tracks, onExit }) => {
     const isCorrectGuess = (guessedTrack) => checkGuess(guessedTrack, currentTrack);
     const playSnippet = () => playSnippetRaw(currentTrack, currentDuration);
     const playContinuously = () => playContinuouslyRaw(currentTrack);
+
+    // Record the finished game once (score history lives in the studio header).
+    const completedRef = useRef(false);
+    useEffect(() => {
+        if (isGameOver && !completedRef.current) {
+            completedRef.current = true;
+            onComplete?.({ score, correct: correctAnswers, total: totalQuestions + 1 });
+        }
+    }, [isGameOver, score, correctAnswers, totalQuestions, onComplete]);
 
     // ── Keyboard shortcuts ─────────────────────────────────────────────────
     useEffect(() => {

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { searchTracks as searchItunesTracks } from '../services/music';
 import { connectSocket, emitAck, storeSession } from '../services/socket';
 import { FEATURED_PLAYLISTS, FEATURED_PROVIDER } from '../data/featuredPlaylists';
+import { getProfile } from '../services/profile';
 import { ArrowLeftIcon, XIcon } from '../components/Icons';
 
 const PROVIDERS = [
@@ -21,7 +22,7 @@ const PLACEHOLDERS = {
 
 const CreateLobby = () => {
     const navigate = useNavigate();
-    const [displayName, setDisplayName] = useState('');
+    const [displayName, setDisplayName] = useState(() => getProfile()?.name || '');
     const [sourceMode, setSourceMode] = useState('featured'); // 'featured' | 'custom'
     const [selectedFeatured, setSelectedFeatured] = useState(null); // featured playlist id
     const [featuredMeta, setFeaturedMeta] = useState({}); // id -> { cover, count }

@@ -1,11 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import StudioHeader from '../components/StudioHeader';
 
-const LandingPage = () => {
+const LandingPage = ({ profile }) => {
     const navigate = useNavigate();
 
     return (
         <div className="login-page">
+            <StudioHeader profile={profile} />
+
             <p className="login-eyebrow">Music Knowledge Test</p>
 
             <h1 className="login-title">

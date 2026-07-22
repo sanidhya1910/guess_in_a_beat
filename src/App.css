@@ -492,6 +492,173 @@ body {
 .back-link:hover { color: var(--text-0); }
 
 /* ─────────────────────────────────────────────
+   STUDIO HEADER (provider indicator + history)
+───────────────────────────────────────────── */
+.studio-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    z-index: 20;
+}
+
+.studio-hi {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-1);
+}
+
+.studio-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.provider-indicator,
+.history-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--border-md);
+    background: var(--bg-raised);
+    color: var(--text-1);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.history-btn {
+    cursor: pointer;
+    color: var(--text-0);
+    transition: background var(--t-fast), border-color var(--t-fast);
+}
+
+.history-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hi);
+}
+
+.history-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 4.5rem 1.25rem 1.25rem;
+    z-index: 100;
+    animation: fadeUp 0.2s var(--ease) both;
+}
+
+.history-panel {
+    width: 100%;
+    max-width: 380px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--r-lg);
+    padding: 1.25rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.history-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.history-panel-head h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-0);
+}
+
+.history-close {
+    background: transparent;
+    border: none;
+    color: var(--text-1);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--r-sm);
+}
+
+.history-close:hover { color: var(--text-0); background: var(--bg-hover); }
+
+.history-empty {
+    color: var(--text-1);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 1rem 0;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--r-md);
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+}
+
+.history-item-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.history-score {
+    font-weight: 700;
+    color: var(--green);
+    font-size: 0.95rem;
+}
+
+.history-meta {
+    font-size: 0.75rem;
+    color: var(--text-1);
+}
+
+.history-date {
+    font-size: 0.72rem;
+    color: var(--text-2);
+    white-space: nowrap;
+    margin-left: 0.5rem;
+}
+
+.history-clear {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border-md);
+    color: var(--text-1);
+    padding: 0.5rem;
+    border-radius: var(--r-md);
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background var(--t-fast), color var(--t-fast);
+}
+
+.history-clear:hover {
+    background: var(--red-dim);
+    color: var(--red);
+    border-color: var(--red);
+}
+
+/* ─────────────────────────────────────────────
    FEATURED PLAYLIST PICKER
 ───────────────────────────────────────────── */
 .length-select {

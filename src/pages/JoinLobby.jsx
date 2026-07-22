@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { connectSocket, emitAck, storeSession } from '../services/socket';
+import { getProfile } from '../services/profile';
 import { ArrowLeftIcon } from '../components/Icons';
 
 const JoinLobby = () => {
     const navigate = useNavigate();
     const { code: codeFromLink } = useParams();
     const [code, setCode] = useState((codeFromLink || '').toUpperCase());
-    const [displayName, setDisplayName] = useState('');
+    const [displayName, setDisplayName] = useState(() => getProfile()?.name || '');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
