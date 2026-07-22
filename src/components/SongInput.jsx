@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { searchTracks as searchSpotifyTracks, getFreshToken } from '../services/spotify';
-import { searchTracks as searchAppleTracks } from '../services/appleMusic';
-import { searchTracks as searchDeezerTracks } from '../services/deezer';
 import { searchTracks as searchItunesTracks } from '../services/music';
 import { SearchIcon } from './Icons';
 
-// Apple Music search here doesn't know which storefront the host's playlist
-// came from (that's only threaded through Setup.jsx) — defaulting to 'us' is
-// a reasonable simplification since guesses are matched fuzzily by name/artist,
-// not by exact catalog id.
-const DEFAULT_APPLE_STOREFRONT = 'us';
-
-const SongInput = ({ provider = 'spotify', onGuess, disabled }) => {
+// The in-game guess box always searches iTunes for suggestions, regardless of
+// which provider the game's tracks came from. Guesses are matched by song name
+// + artist (see utils/matching), not by exact catalog id, so the suggestion
+// source doesn't need to match the provider — and iTunes search is free,
+// login-free, and reliable, whereas Deezer's search API frequently returns
+// empty results and Spotify's needs a logged-in token.
+const SongInput = ({ onGuess, disabled }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -24,18 +21,7 @@ const SongInput = ({ provider = 'spotify', onGuess, disabled }) => {
             if (query.length > 2) {
                 setLoading(true);
                 try {
-                    let tracks = [];
-                    if (provider === 'apple') {
-                        tracks = await searchAppleTracks(DEFAULT_APPLE_STOREFRONT, query);
-                    } else if (provider === 'deezer') {
-                        tracks = await searchDeezerTracks(query);
-                    } else if (provider === 'itunes') {
-                        tracks = await searchItunesTracks(query);
-                    } else {
-                        const token = await getFreshToken();
-                        if (token) tracks = await searchSpotifyTracks(token, query);
-                    }
-                    setResults(tracks);
+                    setResults(await searchItunesTracks(query));
                     setSelectedIndex(-1);
                 } catch (e) {
                     console.error(e);
@@ -48,7 +34,7 @@ const SongInput = ({ provider = 'spotify', onGuess, disabled }) => {
             }
         }, 300);
         return () => clearTimeout(timer);
-    }, [query, provider]);
+    }, [query]);
 
     useEffect(() => {
         const handleClickOutside = (e) => {
