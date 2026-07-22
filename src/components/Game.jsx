@@ -1,83 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SongInput from './SongInput';
 import { PlayIcon, SkipIcon, ArrowLeftIcon, ArrowRightIcon, CheckIcon, XIcon, MusicIcon, TrophyIcon } from './Icons';
-import { findPreviewUrl } from '../services/music';
+import { isCorrectGuess as checkGuess } from '../utils/matching';
+import { useSnippetPlayer } from '../hooks/useSnippetPlayer';
 
 const DURATIONS = [0.1, 0.5, 1, 2, 5, 10];
 const POINTS    = [6, 5, 4, 3, 2, 1];
 const MAX_ATTEMPTS = 6;
 const TOTAL_DURATION = DURATIONS.reduce((a, b) => a + b, 0);
 
-const Game = ({ tracks, onExit }) => {
+const Game = ({ provider, token, tracks, onExit }) => {
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     const [guessCount, setGuessCount] = useState(0);
     const [gameState, setGameState] = useState('playing'); // 'playing' | 'won' | 'lost'
     const [guesses, setGuesses] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [isContinuousPlay, setIsContinuousPlay] = useState(false);
-    const [error, setError] = useState('');
     const [score, setScore] = useState(0);
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
-    const [playProgress, setPlayProgress] = useState(0);
-    const timeoutRef  = useRef(null);
-    const progressRef = useRef(null);
-    const audioRef    = useRef(null);
-    const previewCacheRef = useRef({}); // track id → resolved preview URL (or null)
+
+    const { isPlaying, isContinuousPlay, playProgress, error, playSnippet: playSnippetRaw, playContinuously: playContinuouslyRaw, stop } = useSnippetPlayer();
 
     const currentTrack   = tracks[currentTrackIndex];
     const currentDuration = DURATIONS[Math.min(guessCount, DURATIONS.length - 1)];
     const currentPoints   = POINTS[Math.min(guessCount, POINTS.length - 1)];
     const isGameOver = currentTrackIndex >= tracks.length - 1 && gameState !== 'playing';
 
-    // ── Normalize song name for fuzzy matching ──────────────────────────────
-    const normalizeName = (name) =>
-        name
-            .toLowerCase()
-            .replace(/\s*[-–—]\s*(remaster(ed)?|deluxe|special|edition|version|live|acoustic|remix|radio edit|single|mix|mono|stereo|anniversary|extended|bonus|explicit|clean).*$/i, '')
-            .replace(/\s*\((remaster(ed)?|deluxe|special|edition|version|live|acoustic|remix|radio edit|single|mix|mono|stereo|anniversary|extended|bonus|explicit|clean|feat\.?.*|ft\.?.*|\d{4})\)/gi, '')
-            .replace(/\s*\[(remaster(ed)?|deluxe|special|edition|version|live|acoustic|remix|radio edit|single|mix|mono|stereo|anniversary|extended|bonus|explicit|clean|feat\.?.*|ft\.?.*|\d{4})\]/gi, '')
-            .replace(/[''`]/g, "'")
-            .replace(/[""]/g, '"')
-            .trim();
-
-    const isCorrectGuess = (guessedTrack) => {
-        if (guessedTrack.id === currentTrack.id) return true;
-        const gName = normalizeName(guessedTrack.name);
-        const cName = normalizeName(currentTrack.name);
-        const gArtists = guessedTrack.artists.map(a => a.name.toLowerCase().trim());
-        const cArtists = currentTrack.artists.map(a => a.name.toLowerCase().trim());
-        if (gName === cName && gArtists.some(a => cArtists.includes(a))) return true;
-        return false;
-    };
-
-    // ── Cleanup on unmount / track change ──────────────────────────────────
-    useEffect(() => {
-        return () => {
-            if (timeoutRef.current)  clearTimeout(timeoutRef.current);
-            if (progressRef.current) cancelAnimationFrame(progressRef.current);
-        };
-    }, []);
-
-    useEffect(() => {
-        return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current = null;
-            }
-        };
-    }, [currentTrackIndex]);
-
-    // Resolve a playable preview URL for a track: use Spotify's when present,
-    // otherwise fall back to an iTunes preview (cached per track).
-    const resolvePreview = async (track) => {
-        if (track.preview_url) return track.preview_url;
-        if (track.id in previewCacheRef.current) return previewCacheRef.current[track.id];
-        const artist = track.artists.map(a => a.name).join(' ');
-        const url = await findPreviewUrl(track.name, artist);
-        previewCacheRef.current[track.id] = url;
-        return url;
-    };
+    const isCorrectGuess = (guessedTrack) => checkGuess(guessedTrack, currentTrack);
+    const playSnippet = () => playSnippetRaw(currentTrack, currentDuration);
+    const playContinuously = () => playContinuouslyRaw(currentTrack);
 
     // ── Keyboard shortcuts ─────────────────────────────────────────────────
     useEffect(() => {
@@ -95,72 +45,6 @@ const Game = ({ tracks, onExit }) => {
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
     }, [gameState, isPlaying, currentTrackIndex, tracks.length]);
-
-    // ── Continuous play (after result) ─────────────────────────────────────
-    const playContinuously = async () => {
-        setIsContinuousPlay(true);
-        setIsPlaying(true);
-
-        if (audioRef.current) audioRef.current.pause();
-
-        const url = await resolvePreview(currentTrack);
-        if (url) {
-            audioRef.current = new Audio(url);
-            audioRef.current.currentTime = 0;
-            audioRef.current.play().catch(e => console.error('Continuous play error:', e));
-            audioRef.current.onended = () => {
-                setIsPlaying(false);
-                setIsContinuousPlay(false);
-            };
-        } else {
-            setIsPlaying(false);
-            setIsContinuousPlay(false);
-        }
-    };
-
-    // ── Play snippet ───────────────────────────────────────────────────────
-    const playSnippet = async () => {
-        if (isPlaying || !currentTrack) return;
-
-        setIsPlaying(true);
-        setError('');
-        setPlayProgress(0);
-
-        if (audioRef.current) audioRef.current.pause();
-
-        const duration = currentDuration * 1000;
-
-        const url = await resolvePreview(currentTrack);
-        if (!url) {
-            setError('No preview available for this track.');
-            setIsPlaying(false);
-            return;
-        }
-
-        const startTime = Date.now();
-        audioRef.current = new Audio(url);
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(e => {
-            console.error('Audio play error:', e);
-            setError('Failed to play audio.');
-            setIsPlaying(false);
-            if (progressRef.current) cancelAnimationFrame(progressRef.current);
-            if (timeoutRef.current)  clearTimeout(timeoutRef.current);
-        });
-
-        const animateProgress = () => {
-            const progress = Math.min((Date.now() - startTime) / duration, 1);
-            setPlayProgress(progress);
-            if (progress < 1) progressRef.current = requestAnimationFrame(animateProgress);
-        };
-        progressRef.current = requestAnimationFrame(animateProgress);
-
-        timeoutRef.current = setTimeout(() => {
-            if (audioRef.current) audioRef.current.pause();
-            setIsPlaying(false);
-            if (progressRef.current) cancelAnimationFrame(progressRef.current);
-        }, duration);
-    };
 
     // ── Guess handling ─────────────────────────────────────────────────────
     const handleGuess = (guessedTrack) => {
@@ -198,11 +82,7 @@ const Game = ({ tracks, onExit }) => {
     };
 
     const handleNextSong = async () => {
-        if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-        if (timeoutRef.current)  clearTimeout(timeoutRef.current);
-        if (progressRef.current) cancelAnimationFrame(progressRef.current);
-
-        setIsContinuousPlay(false);
+        stop();
 
         if (currentTrackIndex < tracks.length - 1) {
             setTotalQuestions(q => q + 1);
@@ -210,9 +90,6 @@ const Game = ({ tracks, onExit }) => {
             setGuessCount(0);
             setGameState('playing');
             setGuesses([]);
-            setError('');
-            setPlayProgress(0);
-            setIsPlaying(false);
         }
     };
 
@@ -441,7 +318,7 @@ const Game = ({ tracks, onExit }) => {
                 {/* Guess input */}
                 {gameState === 'playing' && (
                     <div className="guess-row">
-                        <SongInput onGuess={handleGuess} />
+                        <SongInput provider={provider} token={token} onGuess={handleGuess} />
                         <button className="skip-btn" onClick={handleSkip} title="Skip this attempt">
                             <SkipIcon size={14} />
                             Skip

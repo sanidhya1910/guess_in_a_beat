@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Lobby/leaderboard SQLite database (server/db.js)
+data/*.db*

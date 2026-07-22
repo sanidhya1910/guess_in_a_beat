@@ -1,7 +1,7 @@
 import React from 'react';
-import { SpotifyIcon } from './Icons';
+import { SpotifyIcon, AppleMusicIcon, DeezerIcon, AppleIcon } from './Icons';
 
-const Login = ({ serverDown }) => {
+const Login = ({ serverDown, onSelectProvider }) => {
     const handleLogin = () => {
         window.location.href = '/auth/login';
     };
@@ -28,14 +28,29 @@ const Login = ({ serverDown }) => {
             )}
 
             <div className="login-cta">
-                <button className="login-btn" onClick={handleLogin} disabled={serverDown}>
-                    <SpotifyIcon size={19} />
+                <button className="login-btn login-btn--spotify" onClick={handleLogin} disabled={serverDown}>
+                    <SpotifyIcon size={19} color="#000" />
                     Continue with Spotify
                 </button>
 
+                <button className="login-btn login-btn--apple" onClick={() => onSelectProvider('apple')}>
+                    <AppleMusicIcon size={19} color="#fff" />
+                    Continue with Apple Music
+                </button>
+
+                <button className="login-btn login-btn--deezer" onClick={() => onSelectProvider('deezer')}>
+                    <DeezerIcon size={19} color="#fff" />
+                    Continue with Deezer
+                </button>
+
+                <button className="login-btn login-btn--itunes" onClick={() => onSelectProvider('itunes')}>
+                    <AppleIcon size={17} color="#fff" />
+                    Continue with iTunes (free, no account)
+                </button>
+
                 <p className="login-note">
-                    Requires Spotify Premium for full playback.
-                    Song previews work without Premium.
+                    Spotify requires Premium for full playback (song previews work without it).
+                    Apple Music, Deezer, and iTunes need no login at all.
                 </p>
             </div>
         </div>

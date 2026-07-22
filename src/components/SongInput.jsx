@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { searchTracks, getFreshToken } from '../services/spotify';
+import { searchTracks as searchSpotifyTracks, getFreshToken } from '../services/spotify';
+import { searchTracks as searchAppleTracks } from '../services/appleMusic';
+import { searchTracks as searchDeezerTracks } from '../services/deezer';
+import { searchTracks as searchItunesTracks } from '../services/music';
 import { SearchIcon } from './Icons';
 
-const SongInput = ({ onGuess, disabled }) => {
+// Apple Music search here doesn't know which storefront the host's playlist
+// came from (that's only threaded through Setup.jsx) — defaulting to 'us' is
+// a reasonable simplification since guesses are matched fuzzily by name/artist,
+// not by exact catalog id.
+const DEFAULT_APPLE_STOREFRONT = 'us';
+
+const SongInput = ({ provider = 'spotify', onGuess, disabled }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,12 +24,19 @@ const SongInput = ({ onGuess, disabled }) => {
             if (query.length > 2) {
                 setLoading(true);
                 try {
-                    const token = await getFreshToken();
-                    if (token) {
-                        const tracks = await searchTracks(token, query);
-                        setResults(tracks);
-                        setSelectedIndex(-1);
+                    let tracks = [];
+                    if (provider === 'apple') {
+                        tracks = await searchAppleTracks(DEFAULT_APPLE_STOREFRONT, query);
+                    } else if (provider === 'deezer') {
+                        tracks = await searchDeezerTracks(query);
+                    } else if (provider === 'itunes') {
+                        tracks = await searchItunesTracks(query);
+                    } else {
+                        const token = await getFreshToken();
+                        if (token) tracks = await searchSpotifyTracks(token, query);
                     }
+                    setResults(tracks);
+                    setSelectedIndex(-1);
                 } catch (e) {
                     console.error(e);
                 } finally {
@@ -32,7 +48,7 @@ const SongInput = ({ onGuess, disabled }) => {
             }
         }, 300);
         return () => clearTimeout(timer);
-    }, [query]);
+    }, [query, provider]);
 
     useEffect(() => {
         const handleClickOutside = (e) => {

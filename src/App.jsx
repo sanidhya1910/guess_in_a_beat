@@ -1,74 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import Login from './components/Login';
-import Setup from './components/Setup';
-import Game from './components/Game';
-import { getToken, logout } from './services/spotify';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import SoloApp from './pages/SoloApp';
+import PlayChooser from './pages/PlayChooser';
+import CreateLobby from './pages/CreateLobby';
+import JoinLobby from './pages/JoinLobby';
+import LobbyRoom from './pages/LobbyRoom';
+import Leaderboard from './pages/Leaderboard';
 import './App.css';
 
 function App() {
-    const [token, setToken]           = useState(null);
-    const [tracks, setTracks]         = useState([]);
-    const [gameStarted, setGameStarted] = useState(false);
-    const [loading, setLoading]       = useState(true);
-    const [serverDown, setServerDown] = useState(false);
-
-    useEffect(() => {
-        const fetchToken = async () => {
-            try {
-                const accessToken = await getToken();
-                setToken(accessToken);
-            } catch (e) {
-                if (e.code === 'AUTH_SERVER_UNREACHABLE') setServerDown(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchToken();
-    }, []);
-
-    const handleStartGame = (playlistTracks) => {
-        setTracks(playlistTracks);
-        setGameStarted(true);
-    };
-
-    const handleExit = () => {
-        setGameStarted(false);
-        setTracks([]);
-    };
-
-    const handleLogout = async () => {
-        await logout();
-        setToken(null);
-        setGameStarted(false);
-        setTracks([]);
-    };
-
-    if (loading) {
-        return (
-            <div className="App">
-                <div className="loading-screen">
-                    <div className="spinner loading-spinner" />
-                    <span>Connecting to Spotify…</span>
-                </div>
-            </div>
-        );
-    }
-
     return (
-        <div className="App">
-            {!token ? (
-                <Login serverDown={serverDown} />
-            ) : !gameStarted ? (
-                <>
-                    <Setup token={token} onStartGame={handleStartGame} />
-                    <button className="logout-btn" onClick={handleLogout}>
-                        Logout
-                    </button>
-                </>
-            ) : (
-                <Game tracks={tracks} onExit={handleExit} />
-            )}
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/solo" element={<SoloApp />} />
+                    <Route path="/play" element={<PlayChooser />} />
+                    <Route path="/play/create" element={<CreateLobby />} />
+                    <Route path="/play/join" element={<JoinLobby />} />
+                    <Route path="/join/:code" element={<JoinLobby />} />
+                    <Route path="/lobby/:code" element={<LobbyRoom />} />
+                    <Route path="/results/:lobbyId" element={<Leaderboard />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 
