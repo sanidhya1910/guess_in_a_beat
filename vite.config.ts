@@ -1,125 +1,111 @@
-import { defineConfig, loadEnv, type Plugin } from 'vite'
-import react from '@vitejs/plugin-react'
-import axios from 'axios'
+import react from '@vitejs/plugin-react';
+import { copyFile } from 'node:fs/promises';
+import type { IncomingMessage, ServerResponse } from 'node:http';
+import path from 'node:path';
+import type { Plugin } from 'vite';
+import { defineConfig } from 'vitest/config';
+import { type MatchResult, parseMatchRequest, parsePlaylistUrl } from './src/lib/playlist-protocol.ts';
+import { matchTrack } from './worker/catalog.ts';
+import { PlaylistError, readPlaylist } from './worker/playlists.ts';
+import { findVideos } from './worker/youtube.ts';
 
-const SCOPE = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state playlist-read-private playlist-read-collaborative'
-const REDIRECT_URI = 'http://127.0.0.1:5173/auth/callback'
-
-// Runs the Spotify OAuth flow inside Vite's dev server, so `npm run dev` alone
-// serves both the app and the /auth/* endpoints — no separate process.
-function spotifyAuth(env: Record<string, string>): Plugin {
-  const clientId = env.SPOTIFY_CLIENT_ID
-  const clientSecret = env.SPOTIFY_CLIENT_SECRET
-  const basicAuth = () => 'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
-
-  let accessToken: string | null = null
-  let refreshToken: string | null = null
-  const pendingStates = new Set<string>()
-
-  return {
-    name: 'spotify-auth',
-    configureServer(server) {
-      if (!clientId || !clientSecret) {
-        server.config.logger.warn(
-          '\n[spotify-auth] SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET missing from .env — login will fail.\n'
-        )
-      }
-
-      server.middlewares.use(async (req, res, next) => {
-        if (!req.url || !req.url.startsWith('/auth/')) return next()
-        const url = new URL(req.url, 'http://127.0.0.1:5173')
-        const json = (code: number, body: unknown) => {
-          res.statusCode = code
-          res.setHeader('Content-Type', 'application/json')
-          res.end(JSON.stringify(body))
-        }
-        const redirect = (location: string) => {
-          res.statusCode = 302
-          res.setHeader('Location', location)
-          res.end()
-        }
-
-        try {
-          switch (url.pathname) {
-            case '/auth/login': {
-              const state = Math.random().toString(36).slice(2) + Date.now().toString(36)
-              pendingStates.add(state)
-              setTimeout(() => pendingStates.delete(state), 10 * 60 * 1000)
-              const params = new URLSearchParams({
-                response_type: 'code',
-                client_id: clientId,
-                scope: SCOPE,
-                redirect_uri: REDIRECT_URI,
-                state,
-              })
-              return redirect('https://accounts.spotify.com/authorize/?' + params.toString())
-            }
-            case '/auth/callback': {
-              const code = url.searchParams.get('code')
-              const state = url.searchParams.get('state')
-              if (!state || !pendingStates.has(state)) {
-                res.statusCode = 400
-                return res.end('Authentication failed: invalid state parameter')
-              }
-              pendingStates.delete(state)
-              const resp = await axios.post(
-                'https://accounts.spotify.com/api/token',
-                new URLSearchParams({ code: code!, redirect_uri: REDIRECT_URI, grant_type: 'authorization_code' }).toString(),
-                { headers: { Authorization: basicAuth(), 'Content-Type': 'application/x-www-form-urlencoded' } }
-              )
-              accessToken = resp.data.access_token
-              refreshToken = resp.data.refresh_token
-              return redirect('/')
-            }
-            case '/auth/token':
-              return accessToken ? json(200, { access_token: accessToken }) : json(401, { error: 'No token available' })
-            case '/auth/refresh': {
-              if (!refreshToken) return json(401, { error: 'No refresh token available' })
-              const resp = await axios.post(
-                'https://accounts.spotify.com/api/token',
-                new URLSearchParams({ grant_type: 'refresh_token', refresh_token: refreshToken }).toString(),
-                { headers: { Authorization: basicAuth(), 'Content-Type': 'application/x-www-form-urlencoded' } }
-              )
-              accessToken = resp.data.access_token
-              return json(200, { access_token: accessToken })
-            }
-            case '/auth/logout':
-              accessToken = null
-              refreshToken = null
-              return json(200, { success: true })
-            default:
-              return next()
-          }
-        } catch (err) {
-          const e = err as { response?: { data?: unknown }; message?: string }
-          console.error('[spotify-auth]', e.response?.data || e.message)
-          if (url.pathname === '/auth/callback') {
-            res.statusCode = 500
-            return res.end('Authentication failed')
-          }
-          return json(500, { error: 'Authentication error' })
-        }
-      })
-    },
-  }
+// Static hosts like GitHub Pages serve 404.html for unknown paths. Making it a
+// copy of the app lets deep links such as /daily or /play/80s load directly.
+function spaFallback(): Plugin {
+    let outDir = 'dist';
+    return {
+        name: 'spa-404-fallback',
+        apply: 'build',
+        configResolved(config) {
+            outDir = path.resolve(config.root, config.build.outDir);
+        },
+        async closeBundle() {
+            await copyFile(path.join(outDir, 'index.html'), path.join(outDir, '404.html'));
+        },
+    };
 }
 
-// https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
-  return {
-    plugins: [react(), spotifyAuth(env)],
-    server: {
-      host: '127.0.0.1',
-      port: 5173,
-      proxy: {
-        // Proxy the iTunes Search API to sidestep CORS (used for preview fallback).
-        '/api/itunes': {
-          target: 'https://itunes.apple.com',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api\/itunes/, ''),
+// Link previews need absolute URLs. SITE_URL is the origin the site is served
+// from (e.g. https://name.github.io); without it the image path stays relative.
+function socialImage(base: string): Plugin {
+    const origin = (process.env.SITE_URL ?? '').replace(/\/$/, '');
+    return {
+        name: 'social-image',
+        transformIndexHtml: (html) => html.replaceAll('__OG_IMAGE__', `${origin}${base}og-image.png`),
+    };
+}
+
+// In production the Worker answers /api/*; this does the same for `vite dev`
+// (without the edge caches, and without multiplayer rooms).
+function devApi(base: string): Plugin {
+    const send = (res: ServerResponse, status: number, body: unknown) => {
+        res.statusCode = status;
+        res.setHeader('content-type', 'application/json');
+        res.end(JSON.stringify(body));
+    };
+    const readJson = async (req: IncomingMessage): Promise<unknown> => {
+        let raw = '';
+        for await (const chunk of req) raw += chunk;
+        try {
+            return JSON.parse(raw);
+        } catch {
+            return null;
+        }
+    };
+    return {
+        name: 'dev-api',
+        configureServer(server) {
+            server.middlewares.use(`${base}api/yt`, async (req, res) => {
+                const params = new URL(req.url ?? '', 'http://localhost').searchParams;
+                let ids: string[] = [];
+                try {
+                    ids = await findVideos(params.get('artist') ?? '', params.get('title') ?? '', Number(params.get('d')) || undefined);
+                } catch {
+                    // fall through with no videos, like the Worker
+                }
+                send(res, 200, { ids });
+            });
+            server.middlewares.use(`${base}api/playlist`, async (req, res) => {
+                const ref = parsePlaylistUrl(new URL(req.url ?? '', 'http://localhost').searchParams.get('url') ?? '');
+                if (!ref) return send(res, 400, { error: 'Paste a link to a Spotify or YouTube playlist.' });
+                try {
+                    send(res, 200, await readPlaylist(ref));
+                } catch (err) {
+                    if (err instanceof PlaylistError) return send(res, 404, { error: err.message });
+                    send(res, 502, { error: "Couldn't read that playlist right now. Try again in a moment." });
+                }
+            });
+            server.middlewares.use(`${base}api/match`, async (req, res) => {
+                const body = parseMatchRequest(await readJson(req));
+                if (req.method !== 'POST' || !body) return send(res, 400, { error: 'tracks are required' });
+                const results = await Promise.all(
+                    body.tracks.map((t): Promise<MatchResult> =>
+                        matchTrack(t, body.country).then(
+                            (song) => (song ? { status: 'found', song } : { status: 'missing' }),
+                            () => ({ status: 'busy' }),
+                        ),
+                    ),
+                );
+                send(res, 200, { results });
+            });
         },
-      },
+    };
+}
+
+// Set BASE_PATH=/repo-name/ when hosting under a sub-path (GitHub Pages).
+const base = process.env.BASE_PATH || '/';
+
+export default defineConfig({
+    base,
+    plugins: [react(), spaFallback(), socialImage(base), devApi(base)],
+    server: {
+        host: '127.0.0.1',
+        port: 5173,
     },
-  }
-})
+    build: {
+        target: 'es2022',
+    },
+    test: {
+        include: ['src/**/*.test.ts'],
+    },
+});

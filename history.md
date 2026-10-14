@@ -99,9 +99,57 @@ while keeping the Spotify login.
 
 ---
 
+## Working tree: public website rebuild (2026-10-03)
+
+The game was rebuilt as a free, public, static website.
+
+- **No Spotify, no login, no server.** Spotify's February 2026 development-mode
+  limits (five users, a Premium developer account, playlist contents only for
+  owned playlists) rule it out for a public game. All music now comes from
+  Apple's free 30-second previews through the iTunes Search API, which the
+  browser calls directly. The Express server, the OAuth plugin and the `.env`
+  requirement are gone.
+- **New game modes.** Daily Challenge with streaks, stats and a share grid;
+  chart, decade and genre packs (21 packs, about 1,100 songs); Artist mode;
+  custom challenges; and seeded "beat my score" links for every game.
+- **Sample-accurate audio.** The Web Audio engine decodes previews so even
+  0.1 s clips play exactly, skips the preview fade-in, refreshes expired
+  preview URLs and drives a live visualizer.
+- **Better guessing.** Instant suggestions from the current pack, budgeted
+  iTunes search, "close" feedback for the right artist or title, and stricter
+  title and artist normalization.
+- **Full redesign.** New brand and design system (Bricolage Grotesque, Geist,
+  one accent colour, dark and light themes). Album-art home page, mobile tab
+  bar, setup, reveal and summary screens, dialogs for help, stats and settings.
+- **Release tooling.** TypeScript throughout, Vitest unit tests, a data build
+  script with curated seeds, generated icons and social image, a web-app
+  manifest, and a GitHub Pages workflow that also refreshes charts daily.
+
+---
+
+## Working tree: playlist import and no more non-music clips (2026-10-04)
+
+- **Import a playlist.** On Create, paste a public Spotify or YouTube playlist
+  or album link, tick the songs you want in the list that opens (filter, select
+  all, up to the challenge's 25-song limit), and they are found in the iTunes
+  catalog and added. New Worker routes: `/api/playlist` (Spotify embed page or
+  YouTube Music's web API, no keys) and `/api/match` (iTunes match by title,
+  artist and length, edge-cached). `npm run dev` serves both too.
+- **Clips no longer play non-music intros.** About 1 in 10 pack songs used a
+  music video that is more than 10 seconds longer than the studio track: a
+  skit ("Forgot About Dre", +92 s), a film scene ("Filhall", +75 s) or
+  dialogue, which played instead of music. The YouTube search now prefers
+  YouTube Music's art tracks (the studio audio itself) and, using the track
+  length from iTunes (new `Song.duration`), drops uploads more than 8 s longer
+  than the track. Pack and Daily data now store each song's length, and
+  `build-intros --repick` re-chose the videos. Cached picks (edge and browser)
+  were versioned so stale ones aren't reused.
+
+---
+
 ## Ideas / possible next steps
 
-- Persist tokens (and support multiple users) instead of in-memory storage.
-- Optional round settings (attempt count, snippet ladder, categories).
-- Local high-score / streak history.
-- Graceful UI when a track has neither a preview nor an available device.
+- Real-time multiplayer rooms (needs a small backend, e.g. a Durable Object).
+- More regional packs (Tamil, Telugu, Arabic, J-pop) and a regional Daily.
+- Optional anonymous global leaderboard for the Daily.
+- Offline support with a service worker.

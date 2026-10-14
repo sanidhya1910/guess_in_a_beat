@@ -1,21 +1,25 @@
 {
   "name": "guess-in-a-beat",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "server": "node server/index.js",
-    "dev:all": "concurrently \"npm run server\" \"npm run dev\"",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "vitest run",
+    "data": "node scripts/build-data.ts",
+    "data:charts": "node scripts/build-data.ts --charts",
+    "data:intros": "node scripts/build-intros.ts",
+    "brand": "node scripts/render-brand.ts",
+    "deploy": "npm run build && node -e \"require('fs').rmSync('dist/_redirects',{force:true})\" && wrangler deploy"
   },
   "dependencies": {
-    "axios": "^1.13.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@phosphor-icons/react": "^2.1.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -25,13 +29,18 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^5.0.3",
+    "wrangler": "^4.147.0"
+  },
+  "description": "Guess in a Beat: a free music quiz. Name the song from a split-second clip.",
+  "engines": {
+    "node": ">=22.18"
   }
 }
