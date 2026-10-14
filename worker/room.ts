@@ -22,7 +22,6 @@ import {
 } from '../src/lib/room-protocol';
 import { DIFFICULTIES, MAX_ATTEMPTS, pointsFor } from '../src/lib/scoring';
 import type { Difficulty, Song } from '../src/lib/types';
-import { cachedVideos } from './videos';
 
 // One multiplayer room. Players connect over WebSockets (hibernatable, so an
 // idle room costs nothing) and the room runs the game:
@@ -48,8 +47,6 @@ interface Player {
 interface GameSong {
     song: Song;
     clip: Clip;
-    /** Whether a YouTube lookup has been tried (it may have found nothing). */
-    resolved: boolean;
 }
 
 interface Round {
@@ -329,11 +326,12 @@ export class Room extends DurableObject<Env> {
         for (const raw of rawSongs.slice(0, MAX_SONGS)) {
             const song = cleanSong(raw);
             if (!song) continue;
+            // Songs without a measured intro play from the preview, which
+            // clients trim of silence; a YouTube video could open silent.
             const intro = cleanVideo((raw as { intro?: unknown }).intro);
             songs.push({
                 song,
                 clip: { key: 1 + Math.floor(Math.random() * 2 ** 40), preview: song.preview, videos: intro ? [intro] : [] },
-                resolved: !!intro,
             });
         }
         if (!songs.length) return false;
@@ -359,27 +357,6 @@ export class Room extends DurableObject<Env> {
         s.phase = 'round';
         s.nextAt = undefined;
         s.round = { index, step: -1, stepStartedAt: now, stepEndsAt: now + COUNTDOWN_MS, players: {} };
-        // Look up this song (if needed) during the countdown, and the next one ahead of time.
-        this.resolve(index);
-        this.resolve(index + 1);
-    }
-
-    private resolve(index: number) {
-        const s = this.state!;
-        const entry = s.songs[index];
-        if (!entry || entry.resolved || index >= s.rounds) return;
-        entry.resolved = true;
-        const { artist, title, duration } = entry.song;
-        void cachedVideos(artist, title, duration, (p) => this.ctx.waitUntil(p)).then(async (ids) => {
-            if (!ids) {
-                entry.resolved = false; // try again next time it comes up
-                return;
-            }
-            entry.clip.videos = ids.map((id) => ({ id, start: 0 }));
-            const r = this.state?.round;
-            if (this.state === s && r && (r.index === index || r.index + 1 === index)) await this.commit();
-            else await this.save();
-        });
     }
 
     private stepLength(step: number): number {

@@ -9,8 +9,9 @@
 // the regular YouTube search fills in, and there the song's length (from
 // iTunes) rules out uploads with extra material in front of the music.
 //
-// Neither has a keyless API, so this uses what their web apps use. Shared by
-// the Worker, the Vite dev server and scripts/build-intros.ts.
+// Neither has a keyless API, so this uses what their web apps use. The video
+// search runs in scripts/build-intros.ts, which also measures where the music
+// starts; the YouTube Music client is shared with playlist import.
 
 import { artistsOverlap, normalizeTitle } from '../src/lib/match.ts';
 

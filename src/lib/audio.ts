@@ -12,8 +12,9 @@ import { findVideos, youtube } from './youtube';
 // If decoding isn't possible, an <audio> element is used instead.
 //
 // Previews are cut from the middle of the song, though, so guessing snippets
-// play the song's real opening from YouTube when a match is found (see
-// youtube.ts). The preview remains the fallback and plays on the reveal.
+// play the song's real opening from YouTube when its start has been measured
+// (see youtube.ts). Other songs, and any that fail on YouTube, use the
+// preview from its first audible moment. The preview also plays on the reveal.
 
 export interface Prepared {
     song: Song;

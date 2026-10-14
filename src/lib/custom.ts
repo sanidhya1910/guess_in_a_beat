@@ -1,4 +1,4 @@
-export const MAX_CUSTOM_SONGS = 25;
+export const MAX_CUSTOM_SONGS = 100;
 export const MIN_CUSTOM_SONGS = 3;
 
 /** App path for a custom challenge made of specific iTunes track ids. */

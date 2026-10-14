@@ -2,12 +2,10 @@ import { parseMatchRequest, parsePlaylistUrl } from '../src/lib/playlist-protoco
 import { isRoomCode, ROOM_CODE_ALPHABET, ROOM_CODE_LENGTH } from '../src/lib/room-protocol';
 import { cachedMatch } from './matches';
 import { PlaylistError, readPlaylist } from './playlists';
-import { cachedVideos } from './videos';
 
 export { Room } from './room';
 
 // Serves the static app plus:
-//   GET  /api/yt?artist=&title=&d= YouTube videos for a song's opening (see youtube.ts)
 //   GET  /api/playlist?url=        tracks of a public Spotify or YouTube playlist (see playlists.ts)
 //   POST /api/match                { country, tracks }: the iTunes song for each track (see catalog.ts)
 //   POST /api/rooms               create a multiplayer room, returns { code }
@@ -18,17 +16,6 @@ function json(body: unknown, init: { status?: number; maxAge?: number } = {}): R
         status: init.status ?? 200,
         headers: { 'content-type': 'application/json', 'cache-control': init.maxAge ? `public, max-age=${init.maxAge}` : 'no-store' },
     });
-}
-
-async function lookup(url: URL, ctx: ExecutionContext): Promise<Response> {
-    const artist = url.searchParams.get('artist')?.slice(0, 200).trim();
-    const title = url.searchParams.get('title')?.slice(0, 200).trim();
-    if (!artist || !title) return json({ error: 'artist and title are required' }, { status: 400 });
-    const d = Number(url.searchParams.get('d'));
-    const duration = d > 0 && d < 7200 ? Math.round(d) : undefined;
-    const ids = await cachedVideos(artist, title, duration, (p) => ctx.waitUntil(p));
-    // A failed lookup is usually rate limiting: let the client fall back and retry later.
-    return ids ? json({ ids }, { maxAge: 86_400 }) : json({ ids: [] }, { maxAge: 60 });
 }
 
 async function playlist(url: URL): Promise<Response> {
@@ -67,7 +54,6 @@ export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
         const { pathname } = url;
-        if (pathname === '/api/yt') return lookup(url, ctx);
         if (pathname === '/api/playlist') return playlist(url);
         if (pathname === '/api/match' && request.method === 'POST') return match(request, ctx);
         if (pathname === '/api/rooms' && request.method === 'POST') return createRoom(env);

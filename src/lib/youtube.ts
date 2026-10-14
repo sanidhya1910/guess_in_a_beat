@@ -5,9 +5,9 @@ import type { Song } from './types';
 // Plays a song's real opening from YouTube. iTunes previews are cut from the
 // middle of a track, so they can't do "name it from the first beat".
 //
-// Where it can, playback starts after any silence at the top of the video
-// (measured ahead of time by scripts/build-intros.ts), so even a 0.1 s clip
-// has music in it.
+// Only songs whose start was measured ahead of time (scripts/build-intros.ts)
+// play from YouTube, starting after any silence at the top of the video, so
+// even a 0.1 s clip has music in it.
 //
 // A single hidden IFrame player is reused. Timing runs from the moment the
 // player reports it is playing, which is accurate to a few tens of
@@ -15,7 +15,6 @@ import type { Song } from './types';
 // browser refusing to start playback) is reported through `onFail` so the
 // caller can fall back to the iTunes preview.
 
-const BASE = import.meta.env.BASE_URL;
 const API_SRC = 'https://www.youtube.com/iframe_api';
 
 /** Time allowed for the player to show any sign of life before giving up. */
@@ -61,42 +60,13 @@ declare global {
     }
 }
 
-/** YouTube videos for a song, best match first. Never rejects. */
+/** The YouTube video for a song's opening, where the start of its music has
+ *  been measured. Songs without a measurement play from the iTunes preview,
+ *  which is trimmed in the browser, rather than risk silence at the top of a
+ *  video. Never rejects. */
 export async function findVideos(song: Song): Promise<Video[]> {
     const intro = await introFor(song.id);
-    if (intro) return [intro];
-    const ids = await lookupIds(song);
-    return ids.map((id) => ({ id, start: 0 }));
-}
-
-async function lookupIds(song: Song): Promise<string[]> {
-    // "yt2": picks saved before art tracks and track lengths were used are ignored.
-    const key = `yt2:${song.id}`;
-    try {
-        const saved = localStorage.getItem(key);
-        if (saved) return JSON.parse(saved) as string[];
-    } catch {
-        // storage unavailable
-    }
-    try {
-        const params = new URLSearchParams({ artist: song.artist, title: song.title });
-        // The track length rules out uploads with a non-music intro.
-        if (song.duration) params.set('d', String(song.duration));
-        const res = await fetch(`${BASE}api/yt?${params}`, { signal: AbortSignal.timeout(6_000) });
-        if (!res.ok) return [];
-        const { ids } = (await res.json()) as { ids?: string[] };
-        if (!Array.isArray(ids)) return [];
-        if (ids.length) {
-            try {
-                localStorage.setItem(key, JSON.stringify(ids));
-            } catch {
-                // storage full or unavailable
-            }
-        }
-        return ids;
-    } catch {
-        return []; // no API on this host, offline, or timed out
-    }
+    return intro ? [intro] : [];
 }
 
 export interface YouTubePlayback {

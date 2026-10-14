@@ -7,7 +7,6 @@ import { defineConfig } from 'vitest/config';
 import { type MatchResult, parseMatchRequest, parsePlaylistUrl } from './src/lib/playlist-protocol.ts';
 import { matchTrack } from './worker/catalog.ts';
 import { PlaylistError, readPlaylist } from './worker/playlists.ts';
-import { findVideos } from './worker/youtube.ts';
 
 // Static hosts like GitHub Pages serve 404.html for unknown paths. Making it a
 // copy of the app lets deep links such as /daily or /play/80s load directly.
@@ -55,16 +54,6 @@ function devApi(base: string): Plugin {
     return {
         name: 'dev-api',
         configureServer(server) {
-            server.middlewares.use(`${base}api/yt`, async (req, res) => {
-                const params = new URL(req.url ?? '', 'http://localhost').searchParams;
-                let ids: string[] = [];
-                try {
-                    ids = await findVideos(params.get('artist') ?? '', params.get('title') ?? '', Number(params.get('d')) || undefined);
-                } catch {
-                    // fall through with no videos, like the Worker
-                }
-                send(res, 200, { ids });
-            });
             server.middlewares.use(`${base}api/playlist`, async (req, res) => {
                 const ref = parsePlaylistUrl(new URL(req.url ?? '', 'http://localhost').searchParams.get('url') ?? '');
                 if (!ref) return send(res, 400, { error: 'Paste a link to a Spotify or YouTube playlist.' });

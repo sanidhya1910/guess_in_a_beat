@@ -34,16 +34,18 @@ Spotify can't be used for a public game: since February 2026, development-mode
 apps are capped at five users and can only read playlists the user owns.
 
 Apple's previews are cut from the middle of a song, though, so guessing
-snippets play the song's real opening from YouTube instead. The Worker's
-`/api/yt` route (`worker/`) finds the song's art track (the upload of the
-studio recording that YouTube Music lists as a song) through YouTube Music's
-song search, falling back to YouTube's search page, and caches the answer at
-the edge. A hidden YouTube
-player then plays exactly the first 0.1 s, 0.5 s and so on, accurate to a few
-tens of milliseconds.
+snippets play the song's real opening from YouTube instead, for songs whose
+opening has been measured ahead of time. `scripts/build-intros.ts` finds each
+pack and Daily song's art track (the upload of the studio recording that
+YouTube Music lists as a song) and measures the silence at its top, saved in
+`src/data/intros.json`. A hidden YouTube player then plays exactly the first
+0.1 s, 0.5 s and so on after that silence, accurate to a few tens of
+milliseconds.
 
-If no video is found, embedding is disabled, or the browser won't start the
-player (iOS often blocks it), the snippet falls back to the iTunes preview. The
+Songs without a measurement (custom challenges and playlist imports) play their
+snippets from the iTunes preview, since an unmeasured video can open with
+seconds of silence. The preview is also used if embedding is disabled or the
+browser won't start the player (iOS often blocks it). The
 reveal always plays the preview. Preview clips are decoded with the Web Audio
 API and start at the first clearly audible moment, not during the fade-in. If
 decoding fails, playback falls back to a plain `<audio>` element. Hosts without
@@ -203,7 +205,7 @@ src/
   data/         Generated song data (see above)
   styles/       Design tokens and CSS
 scripts/        Data build, intro measurement, curated seeds, brand-asset renderer
-worker/         Cloudflare Worker: static assets, /api/yt lookup, playlist import
+worker/         Cloudflare Worker: static assets, playlist import
                 (/api/playlist, /api/match), multiplayer rooms
 ```
 

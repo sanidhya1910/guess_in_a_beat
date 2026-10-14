@@ -62,8 +62,8 @@ export default function CustomPage() {
             covers={covers}
             songs={songs}
             sourceCountry={cc}
-            shuffleSongs={false}
-            lockRounds
+            shuffleSongs
+            allRounds
             sharePath={sharePath}
             challenge={challenge}
             moreLink={{ to: '/create', label: 'Make your own challenge' }}

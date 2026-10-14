@@ -53,11 +53,12 @@ who opens the link plays the same songs in the same order.
   so 0.1 s clips are never silent. An analyser node drives the radial
   visualizer. If decoding fails, playback falls back to an `<audio>` element. If
   a preview URL has expired, it is refreshed with an id lookup.
-- **Song openings**: guessing clips play the song's start from YouTube via the
-  Worker's `/api/yt`. It prefers YouTube Music art tracks (the studio audio)
-  and drops uploads more than 8 s longer than the iTunes track length, which
-  would open with a skit or dialogue. Pack songs use pre-measured picks in
-  `src/data/intros.json`.
+- **Song openings**: guessing clips play the song's start from YouTube for
+  songs measured in `src/data/intros.json` (packs and the Daily), starting
+  after the video's leading silence. The picks prefer YouTube Music art tracks
+  (the studio audio) and drop uploads more than 8 s longer than the iTunes
+  track length. Unmeasured songs (custom challenges, playlist imports) play
+  from the silence-trimmed iTunes preview instead.
 - **Playlist import** (`worker/playlists.ts`, `worker/catalog.ts`): the Worker
   reads public Spotify / YouTube playlists without keys and matches picked
   tracks to iTunes by title, artist and length.
