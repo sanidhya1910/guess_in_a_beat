@@ -5,7 +5,7 @@ import { simplify, songKey, splitArtists } from '../lib/match';
 import type { Song } from '../lib/types';
 
 interface GuessInputProps {
-    /** Songs suggested instantly from the current pack, without a network call. */
+    /** Songs from the current game, suggested only when song search is unavailable. */
     pool: Song[];
     /** Song keys already guessed this round; hidden from suggestions. */
     exclude: Set<string>;
@@ -78,7 +78,10 @@ export function GuessInput({ pool, exclude, country, onGuess, placeholder = 'Kno
         const a = term.toLowerCase();
         const b = remote.query.toLowerCase();
         const remoteSongs = b && (a.startsWith(b) || b.startsWith(a)) ? remote.songs : [];
-        for (const s of [...local.slice(0, 5), ...remoteSongs, ...local.slice(5)]) {
+        // Suggestions come from the iTunes search, so they don't give away which
+        // songs are in this game. The game's own songs only stand in when the
+        // search is unavailable.
+        for (const s of notice ? local : remoteSongs) {
             const key = songKey(s);
             if (seen.has(key)) continue;
             seen.add(key);
@@ -86,7 +89,7 @@ export function GuessInput({ pool, exclude, country, onGuess, placeholder = 'Kno
             if (out.length >= MAX_OPTIONS) break;
         }
         return out;
-    }, [local, remote, exclude, term]);
+    }, [local, remote, exclude, term, notice]);
 
     const noMatch = !options.length && !pending && !notice && remote.query === term;
     const showList = open && term.length >= 2 && (options.length > 0 || !!notice || noMatch);
