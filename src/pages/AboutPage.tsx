@@ -36,7 +36,7 @@ export default function AboutPage() {
     return (
         <article className="page about">
             <header className="list-head">
-                <h1>About Guess in a Beat</h1>
+                <h1>About Name That Beat</h1>
                 <p>A music quiz where the clips start tiny and the scores reward a quick ear.</p>
             </header>
 
@@ -85,7 +85,7 @@ export default function AboutPage() {
             <section className="about-section">
                 <h2>Credits</h2>
                 <p>
-                    Song previews and artwork courtesy of Apple Music. Guess in a Beat is an independent fan project and is not affiliated with
+                    Song previews and artwork courtesy of Apple Music. Name That Beat is an independent fan project and is not affiliated with
                     or endorsed by Apple, Spotify or any artist or label. All music belongs to its respective owners.
                 </p>
                 <Link to="/" className="btn btn--primary">

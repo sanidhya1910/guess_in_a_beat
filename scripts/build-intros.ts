@@ -142,7 +142,7 @@ async function allSongs(): Promise<Song[]> {
         for (const s of pack) songs.set(s.id, s);
     }
     const daily = JSON.parse(await readFile(path.join(DATA_DIR, 'daily.json'), 'utf8')) as DailyData;
-    for (const s of daily.songs) songs.set(s.id, s);
+    for (const c of daily.categories) for (const s of c.songs) songs.set(s.id, s);
     return [...songs.values()];
 }
 

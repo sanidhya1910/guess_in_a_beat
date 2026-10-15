@@ -1,11 +1,13 @@
-# Guess in a Beat
+# Name That Beat
 
 A free music quiz for the browser. You hear a split second of a song and try to
 name it. Every wrong guess or skip plays a little more. No account, no ads, no
 subscription.
 
-- **Daily Challenge**: one song a day, the same for everyone, with streaks,
-  stats and a shareable result grid.
+- **Daily Challenge**: a new song every day in each of six categories (Pop,
+  Hip-Hop & R&B, Rock & Indie, Bollywood & Punjabi, Latin, K-Pop), the same
+  for everyone, with streaks, stats and a shareable result grid. Songs are
+  hand-picked hits from 2000 on that most fans of the genre will know.
 - **Packs**: Top 100 charts (US, UK, India), every decade from the 60s to the
   2020s, and genres from rock and hip-hop to Bollywood, K-pop and Latin.
 - **Party rooms**: real-time multiplayer. Make a room, share the four-letter
@@ -182,9 +184,12 @@ game costs no API calls.
   iTunes allows about 20 requests a minute, so a full run from scratch takes
   around 45 minutes. Results are cached in `scripts/.cache`, so later runs only
   fetch new or changed lines.
-- `daily.json` is the Daily Challenge schedule. It is **append-only**: new songs
-  are added to the end, so a given date always maps to the same song. Puzzle #1
-  is the date in `DAILY_EPOCH` (`src/lib/daily.ts`).
+- `daily.json` holds the Daily Challenge rotation for each category, built from
+  the hand-picked lists in `DAILY_CATEGORIES` (`scripts/seeds.ts`) with
+  `npm run data:daily`. Songs released before `DAILY_MIN_YEAR` are left out.
+  Each rotation is **append-only**: new songs are added to the end, so a given
+  date always maps to the same song. Puzzle #1 is the date in `DAILY_EPOCH`
+  (`src/lib/daily.ts`).
 - If a stored preview link stops working, the game fetches a fresh one from
   iTunes. If that fails too, it swaps in a spare song.
 

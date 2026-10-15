@@ -1,4 +1,4 @@
-# Guess in a Beat: Technical Summary
+# Name That Beat: Technical Summary
 
 A static, client-only music quiz in the spirit of *Heardle*. The player hears an
 increasingly long clip of a song and tries to name it. There is no backend, no
@@ -31,7 +31,8 @@ matches.
 
 | Route           | Mode                                                               |
 | --------------- | ------------------------------------------------------------------ |
-| `/daily`        | One song per local calendar day from `daily.json`; progress persists |
+| `/daily`        | Picks a Daily category: one song per category per local calendar day from `daily.json` |
+| `/daily/:category` | That category's song for today; progress and stats persist per category |
 | `/play/:pack`   | 5 to 20 songs from a chart, decade or genre pack                   |
 | `/artist/:id`   | An artist's most popular songs, fetched live from iTunes           |
 | `/create`, `/c` | Build a list of songs (search, or import a Spotify/YouTube playlist and tick songs); the link encodes the track ids |

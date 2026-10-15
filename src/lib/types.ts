@@ -39,10 +39,18 @@ export interface ArtistPick {
     country: string;
 }
 
+export interface DailyCategory {
+    id: string;
+    title: string;
+    blurb: string;
+    /** The rotation: day N plays songs[N % songs.length]. */
+    songs: Song[];
+}
+
 export interface DailyData {
     /** Local calendar date of puzzle #1, as YYYY-MM-DD. */
     epoch: string;
-    songs: Song[];
+    categories: DailyCategory[];
 }
 
 export type Difficulty = 'easy' | 'normal' | 'hard';

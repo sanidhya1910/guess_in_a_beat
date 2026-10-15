@@ -4,7 +4,7 @@ import { dailySong, dayIndex, formatCountdown } from './daily';
 import { createRng, shuffle } from './rng';
 import { pointsFor, timelinePosition } from './scoring';
 import { gameShareText, markRow } from './share';
-import { dailyStats, type DailyRecord } from './state';
+import { combinedHistory, dailyStats, type DailyRecord } from './state';
 import type { Song } from './types';
 
 const song = (id: number, title: string, artist = 'Artist'): Song => ({
@@ -43,7 +43,7 @@ describe('daily', () => {
     });
 
     it('cycles through the schedule', () => {
-        const data = { epoch: '2026-10-03', songs: [song(1, 'a'), song(2, 'b'), song(3, 'c')] };
+        const data = { id: 'pop', title: 'Pop', blurb: '', songs: [song(1, 'a'), song(2, 'b'), song(3, 'c')] };
         expect(dailySong(data, 0).id).toBe(1);
         expect(dailySong(data, 4).id).toBe(2);
         expect(dailySong(data, -1).id).toBe(3);
@@ -70,6 +70,23 @@ describe('daily', () => {
         expect(stats.currentStreak).toBe(2);
         expect(stats.distribution).toEqual([1, 1, 2, 0, 0, 0, 1]);
         expect(dailyStats(history, 8).currentStreak).toBe(0);
+    });
+
+    it('combines categories into one record per day', () => {
+        const rec = (outcome: DailyRecord['outcome'], tries: number): DailyRecord => ({ songId: tries, marks: Array(tries).fill('wrong'), guesses: [], outcome });
+        const combined = combinedHistory({
+            history: { 1: rec('won', 4) },
+            categories: {
+                pop: { 2: rec('lost', 6), 3: rec('won', 3) },
+                rock: { 2: rec('won', 5), 3: rec('won', 2), 4: rec('playing', 1) },
+            },
+        });
+        // Pre-category records are kept; any solved category wins the day, with the fewest tries.
+        expect(combined[1].marks.length).toBe(4);
+        expect(combined[2].outcome).toBe('won');
+        expect(combined[3].marks.length).toBe(2);
+        expect(combined[4].outcome).toBe('playing');
+        expect(dailyStats(combined, 3).currentStreak).toBe(3);
     });
 });
 
@@ -140,7 +157,7 @@ describe('share', () => {
     it('summarises a pack game in one symbol per song', () => {
         const text = gameShareText({ title: '80s Hits', score: 230, correct: 2, total: 3, tries: [1, null, 4], link: 'https://x.test/p' });
         expect(text.split('\n')).toEqual([
-            'Guess in a Beat: 80s Hits',
+            'Name That Beat: 80s Hits',
             '230 pts, 2/3 songs',
             '1️⃣\u{1F7E5}4️⃣',
             'Beat my score: https://x.test/p',

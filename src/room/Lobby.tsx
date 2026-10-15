@@ -47,7 +47,7 @@ export function Lobby({ room, me, send, initialPack }: LobbyProps) {
     };
 
     const invite = async () => {
-        const outcome = await shareText(`Join my Guess in a Beat room: ${link}`);
+        const outcome = await shareText(`Join my Name That Beat room: ${link}`);
         if (outcome === 'copied') toast('Invite link copied');
         else if (outcome === 'failed') toast(`Room code: ${room.code}`);
     };

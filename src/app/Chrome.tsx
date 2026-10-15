@@ -15,7 +15,7 @@ import { Link } from '../lib/Link';
 import { useUi } from './ui-context';
 
 const NAV: { to: string; label: string; icon: Icon; match: (p: string) => boolean }[] = [
-    { to: '/daily', label: 'Daily', icon: CalendarCheckIcon, match: (p) => p === '/daily' },
+    { to: '/daily', label: 'Daily', icon: CalendarCheckIcon, match: (p) => p === '/daily' || p.startsWith('/daily/') },
     { to: '/packs', label: 'Packs', icon: SquaresFourIcon, match: (p) => p === '/packs' || p.startsWith('/play/') },
     { to: '/party', label: 'Party', icon: UsersThreeIcon, match: (p) => p === '/party' || p.startsWith('/room/') },
     { to: '/artists', label: 'Artists', icon: MicrophoneStageIcon, match: (p) => p.startsWith('/artist') },
@@ -27,9 +27,9 @@ export function Header({ path }: { path: string }) {
     return (
         <header className="site-header">
             <div className="page site-header-row">
-                <Link to="/" className="brand" aria-label="Guess in a Beat, home">
+                <Link to="/" className="brand" aria-label="Name That Beat, home">
                     <LogoMark />
-                    <span className="brand-name">Guess in a Beat</span>
+                    <span className="brand-name">Name That Beat</span>
                 </Link>
                 <nav className="site-nav" aria-label="Main">
                     {NAV.map((item) => (

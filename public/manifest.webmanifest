@@ -1,6 +1,6 @@
 {
-  "name": "Guess in a Beat",
-  "short_name": "Guess a Beat",
+  "name": "Name That Beat",
+  "short_name": "Name That Beat",
   "description": "Name the song from a split-second clip. A free music quiz with a new song every day.",
   "start_url": ".",
   "scope": ".",

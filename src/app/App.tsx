@@ -25,8 +25,9 @@ import { UiContext, type DialogName, type UiContextValue } from './ui-context';
 type Page = ComponentType<{ params: Record<string, string> }>;
 
 const ROUTES: [string, Page, string][] = [
-    ['/', HomePage, 'Guess in a Beat: name the song in a split second'],
+    ['/', HomePage, 'Name That Beat: name the song in a split second'],
     ['/daily', DailyPage, 'Daily Challenge'],
+    ['/daily/:category', DailyPage, 'Daily Challenge'],
     ['/packs', PacksPage, 'Song packs'],
     ['/play/:id', PackPage, 'Play'],
     ['/artists', ArtistsPage, 'Artist mode'],
@@ -69,7 +70,7 @@ export default function App() {
     const toastId = useRef(0);
 
     useEffect(() => {
-        document.title = path === '/' ? title : `${title} | Guess in a Beat`;
+        document.title = path === '/' ? title : `${title} | Name That Beat`;
     }, [path, title]);
 
     // Stop any audio when leaving a page.

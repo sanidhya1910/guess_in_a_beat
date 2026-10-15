@@ -11,6 +11,7 @@
     "test": "vitest run",
     "data": "node scripts/build-data.ts",
     "data:charts": "node scripts/build-data.ts --charts",
+    "data:daily": "node scripts/build-data.ts --daily",
     "data:intros": "node scripts/build-intros.ts",
     "brand": "node scripts/render-brand.ts",
     "deploy": "npm run build && node -e \"require('fs').rmSync('dist/_redirects',{force:true})\" && wrangler deploy"
@@ -39,7 +40,7 @@
     "vitest": "^5.0.3",
     "wrangler": "^4.147.0"
   },
-  "description": "Guess in a Beat: a free music quiz. Name the song from a split-second clip.",
+  "description": "Name That Beat: a free music quiz. Name the song from a split-second clip.",
   "engines": {
     "node": ">=22.18"
   }

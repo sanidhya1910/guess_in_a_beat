@@ -56,7 +56,7 @@ export function HelpDialog({ open, onClose }: { open: boolean; onClose(): void }
                     <h3>Ways to play</h3>
                     <ul className="help-modes">
                         <li>
-                            <strong>Daily</strong> One song a day, the same for everyone. Keep your streak alive.
+                            <strong>Daily</strong> A new song every day in Pop, Hip-Hop, Rock, Bollywood, Latin and K-Pop. Play the ones you know and keep your streak alive.
                         </li>
                         <li>
                             <strong>Packs</strong> Ten songs from a chart, decade or genre.

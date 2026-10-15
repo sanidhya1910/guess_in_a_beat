@@ -1,4 +1,4 @@
-import type { DailyData, Song } from './types';
+import type { DailyCategory, Song } from './types';
 
 /** Calendar date of Daily puzzle #1. */
 export const DAILY_EPOCH = '2026-10-03';
@@ -16,9 +16,9 @@ export function dayIndex(epoch: string, now: Date = new Date()): number {
     return utcDay(now.getFullYear(), now.getMonth(), now.getDate()) - utcDay(y, m - 1, d);
 }
 
-export function dailySong(data: DailyData, index: number): Song {
-    const i = ((index % data.songs.length) + data.songs.length) % data.songs.length;
-    return data.songs[i];
+export function dailySong(category: DailyCategory, index: number): Song {
+    const n = category.songs.length;
+    return category.songs[((index % n) + n) % n];
 }
 
 export function msUntilNextDay(now: Date = new Date()): number {

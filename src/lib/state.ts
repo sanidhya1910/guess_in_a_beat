@@ -36,10 +36,33 @@ export interface DailyRecord {
 }
 
 export interface DailyState {
+    /** Records for each category, by day index. */
+    categories: Record<string, Record<number, DailyRecord>>;
+    /** Records from before the Daily had categories, when everyone got one shared song. */
     history: Record<number, DailyRecord>;
 }
 
-export const dailyStore = createStore<DailyState>('gib:daily', { history: {} });
+export const dailyStore = createStore<DailyState>('gib:daily', { categories: {}, history: {} });
+
+const OUTCOME_RANK: Record<DailyRecord['outcome'], number> = { won: 2, lost: 1, playing: 0 };
+
+/** One record per day across all categories, for the overall streak and stats:
+ *  a day counts as won if any category was solved, keeping the fewest tries. */
+export function combinedHistory(state: DailyState): Record<number, DailyRecord> {
+    const out: Record<number, DailyRecord> = { ...state.history };
+    for (const days of Object.values(state.categories)) {
+        for (const [key, rec] of Object.entries(days)) {
+            const day = Number(key);
+            const prev = out[day];
+            const better =
+                !prev ||
+                OUTCOME_RANK[rec.outcome] > OUTCOME_RANK[prev.outcome] ||
+                (rec.outcome === 'won' && prev.outcome === 'won' && rec.marks.length < prev.marks.length);
+            if (better) out[day] = rec;
+        }
+    }
+    return out;
+}
 
 export interface DailyStats {
     played: number;
@@ -133,6 +156,6 @@ export function saveGame(key: string, title: string, score: number, songs: numbe
 }
 
 export function resetAllProgress() {
-    dailyStore.set({ history: {} });
+    dailyStore.set({ categories: {}, history: {} });
     recordsStore.set({ packs: {}, songsPlayed: 0, songsCorrect: 0, gamesPlayed: 0 });
 }

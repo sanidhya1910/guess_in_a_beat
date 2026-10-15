@@ -11,8 +11,6 @@ export interface CuratedPack {
     category: Exclude<PackCategory, 'charts'>;
     /** iTunes storefront used to resolve the songs. */
     country: string;
-    /** Songs from this pack are eligible for the Daily Challenge. */
-    daily?: boolean;
     songs: string;
 }
 
@@ -36,7 +34,6 @@ export const CURATED: CuratedPack[] = [
         blurb: 'Motown, the British Invasion and the summer of love.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 The Beatles | Hey Jude
 The Beatles | Here Comes the Sun
@@ -96,7 +93,6 @@ David Bowie | Space Oddity
         blurb: 'Disco, stadium rock and soul at its peak.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 Queen | Bohemian Rhapsody
 Queen | Don't Stop Me Now
@@ -159,7 +155,6 @@ Rod Stewart | Da Ya Think I'm Sexy?
         blurb: 'Synths, power ballads and the birth of MTV.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 Michael Jackson | Billie Jean
 Michael Jackson | Beat It
@@ -224,7 +219,6 @@ Starship | We Built This City
         blurb: 'Grunge, girl power, boy bands and Britpop.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 Nirvana | Smells Like Teen Spirit
 Oasis | Wonderwall
@@ -287,7 +281,6 @@ Semisonic | Closing Time
         blurb: 'Ringtone rap, pop punk and the iPod era.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 Beyoncé | Crazy in Love
 Beyoncé | Single Ladies (Put a Ring on It)
@@ -350,7 +343,6 @@ Sean Paul | Temperature
         blurb: 'Streaming takes over. EDM drops, viral dances and pop at full volume.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 Adele | Rolling in the Deep
 Adele | Someone Like You
@@ -415,7 +407,6 @@ Wiz Khalifa | See You Again
         blurb: 'The songs that ruled the decade so far.',
         category: 'decades',
         country: 'us',
-        daily: true,
         songs: `
 The Weeknd | Blinding Lights
 The Weeknd | Save Your Tears
@@ -476,7 +467,6 @@ Jack Harlow | First Class
         blurb: 'Riffs you know from the first chord.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 AC/DC | Back In Black
 AC/DC | Thunderstruck
@@ -537,7 +527,6 @@ Pearl Jam | Even Flow
         blurb: 'From the golden age to the streaming era.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 Eminem | The Real Slim Shady
 Dr. Dre | Forgot About Dre
@@ -597,7 +586,6 @@ Eminem | Mockingbird
         blurb: 'Smooth vocals, late nights and big feelings.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 Usher | Burn
 Alicia Keys | No One
@@ -649,7 +637,6 @@ H.E.R. | Best Part
         blurb: 'House, EDM and club classics built for the drop.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 Avicii | Levels
 Avicii | The Nights
@@ -701,7 +688,6 @@ Calvin Harris & Disciples | How Deep Is Your Love
         blurb: 'Festival favourites and bedroom-pop anthems.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 Arctic Monkeys | 505
 Arctic Monkeys | R U Mine?
@@ -755,7 +741,6 @@ Tame Impala | Let It Happen
         blurb: 'Soundtrack hits and themes from the big screen.',
         category: 'genres',
         country: 'us',
-        daily: true,
         songs: `
 Kenny Loggins | Danger Zone
 Bill Medley & Jennifer Warnes | (I've Had) The Time of My Life
@@ -1064,4 +1049,325 @@ export const ARTISTS: { name: string; country: string }[] = [
     { name: 'Linkin Park', country: 'us' },
     { name: 'ABBA', country: 'us' },
     { name: 'Lady Gaga', country: 'us' },
+];
+
+// ── Daily Challenge ─────────────────────────────────────────────────────────
+//
+// Each category gets its own song every day, so pop fans, hip-hop heads and
+// Bollywood listeners each have a song they are likely to know. The lists are
+// picked by hand, not taken from the charts: songs from DAILY_MIN_YEAR on that
+// most people who follow the genre have heard, with at most two per artist so
+// one star doesn't take over. Being a hit isn't enough on its own; a song
+// belongs here when it is still widely recognised.
+//
+// The schedule is append-only (see buildDaily in build-data.ts): new lines join
+// the end of a category's rotation, and removing a line here doesn't remove a
+// song that is already scheduled.
+
+export interface DailyCategorySeed {
+    id: string;
+    title: string;
+    blurb: string;
+    /** iTunes storefront used to resolve the songs. */
+    country: string;
+    songs: string;
+}
+
+/** Songs released before this year are left out of the Daily, even if listed. */
+export const DAILY_MIN_YEAR = 2000;
+
+export const DAILY_CATEGORIES: DailyCategorySeed[] = [
+    {
+        id: 'pop',
+        title: 'Pop',
+        blurb: 'The biggest pop songs of the last two decades.',
+        country: 'us',
+        songs: `
+Britney Spears | Toxic
+Kelly Clarkson | Since U Been Gone
+Avril Lavigne | Complicated
+Rihanna | Umbrella
+Rihanna | Diamonds
+Shakira | Hips Don't Lie
+Black Eyed Peas | I Gotta Feeling
+Lady Gaga | Bad Romance
+Katy Perry | Firework
+Katy Perry | Roar
+Taylor Swift | Love Story
+Taylor Swift | Shake It Off
+Justin Timberlake | CAN'T STOP THE FEELING!
+Gwen Stefani | Hollaback Girl
+Nelly Furtado | Promiscuous
+Leona Lewis | Bleeding Love
+James Blunt | You're Beautiful
+Adele | Rolling in the Deep
+Adele | Someone Like You
+Ed Sheeran | Shape of You
+Ed Sheeran | Thinking Out Loud
+Mark Ronson | Uptown Funk
+Bruno Mars | Just the Way You Are
+Pharrell Williams | Happy
+Gotye | Somebody That I Used to Know
+Carly Rae Jepsen | Call Me Maybe
+Justin Bieber | Sorry
+Sia | Chandelier
+Lorde | Royals
+Ariana Grande | 7 rings
+Dua Lipa | New Rules
+Dua Lipa | Levitating
+Camila Cabello | Havana
+Shawn Mendes & Camila Cabello | Señorita
+Maroon 5 | Moves Like Jagger
+OneRepublic | Counting Stars
+Avicii | Wake Me Up
+The Chainsmokers | Closer
+The Weeknd | Blinding Lights
+Harry Styles | As It Was
+Billie Eilish | bad guy
+Olivia Rodrigo | drivers license
+Doja Cat | Say So
+Glass Animals | Heat Waves
+The Kid LAROI & Justin Bieber | STAY
+Tones And I | Dance Monkey
+Miley Cyrus | Flowers
+Sabrina Carpenter | Espresso
+Lady Gaga & Bruno Mars | Die With A Smile
+ROSÉ & Bruno Mars | APT.
+`,
+    },
+    {
+        id: 'hiphop',
+        title: 'Hip-Hop & R&B',
+        blurb: 'Rap anthems and R&B favourites from the 2000s on.',
+        country: 'us',
+        songs: `
+Beyoncé | Crazy in Love
+Beyoncé | Halo
+OutKast | Hey Ya!
+Eminem | Lose Yourself
+Eminem | Without Me
+50 Cent | In da Club
+Usher | Yeah!
+Nelly | Hot in Herre
+Kanye West | Gold Digger
+Kanye West | Stronger
+Snoop Dogg | Drop It Like It's Hot
+JAY-Z | Empire State of Mind
+Alicia Keys | Fallin'
+Alicia Keys | No One
+Ne-Yo | So Sick
+Mario | Let Me Love You
+Ciara | Goodies
+Missy Elliott | Get Ur Freak On
+Sean Paul | Temperature
+Lil Wayne | Lollipop
+T.I. | Whatever You Like
+Kid Cudi | Day 'N' Nite
+Nicki Minaj | Super Bass
+Drake | Hotline Bling
+Drake | God's Plan
+Kendrick Lamar | HUMBLE.
+Kendrick Lamar | Not Like Us
+Macklemore & Ryan Lewis | Thrift Shop
+Wiz Khalifa | See You Again
+Post Malone & Swae Lee | Sunflower
+Post Malone | Congratulations
+Travis Scott | SICKO MODE
+Lil Nas X | Old Town Road
+Cardi B | Bodak Yellow
+Migos | Bad and Boujee
+Juice WRLD | Lucid Dreams
+Childish Gambino | This Is America
+Future | Mask Off
+Megan Thee Stallion | Savage
+The Weeknd | Starboy
+Frank Ocean | Thinkin Bout You
+John Legend | All of Me
+Khalid | Location
+Rihanna | Love On The Brain
+Silk Sonic | Leave the Door Open
+SZA | Kill Bill
+Jack Harlow | First Class
+`,
+    },
+    {
+        id: 'rock',
+        title: 'Rock & Indie',
+        blurb: 'Guitar anthems and indie hits that filled every playlist.',
+        country: 'us',
+        songs: `
+The Killers | Mr. Brightside
+The Killers | Somebody Told Me
+The White Stripes | Seven Nation Army
+Coldplay | Viva la Vida
+Linkin Park | In the End
+Linkin Park | Numb
+My Chemical Romance | Welcome to the Black Parade
+Fall Out Boy | Sugar, We're Goin Down
+Paramore | Misery Business
+Snow Patrol | Chasing Cars
+Nickelback | How You Remind Me
+Kings of Leon | Use Somebody
+Kings of Leon | Sex on Fire
+MGMT | Kids
+MGMT | Electric Feel
+The Fray | How to Save a Life
+Foo Fighters | The Pretender
+Red Hot Chili Peppers | Can't Stop
+Arctic Monkeys | I Bet You Look Good On the Dancefloor
+Arctic Monkeys | Do I Wanna Know?
+Muse | Uprising
+Muse | Supermassive Black Hole
+The Strokes | Last Nite
+Franz Ferdinand | Take Me Out
+The Black Keys | Lonely Boy
+Queens of the Stone Age | No One Knows
+Audioslave | Like a Stone
+Imagine Dragons | Radioactive
+Imagine Dragons | Believer
+Hozier | Take Me to Church
+Foster the People | Pumped Up Kicks
+fun. | We Are Young
+Twenty One Pilots | Stressed Out
+Måneskin | Beggin'
+Gorillaz | Feel Good Inc.
+Gorillaz | Clint Eastwood
+Vampire Weekend | A-Punk
+Florence + The Machine | Dog Days Are Over
+The Lumineers | Ho Hey
+Of Monsters and Men | Little Talks
+The Neighbourhood | Sweater Weather
+Portugal. The Man | Feel It Still
+WALK THE MOON | Shut Up and Dance
+Lana Del Rey | Summertime Sadness
+Modest Mouse | Float On
+Cage the Elephant | Ain't No Rest for the Wicked
+Coldplay | Paradise
+Yeah Yeah Yeahs | Heads Will Roll
+Phoenix | 1901
+Two Door Cinema Club | What You Know
+`,
+    },
+    {
+        id: 'bollywood',
+        title: 'Bollywood & Punjabi',
+        blurb: 'Film hits and Punjabi bangers from across India.',
+        country: 'in',
+        songs: `
+Pritam, Arijit Singh & Amitabh Bhattacharya | Kesariya
+Arijit Singh | Tum Hi Ho
+Arijit Singh | Channa Mereya
+Pritam & Arijit Singh | Apna Bana Le
+Alka Yagnik & Arijit Singh | Agar Tum Saath Ho
+Sonu Nigam | Kal Ho Naa Ho
+A.R. Rahman | Jai Ho
+Badshah | Genda Phool
+Yo Yo Honey Singh | Blue Eyes
+Yo Yo Honey Singh | Lungi Dance
+Neha Kakkar | Dilbar
+Benny Dayal & Shefali Alvares | Badtameez Dil
+Sukhwinder Singh | Chak De India
+A.R. Rahman, Javed Ali & Mohit Chauhan | Kun Faya Kun
+Atif Aslam | Pehli Nazar Mein
+Atif Aslam | Jeena Jeena
+KK & Shilpa Rao | Khuda Jaane
+Rahat Fateh Ali Khan | Tere Mast Mast Do Nain
+Sachet Tandon | Bekhayali
+Jubin Nautiyal & Asees Kaur | Raataan Lambiyan
+Shankar Mahadevan | Dil Chahta Hai
+Alisha Chinai, Shankar Mahadevan & Javed Ali | Kajra Re
+Sunidhi Chauhan & Vishal Dadlani | Sheila Ki Jawani
+Mamta Sharma | Munni Badnaam Hui
+Akon & Hamsika Iyer | Chammak Challo
+Madhubanti Bagchi & Divya Kumar | Aaj Ki Raat
+Karan Aujla | Tauba Tauba
+Mohit Chauhan | Tum Se Hi
+Sonu Nigam | Abhi Mujh Mein Kahin
+Shaan & Sunidhi Chauhan | Chand Sifarish
+Diljit Dosanjh | Lover
+Diljit Dosanjh | G.O.A.T.
+AP Dhillon | Brown Munde
+AP Dhillon | Excuses
+Sidhu Moose Wala | 295
+Shubh | Still Rollin
+Guru Randhawa | Lahore
+Guru Randhawa | High Rated Gabru
+Harrdy Sandhu | Bijlee Bijlee
+Imran Khan | Satisfya
+B Praak | Filhall
+King | Maan Meri Jaan
+Anuv Jain | Husn
+Badshah | Paani Paani
+`,
+    },
+    {
+        id: 'latin',
+        title: 'Latin',
+        blurb: 'Reggaeton, Latin pop and the songs that crossed over.',
+        country: 'us',
+        songs: `
+Luis Fonsi & Daddy Yankee | Despacito
+Daddy Yankee | Gasolina
+Daddy Yankee | Con Calma
+Shakira | Whenever, Wherever
+Shakira | Waka Waka (This Time for Africa)
+Cardi B, Bad Bunny & J Balvin | I Like It
+J Balvin & Willy William | Mi Gente
+KAROL G | PROVENZA
+Maluma | Hawái
+Enrique Iglesias | Bailando
+Marc Anthony | Vivir Mi Vida
+Juanes | La Camisa Negra
+Manu Chao | Me Gustas Tu
+Eslabon Armado & Peso Pluma | Ella Baila Sola
+Grupo Frontera & Bad Bunny | un x100to
+Anitta | Envolver
+Romeo Santos | Propuesta Indecente
+Aventura | Obsesión
+Carlos Vives & Shakira | La Bicicleta
+Danny Ocean | Me Rehúso
+CNCO | Reggaetón Lento (Bailemos)
+Pitbull | Give Me Everything
+Feid | Luna
+Nicky Jam & J Balvin | X
+Becky G & Natti Natasha | Sin Pijama
+Sebastián Yatra | Traicionera
+`,
+    },
+    {
+        id: 'kpop',
+        title: 'K-Pop',
+        blurb: 'The K-pop hits that went global.',
+        country: 'us',
+        songs: `
+BTS | Dynamite
+BTS | Butter
+BLACKPINK | DDU-DU DDU-DU
+BLACKPINK | How You Like That
+PSY | Gangnam Style
+NewJeans | Hype Boy
+NewJeans | Super Shy
+IVE | LOVE DIVE
+LE SSERAFIM | ANTIFRAGILE
+aespa | Next Level
+aespa | Supernova
+SEVENTEEN | Super
+TWICE | TT
+TWICE | What is Love?
+Red Velvet | Psycho
+BIGBANG | FANTASTIC BABY
+2NE1 | I Am the Best
+Girls' Generation | Gee
+ITZY | WANNABE
+(G)I-DLE | TOMBOY
+Jung Kook | Seven
+Jimin | Like Crazy
+ILLIT | Magnetic
+HUNTR/X | Golden
+Stray Kids | S-Class
+TAEYANG | Eyes, Nose, Lips
+IU | Good Day
+EXO | Growl
+`,
+    },
 ];

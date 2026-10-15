@@ -18,9 +18,9 @@ export function siteUrl(path = ''): string {
     return `${window.location.origin}${base}${path}`;
 }
 
-export function dailyShareText(puzzle: number, marks: Mark[], won: boolean): string {
+export function dailyShareText(puzzle: number, category: { id: string; title: string }, marks: Mark[], won: boolean): string {
     const result = won ? `${marks.length}/${MAX_ATTEMPTS}` : `X/${MAX_ATTEMPTS}`;
-    return `Guess in a Beat #${puzzle} ${result}\n\u{1F50A}${markRow(marks)}\n${siteUrl('/daily')}`;
+    return `Name That Beat #${puzzle} ${category.title} ${result}\n\u{1F50A}${markRow(marks)}\n${siteUrl(`/daily/${category.id}`)}`;
 }
 
 /** One symbol per song: the try it was named on, or a red square if missed. */
@@ -37,7 +37,7 @@ export function gameShareText(opts: {
     const lines: string[] = [];
     for (let i = 0; i < cells.length; i += 10) lines.push(cells.slice(i, i + 10).join(''));
     return [
-        `Guess in a Beat: ${opts.title}`,
+        `Name That Beat: ${opts.title}`,
         `${opts.score} pts, ${opts.correct}/${opts.total} songs`,
         ...lines,
         `Beat my score: ${opts.link}`,

@@ -7,7 +7,7 @@ import { artworkAt } from '../lib/itunes';
 import { PACKS, POPULAR_ARTISTS, randomPack } from '../lib/packs';
 import { Link } from '../lib/Link';
 import { navigate } from '../lib/router';
-import { dailyStats, dailyStore, settingsStore } from '../lib/state';
+import { combinedHistory, dailyStats, dailyStore, settingsStore } from '../lib/state';
 import { useStore } from '../lib/store';
 
 function heroColumns(): string[][] {
@@ -21,21 +21,19 @@ const HERO_COLUMNS = heroColumns();
 
 function DailyButton() {
     const today = dayIndex(DAILY_EPOCH);
-    const { history } = useStore(dailyStore);
-    const record = history[today];
-    const done = record && record.outcome !== 'playing';
+    const { categories } = useStore(dailyStore);
+    const started = Object.values(categories).some((days) => days[today]);
     return (
         <Link to="/daily" className="btn btn--primary btn--lg">
             <PlayIcon size={18} weight="fill" />
-            {done ? "See today's result" : record ? "Finish today's song" : "Play today's song"}
+            {started ? "Continue today's songs" : "Play today's songs"}
         </Link>
     );
 }
 
 function StreakNote() {
     const today = dayIndex(DAILY_EPOCH);
-    const { history } = useStore(dailyStore);
-    const { currentStreak } = dailyStats(history, today);
+    const { currentStreak } = dailyStats(combinedHistory(useStore(dailyStore)), today);
     if (currentStreak < 2) return null;
     return (
         <p className="hero-streak">

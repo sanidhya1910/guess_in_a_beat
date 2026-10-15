@@ -2,12 +2,13 @@
 //
 //   src/data/catalog.json        pack list (titles, counts, cover art)
 //   src/data/packs/<id>.json     songs in each pack
-//   src/data/daily.json          Daily Challenge schedule (append-only)
+//   src/data/daily.json          Daily Challenge rotation per category (append-only)
 //   src/data/artists.json        one-tap artists for Artist mode
 //
 // Usage:
 //   node scripts/build-data.ts            everything (slow: ~20 iTunes calls/min)
 //   node scripts/build-data.ts --charts   refresh only the Top 100 charts (fast)
+//   node scripts/build-data.ts --daily    rebuild only the Daily Challenge
 //
 // Search results are cached in scripts/.cache so re-runs only fetch new seeds.
 
@@ -17,14 +18,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DAILY_EPOCH } from '../src/lib/daily.ts';
 import { artistsOverlap, normalizeTitle, songKey, splitArtists } from '../src/lib/match.ts';
-import type { ArtistPick, DailyData, PackInfo, Song } from '../src/lib/types.ts';
-import { ARTISTS, CHARTS, CURATED, type CuratedPack } from './seeds.ts';
+import type { ArtistPick, DailyCategory, DailyData, PackInfo, Song } from '../src/lib/types.ts';
+import { ARTISTS, CHARTS, CURATED, DAILY_CATEGORIES, DAILY_MIN_YEAR, type CuratedPack, type DailyCategorySeed } from './seeds.ts';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = path.join(ROOT, 'src/data');
 const PACK_DIR = path.join(DATA_DIR, 'packs');
 const CACHE_FILE = path.join(ROOT, 'scripts/.cache/itunes.json');
 const CHARTS_ONLY = process.argv.includes('--charts');
+const DAILY_ONLY = process.argv.includes('--daily');
 
 // iTunes allows roughly 20 requests per minute per IP.
 const GAP_MS = 3200;
@@ -312,29 +314,62 @@ async function buildArtists(): Promise<ArtistPick[]> {
     return picks;
 }
 
-// The schedule is append-only so a given date always maps to the same song,
-// even after the pool grows. Existing entries get refreshed metadata.
-async function buildDaily(pool: Song[]): Promise<DailyData> {
-    const file = path.join(DATA_DIR, 'daily.json');
-    const existing = await readJson<DailyData>(file);
-    const byId = new Map(pool.map((s) => [s.id, s]));
+// Each category's rotation is append-only so a given date always maps to the
+// same song, even after the list grows. Existing entries get refreshed
+// metadata; new songs are shuffled onto the end.
+async function buildDailyCategory(seed: DailyCategorySeed, existing: DailyCategory | undefined): Promise<DailyCategory> {
+    const lines = seed.songs.split('\n').map((l) => l.trim()).filter((l) => l.includes('|'));
+    console.log(`daily ${seed.id} (${lines.length} seeds)`);
+    const resolved: Song[] = [];
+    const perArtist = new Map<string, number>();
+    for (const line of lines) {
+        const song = await resolveSeed(line, seed.country);
+        if (!song) {
+            console.warn(`  no match: ${line}`);
+            continue;
+        }
+        // The catalog year can be a later re-release, so this is a backstop for
+        // the hand-picked list rather than the rule itself.
+        if (!song.year || song.year < DAILY_MIN_YEAR) {
+            console.warn(`  before ${DAILY_MIN_YEAR}, left out: ${line} (${song.year ?? 'no year'})`);
+            continue;
+        }
+        const lead = splitArtists(line.split('|')[0])[0] ?? '';
+        perArtist.set(lead, (perArtist.get(lead) ?? 0) + 1);
+        resolved.push(song);
+    }
+    for (const [artist, n] of perArtist) if (n > 2) console.warn(`  ${artist} leads ${n} songs; the lists aim for at most 2`);
+
+    const byId = new Map(resolved.map((s) => [s.id, s]));
     const songs = (existing?.songs ?? []).map((s) => byId.get(s.id) ?? s);
     const scheduled = new Set(songs.map(songKey));
-    const fresh = dedupe(pool).filter((s) => !scheduled.has(songKey(s)));
+    const fresh = dedupe(resolved).filter((s) => !scheduled.has(songKey(s)));
     for (let i = fresh.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [fresh[i], fresh[j]] = [fresh[j], fresh[i]];
     }
-    const daily: DailyData = { epoch: existing?.epoch ?? DAILY_EPOCH, songs: [...songs, ...fresh] };
-    await writeJson(file, daily);
-    console.log(`daily: ${daily.songs.length} songs (${fresh.length} new)`);
-    return daily;
+    console.log(`  ${songs.length + fresh.length} songs (${fresh.length} new)`);
+    return { id: seed.id, title: seed.title, blurb: seed.blurb, songs: [...songs, ...fresh] };
+}
+
+async function buildDaily(): Promise<void> {
+    const file = path.join(DATA_DIR, 'daily.json');
+    const existing = await readJson<Partial<DailyData>>(file);
+    const previous = new Map((existing?.categories ?? []).map((c) => [c.id, c]));
+    const categories: DailyCategory[] = [];
+    for (const seed of DAILY_CATEGORIES) categories.push(await buildDailyCategory(seed, previous.get(seed.id)));
+    await writeJson(file, { epoch: existing?.epoch ?? DAILY_EPOCH, categories } satisfies DailyData);
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
     await loadCache();
+    if (DAILY_ONLY) {
+        await buildDaily();
+        await saveCache();
+        return;
+    }
     const catalogFile = path.join(DATA_DIR, 'catalog.json');
     const previous = (await readJson<PackInfo[]>(catalogFile)) ?? [];
     const infos = new Map(previous.map((p) => [p.id, p]));
@@ -349,14 +384,9 @@ async function main() {
     }
 
     if (!CHARTS_ONLY) {
-        const dailyPool: Song[] = [];
-        for (const pack of CURATED) {
-            const { info, songs } = await buildCurated(pack);
-            infos.set(pack.id, info);
-            if (pack.daily) dailyPool.push(...songs);
-        }
+        for (const pack of CURATED) infos.set(pack.id, (await buildCurated(pack)).info);
         await saveCache();
-        await buildDaily(dailyPool);
+        await buildDaily();
         await writeJson(path.join(DATA_DIR, 'artists.json'), await buildArtists());
     }
 

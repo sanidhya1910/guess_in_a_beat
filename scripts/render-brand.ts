@@ -78,7 +78,7 @@ p{margin:0;font-size:26px;color:#b6b5bf}
 </style></head><body>
 <div class="wall">${cols.map((c) => `<div class="col">${[...c, ...c].map((u) => `<img src="${u}">`).join('')}</div>`).join('')}</div>
 <div class="fade"></div>
-<div class="copy"><div class="brand">${MARK(52)}Guess in a Beat</div><h1>How fast can you name a song?</h1><p>A free music quiz. New song every day.</p></div>
+<div class="copy"><div class="brand">${MARK(52)}Name That Beat</div><h1>How fast can you name a song?</h1><p>A free music quiz. New song every day.</p></div>
 </body></html>`;
 }
 

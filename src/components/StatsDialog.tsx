@@ -1,12 +1,12 @@
 import { DIFFICULTIES } from '../lib/scoring';
-import { dailyStats, dailyStore, recordsStore } from '../lib/state';
+import { combinedHistory, dailyStats, dailyStore, recordsStore } from '../lib/state';
 import { useStore } from '../lib/store';
 import type { Difficulty } from '../lib/types';
 import { Dialog } from './Dialog';
 import { Distribution } from './Distribution';
 
 export function StatsDialog({ open, onClose, today }: { open: boolean; onClose(): void; today: number }) {
-    const { history } = useStore(dailyStore);
+    const history = combinedHistory(useStore(dailyStore));
     const records = useStore(recordsStore);
     const stats = dailyStats(history, today);
     const todayRecord = history[today];
@@ -45,7 +45,7 @@ export function StatsDialog({ open, onClose, today }: { open: boolean; onClose()
                 {stats.played > 0 ? (
                     <Distribution counts={stats.distribution} highlight={highlight} />
                 ) : (
-                    <p className="empty-note">Play today&rsquo;s song to start your streak.</p>
+                    <p className="empty-note">Play one of today&rsquo;s songs to start your streak.</p>
                 )}
             </section>
 
