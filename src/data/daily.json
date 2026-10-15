@@ -1,0 +1,2497 @@
+{
+ "epoch": "2026-10-03",
+ "categories": [
+  {
+   "id": "pop",
+   "title": "Pop",
+   "blurb": "The biggest pop songs of the last two decades.",
+   "songs": [
+    {
+     "id": 1440754487,
+     "title": "Somebody That I Used to Know (feat. Kimbra)",
+     "artist": "Gotye",
+     "album": "Making Mirrors",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b3/8a/98/b38a9867-2a9c-de2f-2d80-c624fb2200ec/11UMGIM19347.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4a/63/85/4a6385ef-b80a-5e40-0bf2-245fa5b3dc52/mzaf_1146936378720252898.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 245
+    },
+    {
+     "id": 1491226770,
+     "title": "Hollaback Girl",
+     "artist": "Gwen Stefani",
+     "album": "Hollaback Girl - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/72/05/5472050c-5ec7-8cc5-787d-43f0d7f916d2/19UM1IM10385.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/aa/ab/dd/aaabdd89-7ca3-e6fe-86d1-e00b054d9332/mzaf_6128231353075845529.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 201
+    },
+    {
+     "id": 1486465101,
+     "title": "Say So",
+     "artist": "Doja Cat",
+     "album": "Hot Pink",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f3/03/40/f30340af-55d6-11bb-f59c-b03705360715/886447991831.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ff/47/3c/ff473c7d-528e-0086-de52-6028bcb62973/mzaf_9830857886973437464.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 238
+    },
+    {
+     "id": 1440933651,
+     "title": "Shake It Off",
+     "artist": "Taylor Swift",
+     "album": "1989 (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a7/98/d8/a798d867-344d-2bf2-fbfe-d2d1412dcef8/14UMDIM03793.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/d5/6d/11d56d4a-ce23-e793-8681-70dc4d35d931/mzaf_5886436202259848624.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 219
+    },
+    {
+     "id": 1440859510,
+     "title": "Moves Like Jagger (feat. Christina Aguilera)",
+     "artist": "Maroon 5",
+     "album": "Hands All Over (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/61/53/15/61531592-3e8b-1e85-b434-73a991d8143c/14UMGIM27067.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1a/e8/be/1ae8bea8-8962-8168-80d5-65bf3b1478ba/mzaf_471500839444486606.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 201
+    },
+    {
+     "id": 1450695739,
+     "title": "bad guy",
+     "artist": "Billie Eilish",
+     "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1a/37/d1/1a37d1b1-8508-54f2-f541-bf4e437dda76/19UMGIM05028.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c3/87/1f/c3871f7e-3260-d615-1c66-5fdca2c3a48f/mzaf_10721331211699880949.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 194
+    },
+    {
+     "id": 1440829610,
+     "title": "Sorry",
+     "artist": "Justin Bieber",
+     "album": "Purpose (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/75/11/84/751184b0-77df-1eff-bb20-dac03247425d/15UMGIM59808.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/66/eb/29/66eb29c0-c2f9-d9df-8af3-3bf2562c9d7c/mzaf_4099789285264521999.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 201
+    },
+    {
+     "id": 1444105800,
+     "title": "Diamonds",
+     "artist": "Rihanna",
+     "album": "Unapologetic",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/06/dc/df06dc72-6ecd-a079-69b8-adc6462a38d8/12UMGIM59889.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/bf/6c/eebf6cc5-67a1-7d94-7b39-e15575087f79/mzaf_17010427686655497991.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 225
+    },
+    {
+     "id": 1544491998,
+     "title": "Someone Like You",
+     "artist": "Adele",
+     "album": "21",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/eb/ca/25/ebca2596-cd1e-b295-91a3-771c868d0a79/191404113868.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/08/22/2e/08222e25-43f5-20e6-a442-b8127ac83368/mzaf_1689070223363740216.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 285
+    },
+    {
+     "id": 1441154437,
+     "title": "Umbrella (feat. JAŸ-Z)",
+     "artist": "Rihanna",
+     "album": "Good Girl Gone Bad: Reloaded",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/c0/81/2bc081c8-25f0-ba43-d451-587a54613778/16UMGIM59202.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/45/22/7b452241-882c-409b-3a9b-23306b14286a/mzaf_8588243939716013218.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 276
+    },
+    {
+     "id": 943946671,
+     "title": "Uptown Funk (feat. Bruno Mars)",
+     "artist": "Mark Ronson",
+     "album": "Uptown Special",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7e/30/c5/7e30c572-aa47-5f7b-c6fd-42d50cd2c56d/886444959797.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b9/96/2c/b9962c79-3662-235c-e55d-6c4b41457499/mzaf_18075623088273148288.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 270
+    },
+    {
+     "id": 275765380,
+     "title": "Since U Been Gone",
+     "artist": "Kelly Clarkson",
+     "album": "Breakaway",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e3/7e/c5/e37ec5d7-725b-695c-333c-ee0deb5adcc6/dj.mveioodu.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8d/e7/24/8de72427-cabf-27c4-563f-5be2e83da122/mzaf_8282882240981789361.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 189
+    },
+    {
+     "id": 1508562516,
+     "title": "Heat Waves",
+     "artist": "Glass Animals",
+     "album": "Dreamland",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/da/8b/77/da8b7731-6f4f-eacf-5e74-8b23389eefa1/20UMGIM03371.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a3/4c/b9/a34cb911-40fc-5f0c-e862-14bd171a77aa/mzaf_384792072030970151.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 239
+    },
+    {
+     "id": 1228742334,
+     "title": "New Rules",
+     "artist": "Dua Lipa",
+     "album": "Dua Lipa (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/31/33/cf/3133cffc-4b77-f3c6-3ee3-5c9b6cfb6bd4/190295806675.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/07/2e/84/072e84d4-2970-034b-0941-60c112f36a2b/mzaf_5630674587159822008.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 209
+    },
+    {
+     "id": 1538003843,
+     "title": "Levitating",
+     "artist": "Dua Lipa",
+     "album": "Future Nostalgia",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/11/d6/6c11d681-aa3a-d59e-4c2e-f77e181026ab/190295092665.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/59/dc/4d/59dc4dda-93ff-8f1c-c536-f005f6ea6af5/mzaf_3066686759813252385.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 204
+    },
+    {
+     "id": 863835363,
+     "title": "Happy (From \"Despicable Me 2\")",
+     "artist": "Pharrell Williams",
+     "album": "G I R L",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/76/ff/5e/76ff5ee0-7ab4-2ac2-2598-486a9ccc06e1/886444516877.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ed/a0/19/eda019cf-2794-66d1-208d-2e2e74c26c3d/mzaf_16469762943852039623.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 233
+    },
+    {
+     "id": 1579787410,
+     "title": "STAY",
+     "artist": "The Kid LAROI & Justin Bieber",
+     "album": "F*CK LOVE 3+: OVER YOU",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a8/3a/22/a83a22f7-af18-7ef6-a7de-74816c532a44/886449475421.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/25/9a/1c/259a1c5d-c59b-ce1f-8279-c0e644dc2b9e/mzaf_3677842867275398060.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 142
+    },
+    {
+     "id": 1321217032,
+     "title": "Havana (feat. Young Thug)",
+     "artist": "Camila Cabello",
+     "album": "Camila",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/28/70/85287029-19b9-cbe3-d1ab-300781875bf4/886446870298.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7d/42/fe/7d42fe40-78b9-c546-861e-bda5788bba4e/mzaf_7434858341023410545.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 217
+    },
+    {
+     "id": 1837311222,
+     "title": "Die With A Smile",
+     "artist": "Lady Gaga & Bruno Mars",
+     "album": "MAYHEM",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c5/43/8b/c5438b81-75e8-3a0a-05ee-4f29ae0b9bb3/25UMGIM07433.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/de/79/ed/de79ed5c-7c7c-23b2-ddf0-c69a6f0464ec/mzaf_17599045773401825305.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 252
+    },
+    {
+     "id": 1450334168,
+     "title": "7 rings",
+     "artist": "Ariana Grande",
+     "album": "thank u, next",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/69/07/bb6907de-8ad4-970b-3311-121320e1bf9c/19UMGIM03691.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d5/c8/f3/d5c8f31b-1c8f-93ed-e78b-8c0bce3e8b66/mzaf_14456154925680073521.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 179
+    },
+    {
+     "id": 716192625,
+     "title": "Firework",
+     "artist": "Katy Perry",
+     "album": "Teenage Dream",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/d3/42/c8d342af-26d9-3ec2-c511-e1eaf860e299/13UABIM57787.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ab/27/3b/ab273b22-1eb1-dd49-5332-5ef70c35683b/mzaf_4912325324633099647.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 228
+    },
+    {
+     "id": 1440924808,
+     "title": "Love Story",
+     "artist": "Taylor Swift",
+     "album": "Fearless",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cb/6e/a7/cb6ea70a-6cb8-89a0-4da7-91e2d04a7bba/08PNDIM05386.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/44/8a/a4/448aa432-42ae-8075-fe00-5f2deffe9896/mzaf_13232029737890307916.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 235
+    },
+    {
+     "id": 1752214923,
+     "title": "Espresso",
+     "artist": "Sabrina Carpenter",
+     "album": "Short n' Sweet",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a1/1c/ca/a11ccab6-7d4c-e041-d028-998bcebeb709/24UMGIM61704.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/99/da/ff/99daffce-cdde-59c6-5ae0-7f922ce411a8/mzaf_5621292401829922816.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 175
+    },
+    {
+     "id": 1440872929,
+     "title": "Wake Me Up",
+     "artist": "Avicii",
+     "album": "True",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/18/5b/1e/185b1ef5-5d97-19d8-aebf-8e29e41874ef/13UAAIM59255.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/1e/60/681e601f-e1f2-4ebb-37de-adf00bdf57b6/mzaf_8266263075137964740.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 250
+    },
+    {
+     "id": 576655095,
+     "title": "Just the Way You Are",
+     "artist": "Bruno Mars",
+     "album": "Doo-Wops & Hooligans",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/52/b1/45/52b1452b-229e-78db-231b-7b43fa0077cc/075679956491.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/04/c9/ee/04c9eeea-24ca-2198-17ea-c1c1436cb953/mzaf_16637738980836746910.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 221
+    },
+    {
+     "id": 1499378607,
+     "title": "Blinding Lights",
+     "artist": "The Weeknd",
+     "album": "After Hours",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/bc/e6/6fbce6c4-c38c-72d8-4fd0-66cfff32f679/20UMGIM12176.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/19/d6/60/19d660ff-e3a9-8377-15a3-ce4b28e89cac/mzaf_18422426156481158187.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 200
+    },
+    {
+     "id": 1440769310,
+     "title": "I Gotta Feeling",
+     "artist": "Black Eyed Peas",
+     "album": "THE E.N.D. (THE ENERGY NEVER DIES)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/42/fc/47/42fc4794-3c69-8c00-e528-1c7e92b5ac93/09UMGIM13833.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/88/5e/6a/885e6adb-f307-d849-a3e0-47280088b5a4/mzaf_12588254824919596992.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 289
+    },
+    {
+     "id": 251948354,
+     "title": "Toxic",
+     "artist": "Britney Spears",
+     "album": "In the Zone",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/38/8b/7a/388b7a8f-10ff-a4e0-7624-65e29ac6a793/828765374828.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ae/c4/7f/aec47f56-842d-49b4-558b-7a7523fd6728/mzaf_6693111381462300599.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 199
+    },
+    {
+     "id": 882945383,
+     "title": "Chandelier",
+     "artist": "Sia",
+     "album": "1000 Forms of Fear",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/00/bf/72/00bf72a2-3e50-e5e7-ae78-dc35bbf9bcda/886444578219.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/de/66/f0de661c-299a-b7ae-80d9-4f35f79875b1/mzaf_10598240417031133475.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 216
+    },
+    {
+     "id": 1817217063,
+     "title": "Hips Don't Lie (feat. Wyclef Jean)",
+     "artist": "Shakira",
+     "album": "Oral Fixation, Vol. 2 (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0d/b5/8a/0db58a8b-7b17-dd53-3464-116a415d0f49/196872648836.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/c7/61/acc7619f-c1e3-e0a5-df9b-0329a35af062/mzaf_13106936727189536738.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 220
+    },
+    {
+     "id": 1560735480,
+     "title": "drivers license",
+     "artist": "Olivia Rodrigo",
+     "album": "SOUR",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/02/ed/8c/02ed8cab-c089-2fdd-7ce6-ab334a9a4e19/21UMGIM26093.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/62/61/366261be-0996-d73d-de6f-03417867c800/mzaf_8201528327761821135.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 242
+    },
+    {
+     "id": 1442997912,
+     "title": "Call Me Maybe",
+     "artist": "Carly Rae Jepsen",
+     "album": "Kiss",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/58/6f/c7/586fc7ff-de7e-9b1b-2cfd-f4f9d970ab76/12UMGIM48176.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/21/33/25/213325eb-dd81-d4a9-930c-ccf50b302b5f/mzaf_5834608989797619743.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 193
+    },
+    {
+     "id": 1475930045,
+     "title": "Dance Monkey",
+     "artist": "Tones And I",
+     "album": "The Kids Are Coming - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/87/ed/42/87ed4279-d8d7-840f-90b5-2bffe34699ef/075679839237.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/43/1a/32/431a3203-7e62-c7b1-0377-824aded16096/mzaf_7471896698419931094.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 209
+    },
+    {
+     "id": 714601673,
+     "title": "You're Beautiful",
+     "artist": "James Blunt",
+     "album": "Back To Bedlam",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/32/bf/13/32bf1302-fbfe-945a-44bc-c0aeaee12711/075678375224.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/59/50/7f/59507f2b-591d-f93e-3372-1b77b20b4ad9/mzaf_11337861972947919226.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 214
+    },
+    {
+     "id": 315025823,
+     "title": "Complicated",
+     "artist": "Avril Lavigne",
+     "album": "Let Go",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/2c/f3/322cf324-9ea1-3962-865a-f4f9bf83764d/888880191069.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d5/82/55/d58255cd-4bd1-c339-1584-591e9d1305ee/mzaf_14546367220838781682.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 245
+    },
+    {
+     "id": 1050204631,
+     "title": "Thinking Out Loud",
+     "artist": "Ed Sheeran",
+     "album": "x (Wembley Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2d/36/f9/2d36f9a7-2c3e-ce0f-7fb6-036feecb221f/825646974450.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/78/a5/f2/78a5f25e-ad1b-718d-82ad-b82e676c1855/mzaf_6133970271589343093.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 282
+    },
+    {
+     "id": 1674691586,
+     "title": "Flowers",
+     "artist": "Miley Cyrus",
+     "album": "Endless Summer Vacation",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8c/67/ff/8c67ff91-31c3-3fef-1884-ce3ec89f3af4/196589946874.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/9e/f7/689ef7fe-14fe-a846-c87f-7d3b2d6344b1/mzaf_4167137058064023087.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 201
+    },
+    {
+     "id": 1544491233,
+     "title": "Rolling in the Deep",
+     "artist": "Adele",
+     "album": "21",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/eb/ca/25/ebca2596-cd1e-b295-91a3-771c868d0a79/191404113868.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/4f/03/4c4f032a-3d2b-853d-da81-996602355b42/mzaf_11625850023134180491.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 228
+    },
+    {
+     "id": 1476095084,
+     "title": "Bad Romance",
+     "artist": "Lady Gaga",
+     "album": "The Fame Monster (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1f/25/c4/1f25c4bf-7f7a-ff26-8769-20ab6052dadf/09UMGIM40719.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3e/3d/5f/3e3d5f8b-2b31-45ef-81bf-4577603abeed/mzaf_2887026754624356956.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 295
+    },
+    {
+     "id": 1170699703,
+     "title": "Closer (feat. Halsey)",
+     "artist": "The Chainsmokers",
+     "album": "Collage - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/41/f8/38/41f8380b-9b56-d5d4-31f7-a6411c0c9aaa/886446102054.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bd/f9/b9/bdf9b9b2-eaa4-4461-6079-aaacc6df7316/mzaf_17327312786932455493.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 246
+    },
+    {
+     "id": 1474313941,
+     "title": "Señorita",
+     "artist": "Shawn Mendes & Camila Cabello",
+     "album": "Shawn Mendes (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/73/1d/95/731d9575-4dc2-23f9-baad-d3f624022020/18UMGIM23926.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/bd/56/9ebd56d2-c0c5-99e1-bcec-d4afbfe53185/mzaf_2982548014168620030.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 191
+    },
+    {
+     "id": 1440818664,
+     "title": "Royals",
+     "artist": "Lorde",
+     "album": "Pure Heroine",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/a5/09/96a50916-169b-724c-b722-b8c474406352/13UAAIM68691.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e7/b6/98/e7b698e4-ce3f-613f-f84a-86625aeee1e4/mzaf_13424106343364364831.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 190
+    },
+    {
+     "id": 1471704175,
+     "title": "Counting Stars",
+     "artist": "OneRepublic",
+     "album": "Native (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/25/46/a7/2546a71a-b2bb-b4c9-4c52-a4daa3ae23ca/13UMGIM15076.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b0/db/7f/b0db7fbe-f8ff-1f67-fe72-ca8185ffbca2/mzaf_15298650366584767800.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 257
+    },
+    {
+     "id": 1154239184,
+     "title": "CAN'T STOP THE FEELING!",
+     "artist": "Justin Timberlake",
+     "album": "TROLLS (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/68/19/43/68194388-efa7-3afe-8a15-a4c3eebef1f6/886445915211.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/86/41/2d/86412d20-2f4d-39fc-221b-3f643d7c99c6/mzaf_9909715182585785919.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 238
+    },
+    {
+     "id": 303682849,
+     "title": "Bleeding Love",
+     "artist": "Leona Lewis",
+     "album": "Spirit (The Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/93/83/03/mzi.wuooifms.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ed/5f/0b/ed5f0b87-a3d8-8e24-8019-f5c4cf3eafcb/mzaf_10706859781439569235.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 262
+    },
+    {
+     "id": 1193701392,
+     "title": "Shape of You",
+     "artist": "Ed Sheeran",
+     "album": "÷ (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/15/e6/e8/15e6e8a4-4190-6a8b-86c3-ab4a51b88288/190295851286.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/c7/4f/44c74f0d-72dc-6143-d4d0-ba14d661ca0d/mzaf_9566898362556366703.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 234
+    },
+    {
+     "id": 1440871461,
+     "title": "Roar",
+     "artist": "Katy Perry",
+     "album": "PRISM",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b4/d0/9a/b4d09a1e-c7f1-de72-bab3-ff2b2be3981b/13UAAIM70445.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/34/1c/f7341c33-1700-532e-7ea8-96de11fded75/mzaf_6385185390030709554.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 224
+    },
+    {
+     "id": 1568362821,
+     "title": "Promiscuous (feat. Timbaland)",
+     "artist": "Nelly Furtado",
+     "album": "Loose (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0c/5a/d3/0c5ad339-9532-eca9-9231-30b6ea9949e4/21UMGIM32622.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7c/90/09/7c90091a-5085-e9bb-717b-789893e86ff6/mzaf_12573218488547151027.plus.aac.p.m4a",
+     "year": 2006,
+     "duration": 242
+    },
+    {
+     "id": 1615585008,
+     "title": "As It Was",
+     "artist": "Harry Styles",
+     "album": "Harry's House",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2a/19/fb/2a19fb85-2f70-9e44-f2a9-82abe679b88e/886449990061.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/10/16/67101606-3869-ca44-6c03-e13d6322cb51/mzaf_1135399237022217274.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 167
+    },
+    {
+     "id": 1771105935,
+     "title": "APT.",
+     "artist": "ROSÉ & Bruno Mars",
+     "album": "rosie",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2d/14/66/2d14661b-345b-d0f3-4e86-56ef626e68aa/075679629203.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/70/41/42/70414259-14f5-245e-bd79-93c80401d556/mzaf_8687698460653166345.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 170
+    }
+   ]
+  },
+  {
+   "id": "hiphop",
+   "title": "Hip-Hop & R&B",
+   "blurb": "Rap anthems and R&B favourites from the 2000s on.",
+   "songs": [
+    {
+     "id": 1258981728,
+     "title": "Whatever You Like",
+     "artist": "T.I.",
+     "album": "Paper Trail",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/dc/18/c1/dc18c1e1-49a3-a53c-3064-db77a5f1e36d/075679990617_art.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9d/21/a2/9d21a26f-11a2-3157-df17-4cf6b599038d/mzaf_14809218155064196162.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 250
+    },
+    {
+     "id": 1379065464,
+     "title": "This Is America",
+     "artist": "Childish Gambino",
+     "album": "This Is America - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f7/a4/ee/f7a4ee19-086e-7aba-ea4d-c36be6ea69d4/886447095850.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/98/e9/1b/98e91b41-3909-0eac-9552-7a71280eea9a/mzaf_5401565092184619820.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 226
+    },
+    {
+     "id": 1443175770,
+     "title": "In Da Club",
+     "artist": "50 Cent",
+     "album": "SHADYXV",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/a0/93/7f/a0937f91-ca3f-5ce8-e053-95eaed3d92fb/00602547130129.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/7a/e1/d37ae140-946c-975a-dcbc-18583e7b9340/mzaf_2118844093853301126.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 194
+    },
+    {
+     "id": 296016893,
+     "title": "Halo",
+     "artist": "Beyoncé",
+     "album": "I AM...SASHA FIERCE",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/35/0f/55/350f55da-2104-162a-5872-cb35fef30410/mzi.morbeoaw.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bc/cf/16/bccf164e-fa68-11c2-5e03-f87ca8e6e637/mzaf_13683091017583481694.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 262
+    },
+    {
+     "id": 1615488589,
+     "title": "Bad and Boujee (feat. Lil Uzi Vert)",
+     "artist": "Migos",
+     "album": "Culture",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b9/3d/60/b93d604d-e3e4-813b-1feb-8be6d6d0af89/22UMGIM27531.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/60/26/bb/6026bb91-53d6-1202-406a-ad8cfe0ba3fb/mzaf_14191671865341172943.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 333
+    },
+    {
+     "id": 1622624618,
+     "title": "First Class",
+     "artist": "Jack Harlow",
+     "album": "Come Home The Kids Miss You",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/cf/9a/0e/cf9a0ee1-3b03-c511-cf7c-4929265e261c/075679745118.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ea/97/61/ea97619d-0c0c-53e7-ad1f-47be0dded164/mzaf_10036427914607242610.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 174
+    },
+    {
+     "id": 1611637849,
+     "title": "Leave the Door Open",
+     "artist": "Bruno Mars, Anderson .Paak & Silk Sonic",
+     "album": "An Evening with Silk Sonic",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4e/b2/25/4eb22575-99e3-8c06-7446-51a99add8b0f/075679754585.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2b/a4/4e/2ba44ec0-066f-146f-7d78-d92e146bd860/mzaf_13302332917246733732.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 242
+    },
+    {
+     "id": 261648942,
+     "title": "Temperature",
+     "artist": "Sean Paul",
+     "album": "The Trinity (Bonus Version)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/01/a4/63/01a463c1-a951-eda2-291b-e601b6303c5a/mzi.eemlybcl.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7d/56/11/7d5611a5-360a-4cb5-5934-c9e22aaf2ba3/mzaf_10035810552667838455.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 216
+    },
+    {
+     "id": 1618089381,
+     "title": "Lucid Dreams",
+     "artist": "Juice WRLD",
+     "album": "Goodbye & Good Riddance (Anniversary)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f8/6c/2a/f86c2ae0-b4eb-578c-1f02-3acb8409b815/21UMGIM53733.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/5e/29/395e29ce-0a7e-dacc-0921-d8a34ac16df8/mzaf_2883164581580888931.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 240
+    },
+    {
+     "id": 294461792,
+     "title": "No One",
+     "artist": "Alicia Keys",
+     "album": "As I Am (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/c7/88/df/c788dffe-d06f-8923-ad61-a6194daf6616/888880809919.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ef/30/f2/ef30f2cf-b3bf-752f-5809-cadaf1a15fe3/mzaf_18259142165614061591.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 254
+    },
+    {
+     "id": 1774799818,
+     "title": "Hey Ya!",
+     "artist": "Outkast",
+     "album": "Speakerboxxx/The Love Below",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/71/ae/6a/71ae6a46-99a6-e9d8-d7f3-41c0f2df45c4/196872579123.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/90/59/7b9059ba-a8f2-2540-5bbb-d63a178bd8ce/mzaf_1797078659976130902.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 235
+    },
+    {
+     "id": 1200868875,
+     "title": "Location",
+     "artist": "Khalid",
+     "album": "American Teen",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f8/45/5a/f8455a71-8307-aa9a-9c95-3d22efe0804f/886446326146.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/f8/66/8ef866e9-5d33-1f6d-3ce6-7d7f8a060c41/mzaf_4830540290440739615.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 219
+    },
+    {
+     "id": 256937038,
+     "title": "Fallin'",
+     "artist": "Alicia Keys",
+     "album": "Songs In A Minor",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/bb/4d/55/bb4d552c-04d8-29ba-1b41-6ff8bcd199a5/808132000222.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/39/22/91/392291b5-39f1-8189-3a9b-924361e70776/mzaf_5017281125172140671.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 210
+    },
+    {
+     "id": 1657869393,
+     "title": "Kill Bill",
+     "artist": "SZA",
+     "album": "SOS",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/bd/3b/a9/bd3ba9fb-9609-144f-bcfe-ead67b5f6ab3/196589564931.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/2b/ea/452bead6-c7f5-82d4-f5f7-ec876014b4cc/mzaf_2905911853279084717.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 154
+    },
+    {
+     "id": 83134409,
+     "title": "Get Ur Freak On (Amended LP Version)",
+     "artist": "Missy Elliott",
+     "album": "Miss E...So Addictive",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/71/c2/4f/mzi.gsutnxrb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f8/25/1c/f8251c5f-7e23-ea82-690e-d147f5900a7b/mzaf_3107646523546858476.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 237
+    },
+    {
+     "id": 1441844542,
+     "title": "All of Me",
+     "artist": "John Legend",
+     "album": "Love in the Future (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/22/71/b9/2271b906-85b3-06ee-e611-489b91df0b73/886444160742.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ff/94/6c/ff946ca7-e49a-fdf8-ea5b-11e6f56a0417/mzaf_17369156110722174773.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 270
+    },
+    {
+     "id": 1442846328,
+     "title": "Stronger",
+     "artist": "Kanye West",
+     "album": "Graduation",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/39/25/2d/39252d65-2d50-b991-0962-f7a98a761271/00602517483507.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9e/cc/69/9ecc6918-a8dc-354f-909f-ccc20a0a7a33/mzaf_7863921970418240507.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 312
+    },
+    {
+     "id": 1468166468,
+     "title": "Old Town Road",
+     "artist": "Lil Nas X",
+     "album": "7",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/07/d4/c3/07d4c33e-b793-d78f-bb1b-52f1e224da88/886447788264.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/9c/42/329c4214-8cce-5382-aa92-fe87e013f3d5/mzaf_14962210134357559640.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 113
+    },
+    {
+     "id": 1440932018,
+     "title": "Empire State Of Mind (feat. Alicia Keys)",
+     "artist": "JAŸ-Z",
+     "album": "The Blueprint 3",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/e6/20/cf/e620cfeb-eb74-4ef1-00c1-fd38aac6c3d7/00858786005470.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/e2/b8/8fe2b82b-b783-9584-3442-3f85e03db81a/mzaf_16411245635676557198.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 277
+    },
+    {
+     "id": 1440903439,
+     "title": "Lose Yourself",
+     "artist": "Eminem",
+     "album": "8 Mile (Music from and Inspired By the Motion Picture)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/08/23/fc/0823fcd9-cb44-695b-32bf-b3bf51d9f800/00606949351229.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/5a/61/135a6154-8ca2-0523-1fa2-f4ac0ea9e1e7/mzaf_13242749689945681184.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 322
+    },
+    {
+     "id": 1205690479,
+     "title": "Mask Off",
+     "artist": "Future",
+     "album": "FUTURE",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e1/fe/9d/e1fe9d22-2a74-cb1d-03c7-d804f471b160/886446376899.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0f/e7/86/0fe7867f-3aeb-cb58-baa3-1ba2c7cc006e/mzaf_15609872721133116318.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 204
+    },
+    {
+     "id": 1406109863,
+     "title": "God's Plan",
+     "artist": "Drake",
+     "album": "Scorpion",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/6d/8f/bb6d8f67-6d04-10b5-dd62-eb5809ac54fc/00602567879152.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c6/4a/be/c64abe74-adb4-cff5-005d-0fab3d72a806/mzaf_10276154697254415719.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 199
+    },
+    {
+     "id": 1421658123,
+     "title": "SICKO MODE",
+     "artist": "Travis Scott",
+     "album": "ASTROWORLD",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e7/49/8f/e7498f65-df8f-bead-d6e3-2a8d4d642a79/886447235317.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/91/a1/d391a141-256f-726f-9da1-8aa4e42b3236/mzaf_17761183103753218003.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 313
+    },
+    {
+     "id": 1440735156,
+     "title": "Hot in Herre",
+     "artist": "Nelly",
+     "album": "Nellyville",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/37/35/62/373562e8-ab69-254b-bbf2-f1cb9aca66fe/06UMGIM16889.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/1f/f3/e01ff398-5b46-58d8-eced-e4bf715dca33/mzaf_552008469913377827.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 228
+    },
+    {
+     "id": 1440783502,
+     "title": "So Sick",
+     "artist": "Ne-Yo",
+     "album": "In My Own Words",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f1/37/c5/f137c5cc-c6c0-cdf3-909f-6800c3e4e31c/06UMGIM17731.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/49/c4/f6/49c4f6d2-dd60-d191-dfc9-e9e35c53fbbe/mzaf_9590657713580154224.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 207
+    },
+    {
+     "id": 1440738657,
+     "title": "Lollipop (feat. Static Major)",
+     "artist": "Lil Wayne",
+     "album": "Tha Carter III",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f9/6c/dc/f96cdc5c-09fe-06b6-4629-be4afeb71cca/08UMGIM15512.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c0/c2/f1/c0c2f146-9884-0621-580c-a731dd9eea30/mzaf_4094925966192690879.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 247
+    },
+    {
+     "id": 1440870375,
+     "title": "Starboy (feat. Daft Punk)",
+     "artist": "The Weeknd",
+     "album": "Starboy",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b5/92/bb/b592bb72-52e3-e756-9b26-9f56d08f47ab/16UMGIM67864.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/71/d6/1171d6ad-3c96-e027-2af6-58028426588c/mzaf_15137631797407745471.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 230
+    },
+    {
+     "id": 1368105797,
+     "title": "Bodak Yellow",
+     "artist": "Cardi B",
+     "album": "Invasion of Privacy",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ca/58/e5/ca58e5e3-acb7-8ca3-6af9-ad63af3b71f1/075679873675.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/95/50/61/9550615a-6145-b65c-a696-d735f4b83390/mzaf_3562298962357544356.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 224
+    },
+    {
+     "id": 1440901873,
+     "title": "Congratulations (feat. Quavo)",
+     "artist": "Post Malone",
+     "album": "Stoney",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/94/09/25/9409251c-ea9e-040c-7649-52a66ac533ac/16UMGIM76041.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/42/13/344213e4-0001-702a-676c-2aa9a6d1d767/mzaf_493931479406269699.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 220
+    },
+    {
+     "id": 1440841730,
+     "title": "Hotline Bling",
+     "artist": "Drake",
+     "album": "Views",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f2/0d/8b/f20d8bff-a927-ae98-6784-20a1f51cb23e/16UMGIM27642.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/73/56/5c/73565c27-16d4-1f8a-ec12-77616e3ca05d/mzaf_9178247693050174633.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 267
+    },
+    {
+     "id": 1501739781,
+     "title": "Savage",
+     "artist": "Megan Thee Stallion",
+     "album": "Suga",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/99/3b/4b/993b4b79-ebce-8763-9e87-0a6eb539ae83/810043680479.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/8d/0f/f68d0fbe-0943-7ac0-e43c-1f39f1b0b286/mzaf_3593784148630317126.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 155
+    },
+    {
+     "id": 1781353929,
+     "title": "Not Like Us",
+     "artist": "Kendrick Lamar",
+     "album": "Not Like Us - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/31/3a/3f/313a3fbc-bb8f-80c7-b5a2-e226869a38cd/24UMGIM51924.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/e0/e8/2de0e874-cd0b-e9a9-e876-76be13a86662/mzaf_12385336780649591409.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 274
+    },
+    {
+     "id": 1445949267,
+     "title": "Sunflower (Spider-Man: Into the Spider-Verse)",
+     "artist": "Post Malone & Swae Lee",
+     "album": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4b/30/2c/4b302cb6-7a14-5464-4e97-0577e9d0be49/18UMGIM82277.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/98/f0/d6/98f0d67e-f8bf-762d-cac7-1c6b3b6b35dd/mzaf_4543283896248560946.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 158
+    },
+    {
+     "id": 1472021081,
+     "title": "Crazy in Love",
+     "artist": "Beyoncé",
+     "album": "Bridget Jones: The Edge of Reason (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/70/1d/03/701d0356-486a-7db4-3e00-c543050f85c6/06UMGIM11474.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1c/25/51/1c255149-7529-6ab9-2dc1-b81001ed4d7f/mzaf_831974197822370000.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 236
+    },
+    {
+     "id": 1443396469,
+     "title": "Drop It Like It's Hot (feat. Pharrell Williams)",
+     "artist": "Snoop Dogg",
+     "album": "R&G (Rhythm & Gangsta) - The Masterpiece",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a3/75/27/a3752707-e88a-cf93-423f-c6134156962a/00075021034518.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/75/7a/e2/757ae248-f875-3c7b-9e41-67a7b26eb237/mzaf_16681351010065535979.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 266
+    },
+    {
+     "id": 1440910489,
+     "title": "Super Bass",
+     "artist": "Nicki Minaj",
+     "album": "Pink Friday (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/3f/6a/dc/3f6adcfb-4d27-303e-b964-3710c56800e3/11UMGIM13385.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b0/31/80/b03180ac-be20-9366-b4b5-e078bf791737/mzaf_3970609514950194332.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 201
+    },
+    {
+     "id": 1440763833,
+     "title": "Gold Digger (feat. Jamie Foxx)",
+     "artist": "Kanye West",
+     "album": "Late Registration",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0e/90/3c/0e903c43-9d81-f91b-90f1-727a58f7fb2c/00602498824030.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ec/1c/48/ec1c483c-d196-1c4f-d8e3-320d740c3f96/mzaf_7998854062663791888.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 208
+    },
+    {
+     "id": 1440766128,
+     "title": "Thinkin Bout You",
+     "artist": "Frank Ocean",
+     "album": "channel ORANGE",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/04/f8/63/04f863fc-2852-604f-c910-a97ac069506b/12UMGIM40339.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7e/a3/11/7ea311f5-790a-84ec-3cae-940f89599e62/mzaf_14067239133136508975.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 201
+    },
+    {
+     "id": 1440821643,
+     "title": "Without Me",
+     "artist": "Eminem",
+     "album": "The Eminem Show",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dd/5c/e6/dd5ce621-f7d2-f767-7a08-e7a7eaa7870b/00602537526994.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/60/7d/60/607d6038-10dd-1d8d-83c7-c7029e709da3/mzaf_13336706630570276296.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 290
+    },
+    {
+     "id": 1750602117,
+     "title": "Goodies (No Rap)",
+     "artist": "Ciara",
+     "album": "Goodies",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/67/b6/9b/67b69bcb-aa57-6e29-c733-08cf058273c2/196872194609.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0d/bd/b1/0dbdb132-062e-8c0c-69fe-f54471a0b969/mzaf_15147122083801015491.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 214
+    },
+    {
+     "id": 1443231420,
+     "title": "Love on the Brain",
+     "artist": "Rihanna",
+     "album": "ANTI",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/13/27/57/132757ba-42e6-9584-7390-ca694292a20e/16UMGIM03372.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/60/13/b7/6013b7b4-ce19-44e1-87a7-a223640faa04/mzaf_3801684862070144138.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 224
+    },
+    {
+     "id": 1440882165,
+     "title": "HUMBLE.",
+     "artist": "Kendrick Lamar",
+     "album": "DAMN.",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/ab/16/ef/ab16efe9-e7f1-66ec-021c-5592a23f0f9e/17UMGIM88793.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1f/2e/37/1f2e37be-bdd0-d770-6ea4-091011a6aade/mzaf_2360827885900940865.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 177
+    },
+    {
+     "id": 966411602,
+     "title": "See You Again (feat. Charlie Puth)",
+     "artist": "Wiz Khalifa",
+     "album": "Furious 7 (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e6/8a/68/e68a688e-129e-cb9d-938f-bc3ee37059ae/075679930910.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ef/54/3d/ef543d55-58cb-320e-8dc7-084336d961d0/mzaf_15679467696516524072.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 230
+    },
+    {
+     "id": 1440745246,
+     "title": "Day 'n' Nite",
+     "artist": "Kid Cudi",
+     "album": "Man On the Moon: The End of Day",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4f/8c/97/4f8c9778-cefe-51a7-b17b-7093154aad7c/09UMGIM33417.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/07/23/f707231e-ed5b-4e50-499c-114232d369ab/mzaf_7872385221426664785.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 221
+    },
+    {
+     "id": 257524515,
+     "title": "Let Me Love You",
+     "artist": "Mario",
+     "album": "Turning Point",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/6b/77/72/6b777276-1f3d-8ecf-d9d2-06733e3d7dd3/828766188523.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/94/30/f694308c-af1b-144b-ec68-6d97982e3a03/mzaf_14747022170193841577.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 249
+    },
+    {
+     "id": 386153478,
+     "title": "Yeah! (feat. Lil Jon & Ludacris)",
+     "artist": "USHER",
+     "album": "Confessions (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/02/c6/e1/02c6e1cd-8d57-97b4-6ef1-77d2be004509/mzi.sjrqsmrq.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/52/3c/94523c88-f5f9-16f4-dbd7-f284ca168048/mzaf_7184891920196479048.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 250
+    },
+    {
+     "id": 560097550,
+     "title": "Thrift Shop (feat. Wanz)",
+     "artist": "Macklemore & Ryan Lewis",
+     "album": "The Heist",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/44/40/83/44408300-636f-8cae-d508-9dd96db48cea/707541528191.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ce/5c/aa/ce5caa72-ff73-221e-cc83-295c23bce434/mzaf_8353999015135739287.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 236
+    }
+   ]
+  },
+  {
+   "id": "rock",
+   "title": "Rock & Indie",
+   "blurb": "Guitar anthems and indie hits that filled every playlist.",
+   "songs": [
+    {
+     "id": 821031488,
+     "title": "How to Save a Life",
+     "artist": "The Fray",
+     "album": "The Collection",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/cf/89/16/cf891622-f572-1b42-6bb9-0e973e063e35/TheFray_HowToSaveALife_G010000754032B_F_001_RGB.jpeg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/36/ed/78/36ed78a9-7ae3-a643-bfb9-4050abab6f8b/mzaf_12808814059557812670.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 263
+    },
+    {
+     "id": 308734614,
+     "title": "I Bet You Look Good On the Dancefloor",
+     "artist": "Arctic Monkeys",
+     "album": "I Bet You Look Good On the Dancefloor - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/f0/51/d1/mzi.pirkinzm.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/51/e7/1d/51e71de6-78be-b710-8330-48375fe58e58/mzaf_10188154717809133872.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 176
+    },
+    {
+     "id": 992627891,
+     "title": "Uprising",
+     "artist": "Muse",
+     "album": "The Resistance",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e2/8d/41/e28d412b-da8b-6f0b-227a-faa9a453e612/825646092666.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d1/3a/30/d13a30ab-e6c6-7677-6e86-d2446353a413/mzaf_17701311290114744883.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 303
+    },
+    {
+     "id": 1437697155,
+     "title": "Ain't No Rest for the Wicked",
+     "artist": "Cage the Elephant",
+     "album": "Cage the Elephant (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9f/da/28/9fda2801-af49-b8d6-4b1f-0671af204dfb/886447357378.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bf/b1/3a/bfb13a7c-7438-2e31-dc5f-e00a4c66535f/mzaf_205891211909979875.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 175
+    },
+    {
+     "id": 270425151,
+     "title": "A-Punk",
+     "artist": "Vampire Weekend",
+     "album": "A-Punk - Single of the Week",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/ba/01/17/ba01176d-e46f-aac5-e1be-4256c26c173e/634904831868.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f3/0a/bd/f30abde0-5c89-7ee8-e08e-640acd639de8/mzaf_9840506936884085964.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 138
+    },
+    {
+     "id": 850576763,
+     "title": "Clint Eastwood (Ed Case / Sweetie Irie Refix)",
+     "artist": "Gorillaz",
+     "album": "Gorillaz",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5b/8d/47/5b8d47da-71ea-93ab-dffc-733f11332659/825646290703.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/58/50/bc/5850bccc-b73f-f299-43d6-036da768b62c/mzaf_5837960104957576290.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 221
+    },
+    {
+     "id": 1052966684,
+     "title": "Lonely Boy",
+     "artist": "The Black Keys",
+     "album": "El Camino",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/55/39/ca/5539caf8-333e-5ad2-06ca-eaf5d84cd264/mzm.nmxwulyo.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6d/bd/cb/6dbdcbf4-0b85-dedf-3ab3-fd259d894b76/mzaf_9213939042763446468.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 193
+    },
+    {
+     "id": 1440792333,
+     "title": "Dog Days Are Over",
+     "artist": "Florence + the Machine",
+     "album": "Lungs (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4d/b6/73/4db6730b-ffb5-2147-c374-05edec48c7d0/10UMGIM04103.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7f/f2/af/7ff2af7b-831c-5ee1-49f9-331b94871575/mzaf_7524222174673306397.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 252
+    },
+    {
+     "id": 209388682,
+     "title": "Welcome to the Black Parade",
+     "artist": "My Chemical Romance",
+     "album": "The Black Parade",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7e/ac/69/7eac6998-7fa4-f1ab-9601-e8b791c736fa/mzi.fbpszunc.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ea/3c/d6/ea3cd64e-fa54-c3c0-b2e3-e96a7b16cbc1/mzaf_2589197593248149925.plus.aac.p.m4a",
+     "year": 2006,
+     "duration": 311
+    },
+    {
+     "id": 1440759839,
+     "title": "No One Knows",
+     "artist": "Queens of the Stone Age",
+     "album": "Songs for the Deaf",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/50/ca/f8/50caf865-3197-77d3-f416-abfa14e698bd/00602517417205.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6e/29/75/6e2975dc-1cb4-a37f-a060-6e0c4bf05e10/mzaf_14519789906765580735.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 279
+    },
+    {
+     "id": 1440812085,
+     "title": "Summertime Sadness",
+     "artist": "Lana Del Rey",
+     "album": "Born to Die",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5f/d9/63/5fd96387-45fa-6b94-afd8-7b2c4a24a93b/11UMGIM38959.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d1/64/e3/d164e3bb-aeb5-effb-a09c-d3775441c5b8/mzaf_3133376794831917475.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 266
+    },
+    {
+     "id": 1762465921,
+     "title": "Ho Hey",
+     "artist": "The Lumineers",
+     "album": "The Lumineers (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/34/43/5e/34435ee1-dcee-1c60-f3ab-f53965790f3c/18540.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/36/9b/96369b32-5984-0c02-ba8b-08b5db69566f/mzaf_13181112170433995246.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 163
+    },
+    {
+     "id": 435761212,
+     "title": "Pumped Up Kicks",
+     "artist": "Foster the People",
+     "album": "Torches",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ba/07/5b/ba075b3c-f0c4-b519-59f3-7ae74d43246b/dj.lajxsvkg.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/06/5b/df/065bdfe1-4d16-53c9-f24d-f1ad16983f92/mzaf_15283020811004936626.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 240
+    },
+    {
+     "id": 315844084,
+     "title": "Take Me Out",
+     "artist": "Franz Ferdinand",
+     "album": "Franz Ferdinand",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/83/c6/54/83c6541f-3b90-b46a-b46a-17bf8fd9af16/5034202113645.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/be/e8/b9/bee8b9cc-c37f-ea31-1372-5a77d974200c/mzaf_9120925538604726257.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 237
+    },
+    {
+     "id": 1320781379,
+     "title": "Beggin'",
+     "artist": "Måneskin",
+     "album": "Chosen",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/67/08/e0/6708e014-c1be-76b1-c520-a6567bf946a2/886446867755.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/5f/db/765fdb18-6421-bf37-813d-fd00f14fbfd4/mzaf_5193356525080895049.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 212
+    },
+    {
+     "id": 1719010098,
+     "title": "Mr. Brightside",
+     "artist": "The Killers",
+     "album": "Rebel Diamonds",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c7/30/5f/c7305f48-f332-4be8-2ead-3fbc0908ffb9/23UM1IM52006.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/d7/8a/7bd78a98-2668-3e52-9c15-f07d538051ba/mzaf_12576475984247297585.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 223
+    },
+    {
+     "id": 1440749374,
+     "title": "Sugar, We're Goin Down",
+     "artist": "Fall Out Boy",
+     "album": "From Under the Cork Tree",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ea/ff/60/eaff603f-d108-2815-3dce-db39b990635f/06UMGIM11830.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/43/37/be/4337be11-1013-d9ac-c9d0-d2c0bdbfb2e9/mzaf_6612085569817974027.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 229
+    },
+    {
+     "id": 590431785,
+     "title": "In the End",
+     "artist": "LINKIN PARK",
+     "album": "Hybrid Theory (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/53/a7/7f/53a77fab-c54c-a57b-8130-248fc12d0c80/093624948995.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d9/33/34/d933341d-ba95-dc3b-11a3-34d6632dd62e/mzaf_10942671303595386057.plus.aac.p.m4a",
+     "year": 2000,
+     "duration": 216
+    },
+    {
+     "id": 1442491770,
+     "title": "Chasing Cars",
+     "artist": "Snow Patrol",
+     "album": "Eyes Open",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/72/d6/0972d653-f610-3995-85d3-6656c21e0b31/06UMGIM43473.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b0/ad/0f/b0ad0f3b-1c7c-27f4-25eb-06ed232fce06/mzaf_15213746956420878583.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 268
+    },
+    {
+     "id": 1411628233,
+     "title": "Believer",
+     "artist": "Imagine Dragons",
+     "album": "Evolve",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/11/7a/b8/117ab805-6811-8929-18b9-0fad7baf0c25/17UMGIM98210.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c0/3f/36/c03f367a-b66b-fd0a-a54c-30f8250c4410/mzaf_12768434238801682952.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 204
+    },
+    {
+     "id": 266377010,
+     "title": "Last Nite",
+     "artist": "The Strokes",
+     "album": "Is This It",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/ea/04/d4/ea04d45d-6f5d-ede6-fb64-71f3e6a6e62f/dj.ojkzzidd.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/69/c7/30/69c73043-f9dd-0c63-23cd-bfab274520ee/mzaf_5834786258891852942.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 193
+    },
+    {
+     "id": 1846932599,
+     "title": "Kids",
+     "artist": "MGMT",
+     "album": "Time to Pretend - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/23/e5/8d/23e58d2f-8023-b953-42c3-c4c43727e354/884977010671.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/25/04/07/25040799-b357-b64c-5d4b-fccd5e0df78f/mzaf_11623038490694019753.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 331
+    },
+    {
+     "id": 201257515,
+     "title": "Float On",
+     "artist": "Modest Mouse",
+     "album": "Good News for People Who Love Bad News",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f9/02/da/f902dad6-7a7e-203a-5648-78e67d42b515/mzi.fcuuybmm.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6a/d2/e6/6ad2e6b3-89e8-00b4-eb27-188b045ebd9d/mzaf_17149316111005193085.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 208
+    },
+    {
+     "id": 208294873,
+     "title": "Like a Stone",
+     "artist": "Audioslave",
+     "album": "Audioslave",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/9c/b6/c2/9cb6c246-3626-7789-26a9-79b787e5668d/dj.owymmnty.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0e/c0/f9/0ec0f970-d67d-e50c-c3e1-220d1b75cce3/mzaf_16528433121795793698.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 294
+    },
+    {
+     "id": 850571371,
+     "title": "Feel Good Inc. (feat. David Jolicoeur, Kelvin Mercer & Vincent Mason)",
+     "artist": "Gorillaz & De La Soul",
+     "album": "Demon Days",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/1c/0f/81/1c0f818a-e458-dd84-6f1b-ccbdf5fe14d6/825646291045.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/a7/90/9aa790e3-651e-9674-26ac-14aba4d3b8d1/mzaf_10454527198707970464.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 221
+    },
+    {
+     "id": 1122778616,
+     "title": "Viva la Vida",
+     "artist": "Coldplay",
+     "album": "Viva la Vida (Prospekt's March Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/56/bc/3d/56bc3d9c-0a4a-0466-643e-eb9bd748e8bf/190295978037.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/bb/68/8cbb6818-175a-d46c-93de-7145fc66d332/mzaf_5442307369244073775.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 241
+    },
+    {
+     "id": 607340408,
+     "title": "Misery Business",
+     "artist": "Paramore",
+     "album": "RIOT! (Deluxe)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/10/fd/c4/10fdc4df-c932-d7d6-28c2-b2b077c42576/075679954596.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c7/cf/6c/c7cf6c7c-429e-9aa6-b431-a885e063c959/mzaf_7021792003066705813.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 211
+    },
+    {
+     "id": 486040195,
+     "title": "We Are Young (feat. Janelle Monáe)",
+     "artist": "Fun.",
+     "album": "Some Nights",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/b2/df/a3/b2dfa32c-ea54-7983-0da1-6964e60a1bd7/dj.aqphuayl.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/63/a9/ed/63a9ede2-1823-d75f-7ae3-061b91790395/mzaf_17932545875589323048.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 251
+    },
+    {
+     "id": 1229315050,
+     "title": "Feel It Still",
+     "artist": "Portugal. The Man",
+     "album": "Woodstock",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/76/fc/2d/76fc2dba-69ea-2718-012d-962dcb661bf1/075679896933.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/63/7c/dd/637cdd7a-3000-0784-28c7-dcbfe99209c8/mzaf_2191237013429360837.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 163
+    },
+    {
+     "id": 262743414,
+     "title": "The Pretender",
+     "artist": "Foo Fighters",
+     "album": "Echoes, Silence, Patience & Grace",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1a/a8/d2/1aa8d22d-f1ab-0462-e6f0-4f19b2594383/886971151626.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5f/41/f8/5f41f86a-1d7a-0c1e-7b29-55cd5fa40c4c/mzaf_1876575708645472937.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 269
+    },
+    {
+     "id": 635016640,
+     "title": "Sweater Weather",
+     "artist": "The Neighbourhood",
+     "album": "I Love You.",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/28/71/00/287100fb-5c31-0195-5343-e6b3625886d0/886443969834.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/37/20/8c372047-2727-8054-9411-0e4867643dd8/mzaf_10169659262182214119.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 240
+    },
+    {
+     "id": 948438478,
+     "title": "Can't Stop",
+     "artist": "Red Hot Chili Peppers",
+     "album": "By the Way (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c1/7f/25/c17f25d9-c5fa-5a70-5e76-122caf132bc1/093624931966.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b4/37/77/b43777c1-aa65-2d44-6130-7560392981af/mzaf_10231906724003007738.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 268
+    },
+    {
+     "id": 1533513537,
+     "title": "Seven Nation Army",
+     "artist": "The White Stripes",
+     "album": "Elephant",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/07/25/09/0725098a-09f4-f240-e551-94384a590371/886448799009.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fe/2d/58/fe2d587f-6344-3fb3-43f7-d318a6253dcc/mzaf_16825320951570507954.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 232
+    },
+    {
+     "id": 590423552,
+     "title": "Numb",
+     "artist": "LINKIN PARK",
+     "album": "Meteora (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/44/05/134405bd-9e27-a678-8953-b5f724201f95/093624948988.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/9d/28/1f9d2810-2ac3-efbd-ef02-623691ff9cd2/mzaf_17560018091772095942.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 188
+    },
+    {
+     "id": 961298418,
+     "title": "Shut Up and Dance",
+     "artist": "WALK THE MOON",
+     "album": "TALKING IS HARD (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bf/b6/76/bfb67621-b78d-3924-6d29-4f367697a674/886445045758.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/37/b0/fa37b02c-cccc-7ccb-3161-39a5f4c2d4e8/mzaf_1832266719592545746.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 199
+    },
+    {
+     "id": 1526194195,
+     "title": "Somebody Told Me",
+     "artist": "The Killers",
+     "album": "Hot Fuss",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/07/1a/5a/071a5aee-6e42-060c-35b9-6a6e45b9ea59/06UMGIM10441.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/63/87/bc/6387bc94-49fa-5511-43f4-ed6ee8fe0b4d/mzaf_13833190007925520351.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 197
+    },
+    {
+     "id": 974485474,
+     "title": "Stressed Out",
+     "artist": "twenty one pilots",
+     "album": "Blurryface",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8e/e2/89/8ee28904-0821-610d-5011-a61845f62756/075679926951.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a9/74/e8/a974e8f2-0693-9371-bb6c-87047a486254/mzaf_1898989387861959316.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 202
+    },
+    {
+     "id": 1440873126,
+     "title": "Radioactive",
+     "artist": "Imagine Dragons",
+     "album": "Night Visions",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/1f/fa/09/1ffa092f-f52f-4a66-7d10-4cc5982dc747/12UMGIM46901.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/77/70/88/777088e9-60a1-c459-bfa5-6e66f2fd2695/mzaf_7685408661765681881.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 187
+    },
+    {
+     "id": 290303003,
+     "title": "Sex On Fire",
+     "artist": "Kings of Leon",
+     "album": "Only By the Night",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/74/25/4c/74254c8b-e03d-44e8-304d-4cde508b8cfb/dj.swemfdrr.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/e7/52/9fe75225-7a58-47d3-d570-22ae95bb160d/mzaf_1409968636503833590.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 203
+    },
+    {
+     "id": 992221997,
+     "title": "Supermassive Black Hole",
+     "artist": "Muse",
+     "album": "Black Holes and Revelations",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4a/c1/5d/4ac15dc9-2ae6-1d5b-3add-43bae227f941/825646095452.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/4a/63/764a63c0-9533-97ce-51a5-31a23b57f2eb/mzaf_3187296926844362175.plus.aac.p.m4a",
+     "year": 2006,
+     "duration": 209
+    },
+    {
+     "id": 1440809330,
+     "title": "Little Talks",
+     "artist": "Of Monsters and Men",
+     "album": "My Head Is an Animal",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/a3/a8/c2/a3a8c2ee-79ca-f4f0-8adb-0060e04432fd/12UMGIM10062.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2d/47/ed/2d47edef-3854-096a-c49b-f6299c83e7b1/mzaf_67984575308519465.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 267
+    },
+    {
+     "id": 214475478,
+     "title": "How You Remind Me",
+     "artist": "Nickelback",
+     "album": "Silver Side Up",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ad/16/b7/ad16b7c9-2779-d2e5-0fca-83aeff09f4b6/mzi.exqcjkkz.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/41/33/72413329-4f11-13af-ffa2-70c3280d56df/mzaf_6227722515418295262.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 224
+    },
+    {
+     "id": 290303018,
+     "title": "Use Somebody",
+     "artist": "Kings of Leon",
+     "album": "Only By the Night",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/74/25/4c/74254c8b-e03d-44e8-304d-4cde508b8cfb/dj.swemfdrr.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/23/1d/b3/231db3c5-a99c-3fba-5d3b-f6e9cdbeb841/mzaf_12581310710694950303.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 231
+    },
+    {
+     "id": 663097965,
+     "title": "Do I Wanna Know?",
+     "artist": "Arctic Monkeys",
+     "album": "AM",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/69/9c/b5/699cb5d6-115c-ff73-9d26-e57ea4350d72/887828031795.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/89/ae/42/89ae4206-048a-7eae-3eaf-c3abd02914fb/mzaf_15551176804491638370.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 272
+    },
+    {
+     "id": 900672609,
+     "title": "Take Me to Church",
+     "artist": "Hozier",
+     "album": "Hozier (Expanded Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5e/1b/f1/5e1bf1de-e5f1-e73e-0752-e7882b4f2d57/886444718820.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fb/95/fe/fb95fea4-aab2-151d-7e2d-a3b2740de243/mzaf_5007348610386911589.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 242
+    },
+    {
+     "id": 264720106,
+     "title": "Electric Feel",
+     "artist": "MGMT",
+     "album": "Oracular Spectacular",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/72/f3/ed/72f3edba-cbb0-4887-bb89-4aedf97ecd12/888880287779.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/47/4a/00/474a0001-c9af-5e52-af16-695889678761/mzaf_2030537019671750043.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 230
+    },
+    {
+     "id": 1771711274,
+     "title": "What You Know",
+     "artist": "Two Door Cinema Club",
+     "album": "Tourist History",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e6/7f/61/e67f61ff-6231-1613-a2a9-aa7f7439457c/00892038002275_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ec/3c/ce/ec3cce65-ceaf-9406-adf0-bd5fdc7613f5/mzaf_15785820011577026107.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 191
+    },
+    {
+     "id": 1440771850,
+     "title": "Heads Will Roll",
+     "artist": "Yeah Yeah Yeahs",
+     "album": "It's Blitz! (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/97/1f/5c/971f5c92-2def-b4cb-a76e-bc582a396ce3/09UMGIM02469.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2a/d5/50/2ad55038-9df9-8cd9-3266-fce3e78b9f66/mzaf_13589230364797896384.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 221
+    },
+    {
+     "id": 1771710539,
+     "title": "1901",
+     "artist": "Phoenix",
+     "album": "Wolfgang Amadeus Phoenix",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/28/8d/ab/288dabdd-f8de-80f6-1aab-40a24cb1b33f/00892038002190_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/b8/c2/6bb8c208-8e56-f76d-0a6a-571d5c31f147/mzaf_174417184682343939.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 193
+    },
+    {
+     "id": 726373148,
+     "title": "Paradise",
+     "artist": "Coldplay",
+     "album": "Mylo Xyloto",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/fa/41/1c/fa411c37-7a65-8a3e-71c9-4b566c49617c/5099967983858_1562x1562_300dpi.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/aa/3e/62/aa3e6293-da9a-bba2-15da-0acf90282a5f/mzaf_9828018370517979528.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 278
+    }
+   ]
+  },
+  {
+   "id": "bollywood",
+   "title": "Bollywood & Punjabi",
+   "blurb": "Film hits and Punjabi bangers from across India.",
+   "songs": [
+    {
+     "id": 1842076711,
+     "title": "Jeena Jeena",
+     "artist": "Sachin-Jigar, Atif Aslam & Priya Saraiya",
+     "album": "Badlapur (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/35/85/12/358512ee-128b-977f-40bc-669beb1bcc8d/196871079747.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5a/ea/88/5aea88a0-6745-8c45-0b15-8eddf4710733/mzaf_1338041153962981679.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 229
+    },
+    {
+     "id": 1649039974,
+     "title": "Maan Meri Jaan",
+     "artist": "King",
+     "album": "Champagne Talk",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/90/9d/aa/909daa9a-3a47-9314-2855-39f5a157f1e3/5054197407734.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/49/c8/c0/49c8c0eb-6a72-d639-02d2-d55fa0034b89/mzaf_6556689839136809010.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 195
+    },
+    {
+     "id": 1073359419,
+     "title": "Tum Hi Ho",
+     "artist": "Mithoon & Arijit Singh",
+     "album": "Aashiqui 2 (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/23/ee/bb23eeed-0c35-4f1d-2b11-485622777ae4/8902894353007_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3a/8c/9b/3a8c9b0b-2def-750a-f615-1555bf941edf/mzaf_17229496441442805917.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 262
+    },
+    {
+     "id": 486353435,
+     "title": "Abhi Mujh Mein Kahin",
+     "artist": "Sonu Nigam & Ajay-Atul",
+     "album": "Agneepath (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/60/15/fe/6015feb2-58ed-eafd-9870-f154de2b4ed8/886443303317.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c7/d8/d1/c7d8d1a5-6c24-0175-cfef-e5b5b836b70c/mzaf_12991514154981661781.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 365
+    },
+    {
+     "id": 673521359,
+     "title": "Khuda Jaane",
+     "artist": "Vishal & Shekhar, KK & Shilpa Rao",
+     "album": "Bachna Ae Haseeno (Original Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/ca/0e/95ca0eee-4709-b2a0-7e2d-7097c944d2cc/849486005822_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/07/3e/9b/073e9b86-f18f-f88a-8cf4-aa1173bbea4c/mzaf_1018658659811187633.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 337
+    },
+    {
+     "id": 261308968,
+     "title": "Kal Ho Naa Ho",
+     "artist": "Sonu Nigam",
+     "album": "Kal Ona Do",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/d2/07/4a/mzi.xkgmvyen.tif/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c4/d5/93/c4d5932f-a87f-f1c4-cae7-0e9803aaef38/mzaf_3302488774277744672.plus.aac.p.m4a",
+     "year": 2003,
+     "duration": 323
+    },
+    {
+     "id": 1445277970,
+     "title": "Jai Ho! (You Are My Destiny) [feat. Nicole Scherzinger]",
+     "artist": "A.R. Rahman & The Pussycat Dolls",
+     "album": "Jai Ho! (You Are My Destiny) [feat. Nicole Scherzinger] - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a8/92/ca/a892ca65-89ae-7ce3-ce08-e5aef83cfd11/00602527009230.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/90/f0/0c/90f00c66-4cd0-bb6f-c4e0-972bbec388f9/mzaf_2694158803288302609.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 222
+    },
+    {
+     "id": 1646030308,
+     "title": "Bijlee Bijlee",
+     "artist": "Harrdy Sandhu",
+     "album": "Garba Nights",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/85/c8/15/85c815e0-9e7b-50fd-4af2-d91624df767e/22UM1IM07359.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/23/01/69/23016905-2143-db4e-a896-9684c6062e60/mzaf_1705416367420243188.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 168
+    },
+    {
+     "id": 1658238167,
+     "title": "Apna Bana Le",
+     "artist": "Sachin-Jigar & Arijit Singh",
+     "album": "Bhediya (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/29/14/de/2914deba-3fac-4a9a-e493-0efd12bf8c69/840214461774.png/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a6/1c/9d/a61c9d7c-70a6-4c32-537d-671a923bbcd6/mzaf_16476369450587684583.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 262
+    },
+    {
+     "id": 1134725347,
+     "title": "Tum Se Hi",
+     "artist": "Pritam & Mohit Chauhan",
+     "album": "Jab We Met (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3d/c7/43/3dc74387-e7f4-2342-397c-4cf2037c69a5/8902894623223_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e7/39/b8/e739b870-54a1-8f33-57d5-3817108b8bd9/mzaf_16925921654959290990.plus.aac.p.m4a",
+     "year": 2007,
+     "duration": 321
+    },
+    {
+     "id": 1015300755,
+     "title": "Chak De India (From \"Chak De India\")",
+     "artist": "Sukhwinder Singh, Salim Merchant & Marianne D'Cruz",
+     "album": "Chak De India - Best Songs of Sukhwinder Singh",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/2c/c2/ec/2cc2ec57-305e-366b-a90b-996246dc88a7/Best-Songs-of-Sukhwinder-Singh.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/69/b9/9f/69b99fb1-6e50-4868-2cbe-93884cee01d8/mzaf_9458026063867164359.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 284
+    },
+    {
+     "id": 1648663570,
+     "title": "Kesariya",
+     "artist": "Pritam, Arijit Singh & Amitabh Bhattacharya",
+     "album": "Brahmastra (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/01/ef/35/01ef35ac-c046-656c-638f-928c4af51c8d/196589554871.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/21/4e/c3/214ec337-5c13-fdbf-e7dd-2738f2f9d3e2/mzaf_5009421294700453120.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 268
+    },
+    {
+     "id": 1504032328,
+     "title": "Genda Phool (feat. Payal Dev)",
+     "artist": "Badshah",
+     "album": "Genda Phool (feat. Payal Dev) - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/88/88/14/8888149b-06f3-d61e-fc46-5da101bb0d0a/886448368991.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e8/07/f6/e807f695-524d-fe64-8214-0377dde7a952/mzaf_12171306243399456334.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 171
+    },
+    {
+     "id": 1447216003,
+     "title": "Blue Eyes",
+     "artist": "Yo Yo Honey Singh",
+     "album": "Yo Yo Da Tashan",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e6/04/79/e60479fd-d58d-3abf-a1da-9800ec07f3d4/8903431705495_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/90/fd/f5/90fdf552-36c4-defc-2475-afff5ee5d188/mzaf_15590643955910964474.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 221
+    },
+    {
+     "id": 1169015785,
+     "title": "Channa Mereya",
+     "artist": "Pritam & Arijit Singh",
+     "album": "Ae Dil Hai Mushkil (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bc/6e/4d/bc6e4d0c-adec-b431-7b60-16f5689f9664/886446201597.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d5/f9/98/d5f998a7-0090-ee2d-03f8-557ad6c5bf65/mzaf_14251357991592637728.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 289
+    },
+    {
+     "id": 1523521149,
+     "title": "G.O.A.T.",
+     "artist": "Diljit Dosanjh",
+     "album": "G.O.A.T.",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d2/89/ac/d289ac98-749e-3822-6b6e-b06aa4815715/859740651597_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ba/5c/57/ba5c5769-536b-1884-dfbf-5930cab13332/mzaf_7745269360294572986.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 224
+    },
+    {
+     "id": 1687649546,
+     "title": "Still Rollin",
+     "artist": "Shubh",
+     "album": "Still Rollin",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/dc/46/a9/dc46a9c9-794e-2d7a-1afb-97eb4ae0fff6/197188915704.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/66/8a/04/668a0423-3b9e-10af-9118-af173fb5a127/mzaf_18037249437587947297.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 175
+    },
+    {
+     "id": 1523926549,
+     "title": "Satisfya",
+     "artist": "Imran Khan",
+     "album": "Satisfya - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/61/31/42/613142da-2287-ce28-0b1f-8a50866588e4/cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fb/d2/09/fbd209f2-f63b-91d9-7f5e-d48963a85855/mzaf_13054595427895597955.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 181
+    },
+    {
+     "id": 1757825980,
+     "title": "Tauba Tauba",
+     "artist": "Karan Aujla",
+     "album": "Bad Newz (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/14/fe/6114feef-5714-bd10-9e03-b8c2fc6b00ef/198588763070.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c1/92/a2/c192a22d-aaa2-621c-cab5-ed4dcf03837d/mzaf_17593202491466181226.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 207
+    },
+    {
+     "id": 1581006912,
+     "title": "Lover",
+     "artist": "Diljit Dosanjh",
+     "album": "MoonChild Era",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8a/89/e4/8a89e445-d2c6-f8ac-a828-27818b0c1afe/859749638209_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/38/d5/7a/38d57a99-39fc-e901-7c45-fa6260ec83c1/mzaf_8083696285926392389.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 190
+    },
+    {
+     "id": 1250246341,
+     "title": "Lungi Dance",
+     "artist": "Yo Yo Honey Singh",
+     "album": "Gujju Dance",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/c1/7c/39/c17c39b6-fb9e-cafa-d403-7417c7d6612b/8902894758543_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e8/70/30/e870306d-47e2-9e08-59be-35afd9c84cbb/mzaf_17100098517377352453.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 275
+    },
+    {
+     "id": 1123346653,
+     "title": "Munni Badnaam",
+     "artist": "Mamta Sharma & Aishwarya Nigam",
+     "album": "Dabangg (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d7/1f/56/d71f5669-03dc-e787-7999-6be9112c8601/8902894688765_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/07/7c/ca/077cca47-522d-501f-e6a7-d92c19e1d78e/mzaf_5550278120584868382.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 305
+    },
+    {
+     "id": 1826848930,
+     "title": "295",
+     "artist": "Sidhu Moose Wala",
+     "album": "Moosetape",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/97/69/58/976958ae-725e-bd41-6755-f0921c697840/810063889609_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7f/f3/6d/7ff36d63-b933-3993-cd2f-f3fd770c3763/mzaf_12675758250838366519.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 270
+    },
+    {
+     "id": 1123241921,
+     "title": "Kun Faya Kun",
+     "artist": "A.R. Rahman, Javed Ali & Mohit Chauhan",
+     "album": "Rockstar (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/ac/41/56ac41f7-99f3-3eae-3b07-443167292c4e/8902894697408_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ce/72/5e/ce725e63-6977-b281-3766-fff46d6e0c07/mzaf_7464998292185183397.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 471
+    },
+    {
+     "id": 1580955743,
+     "title": "Raataan Lambiyan",
+     "artist": "Tanishk Bagchi, Jubin Nautiyal & Asees Kaur",
+     "album": "Shershaah (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/61/65/ae/6165aee9-8bb9-0bd4-02b0-5d0f1e6257a3/886449510238.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/0c/38/990c381b-0530-8c0d-87a9-18b050b97f0a/mzaf_10418866714500530894.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 230
+    },
+    {
+     "id": 1138970381,
+     "title": "Dil Chahta Hai",
+     "artist": "Shankar Mahadevan",
+     "album": "Dil Chahta Hai (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/df/62/2bdf6213-3d11-5f01-cc5e-ddfcc15923b4/8902894114844_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/b7/81/fab78119-a64d-011b-7b12-86cec93956ff/mzaf_6150515912782371702.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 310
+    },
+    {
+     "id": 1123140184,
+     "title": "Sheila Ki Jawani",
+     "artist": "Sunidhi Chauhan, Vishal Dadlani & Vishal & Shekhar",
+     "album": "Tees Maar Khan (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ee/d8/c8/eed8c8a1-b596-465b-281d-c436daaebf90/8902894690041_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9a/0b/96/9a0b96eb-1bfc-c992-e7d2-44ae5e46ad6f/mzaf_3887941683077919120.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 282
+    },
+    {
+     "id": 1329701883,
+     "title": "High Rated Gabru",
+     "artist": "Guru Randhawa",
+     "album": "Punjabi Blockbusters 2017",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/8e/c0/01/8ec0019d-6a45-72a5-9427-3b955140c35e/8903431663436_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/dd/97/ea/dd97ea46-b7fd-db15-c2ac-88dcc452e677/mzaf_9391930739242769987.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 214
+    },
+    {
+     "id": 673576188,
+     "title": "Chand Sifarish",
+     "artist": "Kailash Kher & Shaan",
+     "album": "Fanaa (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6c/aa/dc/6caadc6b-8c42-a122-b3e1-41e6f14f0c22/849486005921_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/17/36/e6/1736e6e3-6fde-e06d-9f6d-45aef531559e/mzaf_13410621643409082827.plus.aac.p.m4a",
+     "year": 2006,
+     "duration": 276
+    },
+    {
+     "id": 1553245070,
+     "title": "Filhall (feat. Akshay Kumar & Nupur Sanon)",
+     "artist": "B. Praak",
+     "album": "Khoon Da Kajal Hai - Sad Songs",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ab/9d/e3/ab9de335-83d4-0de5-20ea-79084fdc0803/21UMGIM10716.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/84/d6/1f/84d61ff1-aded-15ad-7cd7-5fea2107903c/mzaf_3664050681422849690.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 255
+    },
+    {
+     "id": 1329701887,
+     "title": "Lahore",
+     "artist": "Guru Randhawa",
+     "album": "Punjabi Blockbusters 2017",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/8e/c0/01/8ec0019d-6a45-72a5-9427-3b955140c35e/8903431663436_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c9/df/9f/c9df9f91-116c-7ad2-4b9e-c0f7699cc4c0/mzaf_13906905945293599245.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 197
+    },
+    {
+     "id": 1071074558,
+     "title": "Agar Tum Saath Ho",
+     "artist": "Alka Yagnik & Arijit Singh",
+     "album": "Tamasha (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/cb/ac/67/cbac673a-9213-7118-bb4e-2440273afb03/8902894357470_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/75/a8/7d/75a87dcc-5b69-795d-7dcc-27d1c728f31f/mzaf_18055325784732588932.plus.aac.p.m4a",
+     "year": 2015,
+     "duration": 341
+    },
+    {
+     "id": 1588418743,
+     "title": "Excuses",
+     "artist": "AP Dhillon, Gurinder Gill & Intense",
+     "album": "Excuses - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/47/47/ac/4747ac85-1658-64ae-bc82-220a4d6213d5/859747478890_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/84/c8/e884c82f-7136-54d8-6754-6b45c6968f29/mzaf_11726474689882106813.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 176
+    },
+    {
+     "id": 1420435175,
+     "title": "Dilbar",
+     "artist": "Neha Kakkar, Dhvani Bhanusali & Ikka",
+     "album": "Satyameva Jayate (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/31/09/bb/3109bbc4-7d4a-5b3c-1633-096e6396ace1/8902894360333_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/2e/96/572e9654-399e-9244-df4b-6923cefc30d1/mzaf_9837922568691997721.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 184
+    },
+    {
+     "id": 673539855,
+     "title": "Kajra Re",
+     "artist": "Alisha Chinai, Javed Ali & Shankar Mahadevan",
+     "album": "Bunty Aur Babli (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4e/62/0c/4e620c19-8257-140d-37a6-8e81567d07a0/849486005846_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3c/c2/9e/3cc29e80-2af8-35ab-30c3-b844adfacc68/mzaf_9964683151091775669.plus.aac.p.m4a",
+     "year": 2005,
+     "duration": 483
+    },
+    {
+     "id": 1468448738,
+     "title": "Bekhayali",
+     "artist": "Sachet Tandon",
+     "album": "Kabir Singh (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/70/84/f6708434-0123-ff36-0ac3-7401e8cf0f94/8902894360807_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/93/fb/67/93fb67c1-7de6-f062-21e0-ed4babc196a3/mzaf_8590895579211855037.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 372
+    },
+    {
+     "id": 1537031094,
+     "title": "Pehli Nazar Mein",
+     "artist": "Atif Aslam & Pritam",
+     "album": "Race (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/38/44/21/384421ca-69a0-83f2-0a34-88653d45db97/8901854001385.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0d/db/cf/0ddbcf31-22d7-088e-c71f-1dd88a3dd8a2/mzaf_16563349538675654632.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 313
+    },
+    {
+     "id": 1123225125,
+     "title": "Chammak Challo",
+     "artist": "Akon & Hamsika Iyer",
+     "album": "Ra-One (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0c/f0/42/0cf042ce-94bf-0e40-1691-2aef999a5dbc/8902894697309_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/80/b3/a1/80b3a1f4-ef63-5cb3-a7be-d99569ebaff5/mzaf_4012032261111955588.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 227
+    },
+    {
+     "id": 1070912803,
+     "title": "Badtameez Dil",
+     "artist": "Pritam, Benny Dayal & Shefali Alvares",
+     "album": "Yeh Jawaani Hai Deewani (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/62/d6/74/62d67432-0670-631f-db6a-d4bac3adae4b/8902894353328_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/88/e2/af/88e2af36-3b58-3f34-32c3-d94d3086c8d5/mzaf_15476348080733865142.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 253
+    },
+    {
+     "id": 1123346652,
+     "title": "Tere Mast Mast Do Nain",
+     "artist": "Rahat Fateh Ali Khan",
+     "album": "Dabangg (Original Motion Picture Soundtrack)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d7/1f/56/d71f5669-03dc-e787-7999-6be9112c8601/8902894688765_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c6/ea/e0/c6eae0d1-a50e-f795-5aa9-d922f494326b/mzaf_15676401794563072498.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 358
+    },
+    {
+     "id": 1762171370,
+     "title": "Aaj Ki Raat",
+     "artist": "Madhubanti Bagchi, Divya Kumar, Sachin-Jigar & Amitabh Bhattacharya",
+     "album": "Stree 2 (Original Motion Picture Soundtrack) - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d3/37/eb/d337eb52-2663-826d-d213-335598b14743/198846005553.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1b/d2/da/1bd2da74-eb63-2561-48a5-e65c86e550dd/mzaf_12171524348657676121.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 229
+    },
+    {
+     "id": 1749256418,
+     "title": "Husn",
+     "artist": "Anuv Jain",
+     "album": "Sajni Aur Saajan - Love Songs",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/70/52/9c/70529ce4-0c53-fa28-ae67-67f69ce31915/24UMGIM60266.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/21/3c/26/213c269b-05f8-4474-2f26-264d8d9761da/mzaf_8535453774826314663.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 218
+    },
+    {
+     "id": 1665193500,
+     "title": "Paani Paani (Lofi)",
+     "artist": "Sanjay S Yadav, Badshah & Aastha Gill",
+     "album": "Night out Lofi",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/b3/f8/1f/b3f81f0f-15ce-5fcb-4efc-e8ba27b050b1/197187882878.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/f6/ff/11/f6ff1199-6824-c30a-13c2-0a911eb20dbf/mzaf_4427972624459684617.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 169
+    },
+    {
+     "id": 1531596345,
+     "title": "Brown Munde",
+     "artist": "AP Dhillon, Gminxr, Gurinder Gill & Shinda Kahlon",
+     "album": "Brown Munde - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/26/a3/ac/26a3ac64-69e4-95ec-80ab-1f5a477537d2/859742042973_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/97/74/69/977469be-a9d5-35a7-80ad-ebe12a799ccc/mzaf_804867738726203367.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 254
+    }
+   ]
+  },
+  {
+   "id": "latin",
+   "title": "Latin",
+   "blurb": "Reggaeton, Latin pop and the songs that crossed over.",
+   "songs": [
+    {
+     "id": 1447401620,
+     "title": "Despacito",
+     "artist": "Luis Fonsi & Daddy Yankee",
+     "album": "VIDA",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/ef/f0/e2eff0bc-c51d-7de5-9280-6891ddcee71b/18UMGIM85289.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0d/cb/ec/0dcbec41-5e9e-bd09-7cdd-fdff44acdf78/mzaf_17345185466754008149.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 229
+    },
+    {
+     "id": 1670245875,
+     "title": "PROVENZA",
+     "artist": "KAROL G",
+     "album": "MAÑANA SERÁ BONITO",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9b/01/44/9b0144e6-21ae-b53f-2b25-ef6c594b18a3/22UM1IM38716.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/c6/79/e0c679cf-4837-132a-f1e2-065faf13e0d4/mzaf_16649152643389056902.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 208
+    },
+    {
+     "id": 1844693673,
+     "title": "un x100to",
+     "artist": "Grupo Frontera & Bad Bunny",
+     "album": "El Comienzo (Apple Music Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/95/6b/22956ba2-e907-db4e-bc33-30c9d92890d8/199538997798.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f1/72/df/f172df87-49d0-774f-a4bb-8a62b1bd943d/mzaf_2596722133883731249.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 195
+    },
+    {
+     "id": 1684857373,
+     "title": "Ella Baila Sola",
+     "artist": "Eslabon Armado & Peso Pluma",
+     "album": "DESVELADO",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/38/01/00/380100a1-f877-899d-b48e-e0ce60a78992/196922458903_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9c/b4/01/9cb40110-b42e-2806-31cb-0bed6be7e382/mzaf_1720543349894796640.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 166
+    },
+    {
+     "id": 1618274899,
+     "title": "Envolver",
+     "artist": "Anitta",
+     "album": "Versions of Me",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/04/06/95/04069522-48f9-529b-bca8-9e763d9d7a7f/093624871330.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6f/5e/ef/6f5eef98-ab26-6874-59a9-7ae545f4f793/mzaf_6981914377948002480.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 194
+    },
+    {
+     "id": 371784883,
+     "title": "Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup (TM) Song] [feat. Freshlyground] [Single]",
+     "artist": "Shakira",
+     "album": "Listen Up! The Official 2010 FIFA World Cup Album",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3e/3a/73/3e3a73da-e19e-b26c-ec19-9da6a5da93fa/mzi.ixhiugev.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/98/88/e5/9888e55d-4daf-0e96-480b-a38259013586/mzaf_9048311608369053538.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 203
+    },
+    {
+     "id": 668743167,
+     "title": "Vivir Mi Vida",
+     "artist": "Marc Anthony",
+     "album": "3.0",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f7/24/ce/f724ce48-4d0d-0cbc-3493-3d935142e5e6/886443947238.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/10/fd/bf/10fdbf20-d17d-a8a2-6058-c1ef9f221068/mzaf_9159790581568803090.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 252
+    },
+    {
+     "id": 1449106558,
+     "title": "Con Calma (feat. Snow)",
+     "artist": "Daddy Yankee",
+     "album": "Con Calma (feat. Snow) - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/89/4e/ad/894eade7-f1d8-37bf-72f9-88c496eedfdd/19UMGIM00637.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/af/a7/2f/afa72fb6-95dc-2da3-27c3-67279e463a46/mzaf_14450408858283120883.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 193
+    },
+    {
+     "id": 1440819669,
+     "title": "Bailando (English Version) [feat. Sean Paul, Descemer Bueno & Gente de Zona]",
+     "artist": "Enrique Iglesias",
+     "album": "SEX and LOVE (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c7/18/3e/c7183ef7-49f1-8941-03cf-ad17ca8b97ea/00602537854097.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/d1/5f/8fd15faf-0ebe-75c1-75b3-490e6e874625/mzaf_15170278430104937002.plus.aac.p.m4a",
+     "year": 2008,
+     "duration": 243
+    },
+    {
+     "id": 6781413547,
+     "title": "Gasolina",
+     "artist": "Daddy Yankee",
+     "album": "VERANO GASOLINA 2024",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6c/1f/7f/6c1f7fa8-6e71-b373-11f2-91e228f16b9f/26CRGIM55515.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/49/e1/f2/49e1f2dc-a0fb-065e-a843-903e27835a73/mzaf_12796829314844566290.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 193
+    },
+    {
+     "id": 1368816792,
+     "title": "Mi Gente",
+     "artist": "J Balvin & Willy William",
+     "album": "Vibras",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/43/23/44/43234493-859a-53f6-e31c-805370dc33d7/18UMGIM19841.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/bf/1f/debf1ffb-3440-93ce-b0a8-1477874a2419/mzaf_16600081962078547731.plus.aac.p.m4a",
+     "year": 2017,
+     "duration": 185
+    },
+    {
+     "id": 726124491,
+     "title": "Me Gustas Tú",
+     "artist": "Manu Chao",
+     "album": "Próxima Estación: Esperanza",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/e2/d5/7de2d508-8bb1-4fc6-90aa-f63484c5d6a3/5060281616944_cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d1/6a/6b/d16a6bc7-bff8-5381-2d7e-f8d345a0a1b0/mzaf_3754335950919310046.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 240
+    },
+    {
+     "id": 1368105802,
+     "title": "I Like It",
+     "artist": "Cardi B, Bad Bunny & J Balvin",
+     "album": "Invasion of Privacy",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ca/58/e5/ca58e5e3-acb7-8ca3-6af9-ad63af3b71f1/075679873675.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/82/7c/67827c63-4aa2-7931-9bff-467592cd08dd/mzaf_11836739583341938706.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 253
+    },
+    {
+     "id": 1712042664,
+     "title": "Give Me Everything",
+     "artist": "Pitbull",
+     "album": "Ultra Dance 13",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e0/dd/1f/e0dd1fd7-b3ef-a6f7-1ae8-a88608d309e7/617465311857.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/ba/f0/b9/baf0b900-7d77-63d5-85b2-5ad3f6877fb4/mzaf_2134200112993288961.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 225
+    },
+    {
+     "id": 1299332776,
+     "title": "La Bicicleta",
+     "artist": "Carlos Vives & Shakira",
+     "album": "VIVES",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8d/58/3d/8d583d74-d03c-b26e-9b4b-65a32f4eb8b0/886446730196.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/26/cf/97/26cf97d8-8047-25cd-e8bd-81090ceb3126/mzaf_1920180377816560693.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 230
+    },
+    {
+     "id": 211280101,
+     "title": "Obsesión",
+     "artist": "Aventura",
+     "album": "We Broke the Rules",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/fd/1c/c4/fd1cc42a-c642-bb66-5b11-291a568c73d6/617101300023.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7c/7f/29/7c7f293a-bab2-7741-50a9-6639895bea26/mzaf_18419148381556148823.plus.aac.p.m4a",
+     "year": 2002,
+     "duration": 255
+    },
+    {
+     "id": 1528029632,
+     "title": "Hawái",
+     "artist": "Maluma",
+     "album": "Papi Juancho",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e2/7d/5f/e27d5f13-775a-6bb7-2481-d979cc4d3b0e/886448646754.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fc/45/7c/fc457cf0-0db9-eddd-d779-107716d11a28/mzaf_11875326017780607996.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 199
+    },
+    {
+     "id": 1455553645,
+     "title": "Me Rehúso",
+     "artist": "Danny Ocean",
+     "album": "54+1",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0f/ab/eb/0fabeb71-8f9b-55da-8a24-248f7a510871/190296877360.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/53/01/63/5301636a-188a-c515-1bd6-8ef9120dd125/mzaf_1431919572239736863.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 206
+    },
+    {
+     "id": 1440652265,
+     "title": "La Camisa Negra",
+     "artist": "Juanes",
+     "album": "Mi Sangre",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/21/1d/ad/211dad4f-69f6-9ac3-4c3b-3116dd3de4d4/06UMGIM24053.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/84/de/46/84de46ef-f9f8-c6ad-fb6e-f6d5ca7571b7/mzaf_17789816509198950478.plus.aac.p.m4a",
+     "year": 2004,
+     "duration": 217
+    },
+    {
+     "id": 188261029,
+     "title": "Whenever, Wherever",
+     "artist": "Shakira",
+     "album": "Laundry Service",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c5/4b/ff/c54bffa0-2333-1a55-e67e-a9c640e06f6f/mzi.hwxgzhsl.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/03/db/c9/03dbc935-12c2-4922-51ff-76170883753a/mzaf_13989672290091509449.plus.aac.p.m4a",
+     "year": 2001,
+     "duration": 196
+    },
+    {
+     "id": 1139444952,
+     "title": "Reggaetón Lento (Bailemos)",
+     "artist": "CNCO",
+     "album": "Primera Cita",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/74/46/9074463e-3dea-ad75-3e66-a9ba7939c420/886445722550.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/82/1f/e5821fc8-8fb3-f397-87b5-19b9cef919f3/mzaf_6414692203120622044.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 222
+    },
+    {
+     "id": 804145428,
+     "title": "Propuesta Indecente",
+     "artist": "Romeo Santos",
+     "album": "Fórmula, Vol. 2 (Deluxe Edition)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8f/fc/6e/8ffc6efb-353f-46ac-eeb6-8247c01cfc87/886444383691.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/f9/0e/5bf90e88-15a8-4777-489e-12c9472b41cd/mzaf_15984668273820895131.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 235
+    },
+    {
+     "id": 1719170507,
+     "title": "LUNA",
+     "artist": "Feid & ATL Jacob",
+     "album": "FERXXOCALIPSIS",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/7c/54/aa/7c54aa94-9ae3-4b80-7b23-8b23955dc3a2/23UM1IM60703.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/b0/5b/f8b05b80-c7ea-9ea8-759c-5fd609c15341/mzaf_2589321753277640940.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 197
+    },
+    {
+     "id": 1483982500,
+     "title": "X",
+     "artist": "Nicky Jam & J Balvin",
+     "album": "Íntimo",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/89/6b/0c/896b0c76-77d6-00e7-116f-8fcf8df3b6ab/886448082705.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/99/4e/a2/994ea296-de3e-1e4e-77c2-bd1b75057cbf/mzaf_5730952955027558785.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 174
+    },
+    {
+     "id": 1372140472,
+     "title": "Traicionera",
+     "artist": "Sebastián Yatra",
+     "album": "MANTRA",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/7d/35/077d35af-1410-749a-c1d6-34945bc05dff/18UMGIM17493.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/aa/72/61/aa726179-c8e9-c380-e3b3-c1de6dfd0aa1/mzaf_2395111849259162091.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 229
+    },
+    {
+     "id": 1483618930,
+     "title": "Sin Pijama",
+     "artist": "Becky G & NATTI NATASHA",
+     "album": "MALA SANTA",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2b/65/69/2b6569c2-e825-cce3-f94a-c2cbe6e68c1f/886448075417.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dd/70/84/dd708474-c82c-be86-694a-b3698abc5753/mzaf_5214226862856043559.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 190
+    }
+   ]
+  },
+  {
+   "id": "kpop",
+   "title": "K-Pop",
+   "blurb": "The K-pop hits that went global.",
+   "songs": [
+    {
+     "id": 1676947244,
+     "title": "Like Crazy",
+     "artist": "Jimin",
+     "album": "FACE - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/41/a1/a5/41a1a5cb-22ac-0cef-a48c-5d00b1727320/196922330674_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1c/56/c8/1c56c82f-72e2-f4dc-7260-4b8a2c531abe/mzaf_12790315781597171613.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 212
+    },
+    {
+     "id": 1567326688,
+     "title": "Next Level",
+     "artist": "aespa",
+     "album": "Next Level - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/60/8d/ac/608dacc2-d6d6-462d-26f0-d693e4364751/artwork.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/43/1e/0a/431e0a24-2c04-e738-2632-87462a20984d/mzaf_3158159453623406671.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 222
+    },
+    {
+     "id": 854908245,
+     "title": "Growl",
+     "artist": "EXO",
+     "album": "The 1st Album 'XOXO' (Repackage)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3a/10/77/3a1077bc-cfb4-dc63-eb69-bf8bc7d7245e/asset.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5c/4a/33/5c4a33ea-7ac7-e4f7-3416-7f7f64f2f26f/mzaf_13482719509545056838.plus.aac.p.m4a",
+     "year": 2013,
+     "duration": 207
+    },
+    {
+     "id": 1608253214,
+     "title": "WANNABE",
+     "artist": "ITZY",
+     "album": "IT'z ME",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/40/b0/1a/40b01aff-1aa6-5dda-4263-00384501ae35/192641939570_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/3b/4e/ac3b4ed6-eedb-58a3-9dd1-f3ae260d6bb3/mzaf_6540732533273065104.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 191
+    },
+    {
+     "id": 1555401122,
+     "title": "TT",
+     "artist": "TWICE",
+     "album": "Twicecoaster: Lane 1",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0e/c5/67/0ec5678b-9070-ac48-f01d-c8af72b92d01/00602508870064_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/47/46/d2/4746d202-db33-8a12-7b0a-294b7ad8179a/mzaf_3164023858517556590.plus.aac.p.m4a",
+     "year": 2016,
+     "duration": 213
+    },
+    {
+     "id": 1686489691,
+     "title": "S-Class",
+     "artist": "Stray Kids",
+     "album": "5-STAR",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/5a/3b/1e/5a3b1e2f-1b70-a4b0-6d4d-a33a770f361f/738676860696_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/90/f5/66/90f56683-00f0-b3d0-ed97-f04cf2cb49a5/mzaf_12039515172804921382.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 196
+    },
+    {
+     "id": 1338689927,
+     "title": "I Am the Best",
+     "artist": "2NE1",
+     "album": "2NE1 2nd Mini Album - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6d/7b/18/6d7b1854-a5df-5455-5f05-a8dc624d608a/8806384556049.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/80/7b/e3/807be357-b979-b940-a4c3-36a364a7dbff/mzaf_1832870719031382687.plus.aac.p.m4a",
+     "year": 2011,
+     "duration": 211
+    },
+    {
+     "id": 1445144527,
+     "title": "Gangnam Style",
+     "artist": "PSY",
+     "album": "Gangnam Style - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7c/52/87/7c5287bc-818f-55ed-e607-08b052963632/12UMGIM50914.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/00/53/c6/0053c6f7-6342-7a3d-37c5-60b896948bdb/mzaf_10727579274479911915.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 219
+    },
+    {
+     "id": 1773694544,
+     "title": "Supernova",
+     "artist": "aespa",
+     "album": "Armageddon - The 1st Album",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/7e/e0/507ee09f-ccfd-1e3c-af90-ca5e92b1221b/00888735949869_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/cc/58/f6cc5863-c60a-caac-e7f8-bd66b414a917/mzaf_8631809138360097160.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 179
+    },
+    {
+     "id": 1616804152,
+     "title": "LOVE DIVE",
+     "artist": "IVE",
+     "album": "LOVE DIVE - Single",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/67/f8/16/67f8164a-bfc2-f29b-e241-800426a968ef/cover_KM0015013_1.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b1/71/d4/b171d4a4-0446-b7d6-d778-7de6ee31f779/mzaf_13755854455583478875.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 177
+    },
+    {
+     "id": 1317322831,
+     "title": "Eyes, Nose, Lips",
+     "artist": "TAEYANG",
+     "album": "Rise",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b1/93/47/b193475e-dab8-b946-f71a-953bfdb16581/T_RISE_F.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/db/cf/45/dbcf457f-f0d2-85d7-5f50-60593834f792/mzaf_11121971639520306216.plus.aac.p.m4a",
+     "year": 2014,
+     "duration": 230
+    },
+    {
+     "id": 1533894669,
+     "title": "How You Like That",
+     "artist": "BLACKPINK",
+     "album": "THE ALBUM",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c3/64/46/c364465f-6271-8aae-93a8-b9979d2befe5/20UMGIM82075.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8f/b2/b1/8fb2b1a2-2498-9490-82f8-0226abfa9dc9/mzaf_9379484322617408629.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 181
+    },
+    {
+     "id": 854911644,
+     "title": "Gee",
+     "artist": "Girls' Generation",
+     "album": "Gee - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/18/6e/c6/186ec634-8a11-959d-12f5-47ac99f551ce/asset.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/04/e6/bb/04e6bbf7-fb5f-dfde-efea-c1ae60e206f6/mzaf_5800170755931136448.plus.aac.p.m4a",
+     "year": 2009,
+     "duration": 202
+    },
+    {
+     "id": 1635469851,
+     "title": "Hype Boy",
+     "artist": "NewJeans",
+     "album": "NewJeans 1st EP 'New Jeans'",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4e/64/34/4e64344b-3ac6-c503-2c41-257a15401416/192641873096_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/f3/08/85f30899-e93c-35e2-4742-df57fc2d3552/mzaf_14134842621180071043.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 179
+    },
+    {
+     "id": 1820264150,
+     "title": "Golden",
+     "artist": "HUNTR/X, EJAE, AUDREY NUNA, REI AMI & KPop Demon Hunters Cast",
+     "album": "KPop Demon Hunters (Soundtrack from the Netflix Film)",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e1/15/42/e1154273-8ecd-5702-e6e6-597f28001681/25UMGIM82363.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4a/9d/a1/4a9da1c4-096f-8f45-4a3b-c883c45ca451/mzaf_3059921854949935161.plus.aac.p.m4a",
+     "year": 2025,
+     "duration": 195
+    },
+    {
+     "id": 1647830390,
+     "title": "ANTIFRAGILE",
+     "artist": "LE SSERAFIM",
+     "album": "ANTIFRAGILE - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c8/79/da/c879dadf-db1e-95a5-caf5-b18c7c81d2b6/192641874413_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9c/5b/33/9c5b33cb-f6c0-1cf5-61c4-ac465bce2b7b/mzaf_16974808219393622487.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 184
+    },
+    {
+     "id": 1734500896,
+     "title": "Magnetic",
+     "artist": "ILLIT",
+     "album": "SUPER REAL ME - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3e/49/1e/3e491e43-4961-21ab-2abe-37fb1c0feb40/196922879227_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e8/7e/67/e87e6795-4ada-2f65-d562-1fd2a3eddfdf/mzaf_11263458879279601822.plus.aac.p.m4a",
+     "year": 2024,
+     "duration": 161
+    },
+    {
+     "id": 1596532400,
+     "title": "Dynamite",
+     "artist": "BTS",
+     "album": "BE",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/22/f3/8f/22f38fb9-1690-326a-d891-7aa946c2b06f/195497623273_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a3/a0/a6/a3a0a6b5-4715-b872-1aff-21e42634d9cd/mzaf_7224423421767640589.plus.aac.p.m4a",
+     "year": 2020,
+     "duration": 199
+    },
+    {
+     "id": 531263700,
+     "title": "FANTASTIC BABY",
+     "artist": "BIGBANG",
+     "album": "Alive - Monster Edition",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/03/d2/a003d24c-464a-d58f-38bd-4e899166d1f5/AVCY-58065.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3e/8c/10/3e8c1052-1442-f2f8-a00b-e035b1fbe319/mzaf_10531701183979847839.plus.aac.p.m4a",
+     "year": 2012,
+     "duration": 232
+    },
+    {
+     "id": 1681324047,
+     "title": "Super",
+     "artist": "SEVENTEEN",
+     "album": "FML",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d1/66/eb/d166eb7e-7210-b3ff-be39-638cd37bfc89/196922401282_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/76/9c/dd/769cdd57-1dc9-aff1-8af2-de134b7e0498/mzaf_9327909714451142276.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 200
+    },
+    {
+     "id": 1709555102,
+     "title": "Seven (Clean Ver.)",
+     "artist": "Jung Kook & Latto",
+     "album": "GOLDEN",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/86/78/b4/8678b4b3-2341-7239-b6cb-bcfdaef0e4e0/196922656545_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/87/fc/7c/87fc7ced-ace9-2ec4-2e8a-c9a64c841a15/mzaf_3965990725450677139.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 184
+    },
+    {
+     "id": 409076748,
+     "title": "Good Day",
+     "artist": "IU",
+     "album": "Real",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6d/2e/c9/6d2ec954-d8d8-b26a-1a8f-def6026815c5/mzi.orccormf.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/de/86/12de86be-3968-e309-f4da-3e624ec4ff49/mzaf_11516704482831655132.plus.aac.p.m4a",
+     "year": 2010,
+     "duration": 234
+    },
+    {
+     "id": 1555390083,
+     "title": "What is Love?",
+     "artist": "TWICE",
+     "album": "What is Love? - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7e/41/69/7e4169e8-8358-27ff-66b4-1564ec800abd/00602508875137_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/11/29/e2/1129e2b9-2d59-c3bf-9242-982aa012cb95/mzaf_2107069738025586373.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 208
+    },
+    {
+     "id": 1627575769,
+     "title": "Butter",
+     "artist": "BTS",
+     "album": "Proof",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/f7/68/9c/f7689ce3-6d41-60cd-62d2-57a91ddf5b9d/196922067341_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/80/c8/46/80c84615-efb7-b538-d818-226cf7803358/mzaf_11498582023380901573.plus.aac.p.m4a",
+     "year": 2021,
+     "duration": 165
+    },
+    {
+     "id": 1802621240,
+     "title": "TOMBOY",
+     "artist": "i-dle",
+     "album": "I NEVER DIE",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4c/da/91/4cda91b0-6fa2-805e-fd1a-e89bf87bb969/8804775250422.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/37/14/da3714a4-b9cd-78ea-590e-bae5af9f3856/mzaf_9300426931010299319.plus.aac.p.m4a",
+     "year": 2022,
+     "duration": 174
+    },
+    {
+     "id": 1491888506,
+     "title": "Psycho",
+     "artist": "Red Velvet",
+     "album": "‘The ReVe Festival’ Finale - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/92/5d/da/925ddaf9-1108-ddc9-ce9c-34247d6ffce4/D-Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d1/c7/cd/d1c7cd49-83a7-9cda-e5a2-2b2e5f997885/mzaf_18086462166647796817.plus.aac.p.m4a",
+     "year": 2019,
+     "duration": 211
+    },
+    {
+     "id": 1551479993,
+     "title": "DDU-DU DDU-DU",
+     "artist": "BLACKPINK",
+     "album": "SQUARE UP - EP",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/5e/5d/c3/5e5dc3a6-797b-dee5-9f51-2dcbf447c48e/19UMGIM05046.rgb.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/55/1e/1a/551e1aca-9847-6730-9c3f-3297ae3605b8/mzaf_5850823266050053080.plus.aac.p.m4a",
+     "year": 2018,
+     "duration": 211
+    },
+    {
+     "id": 1695951897,
+     "title": "Super Shy",
+     "artist": "NewJeans",
+     "album": "NewJeans 2nd EP 'Get Up'",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d3/4b/7e/d34b7e1e-af3b-43b6-2949-7a8c652a1bc9/196922462726_Cover.jpg/100x100bb.jpg",
+     "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/79/f3/bb79f38e-575d-5d68-a765-7160f27dc198/mzaf_7070253468473867952.plus.aac.p.m4a",
+     "year": 2023,
+     "duration": 155
+    }
+   ]
+  }
+ ]
+}

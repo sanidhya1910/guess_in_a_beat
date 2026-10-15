@@ -1,0 +1,118 @@
+/* Design tokens. Dark is the default; light follows the OS unless the player
+   picks a theme in Settings (sets data-theme on <html>). */
+
+:root {
+    color-scheme: dark;
+
+    --bg: #0d0d11;
+    --bg-elev: #131318;
+    --surface: #18181f;
+    --surface-2: #202029;
+    --surface-3: #2b2b36;
+    --line: rgb(255 255 255 / 0.07);
+    --line-2: rgb(255 255 255 / 0.13);
+
+    --text: #f3f2ef;
+    --text-2: #b6b5bf;
+    --text-3: #807f8b;
+
+    --accent: #ee4b81;
+    --accent-hover: #f36694;
+    --accent-ink: #1d0812;
+    --accent-soft: rgb(238 75 129 / 0.14);
+    --accent-line: rgb(238 75 129 / 0.45);
+
+    --good: #3ccb7f;
+    --good-soft: rgb(60 203 127 / 0.13);
+    --close: #f0b43c;
+    --close-soft: rgb(240 180 60 / 0.13);
+    --bad: #e66a61;
+    --bad-soft: rgb(230 106 97 / 0.12);
+
+    --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 24px 48px -28px rgb(0 0 0 / 0.7);
+    --shadow-pop: 0 18px 50px -12px rgb(0 0 0 / 0.65), 0 0 0 1px var(--line-2);
+    --scrim: rgb(6 6 9 / 0.72);
+
+    --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+    /* Shape rule: controls are pills, surfaces are 18px, artwork is 10px. */
+    --r-control: 999px;
+    --r-card: 18px;
+    --r-tile: 12px;
+    --r-art: 10px;
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+    --dur-fast: 140ms;
+    --dur: 260ms;
+
+    --page: 1180px;
+    --gutter: clamp(16px, 4vw, 32px);
+    --header-h: 64px;
+    --tabbar-h: 64px;
+
+    /* Layers: header and tab bar < dropdowns < toasts. Dialogs use the top layer. */
+    --z-header: 20;
+    --z-dropdown: 30;
+    --z-toast: 50;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme='dark']) {
+        color-scheme: light;
+        --bg: #f3f3f6;
+        --bg-elev: #fafafc;
+        --surface: #ffffff;
+        --surface-2: #ececf1;
+        --surface-3: #dfdfe7;
+        --line: rgb(20 20 40 / 0.08);
+        --line-2: rgb(20 20 40 / 0.15);
+        --text: #15151b;
+        --text-2: #4a4a57;
+        --text-3: #6f6e7a;
+        --accent: #d12f69;
+        --accent-hover: #b8255a;
+        --accent-ink: #ffffff;
+        --accent-soft: rgb(209 47 105 / 0.1);
+        --accent-line: rgb(209 47 105 / 0.4);
+        --good: #138a4c;
+        --good-soft: rgb(19 138 76 / 0.1);
+        --close: #9a6400;
+        --close-soft: rgb(196 133 10 / 0.13);
+        --bad: #c0392f;
+        --bad-soft: rgb(192 57 47 / 0.09);
+        --shadow-card: 0 1px 2px rgb(20 20 40 / 0.05), 0 18px 40px -26px rgb(20 20 40 / 0.35);
+        --shadow-pop: 0 18px 50px -14px rgb(20 20 40 / 0.35), 0 0 0 1px var(--line-2);
+        --scrim: rgb(20 20 30 / 0.45);
+    }
+}
+
+:root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #f3f3f6;
+    --bg-elev: #fafafc;
+    --surface: #ffffff;
+    --surface-2: #ececf1;
+    --surface-3: #dfdfe7;
+    --line: rgb(20 20 40 / 0.08);
+    --line-2: rgb(20 20 40 / 0.15);
+    --text: #15151b;
+    --text-2: #4a4a57;
+    --text-3: #6f6e7a;
+    --accent: #d12f69;
+    --accent-hover: #b8255a;
+    --accent-ink: #ffffff;
+    --accent-soft: rgb(209 47 105 / 0.1);
+    --accent-line: rgb(209 47 105 / 0.4);
+    --good: #138a4c;
+    --good-soft: rgb(19 138 76 / 0.1);
+    --close: #9a6400;
+    --close-soft: rgb(196 133 10 / 0.13);
+    --bad: #c0392f;
+    --bad-soft: rgb(192 57 47 / 0.09);
+    --shadow-card: 0 1px 2px rgb(20 20 40 / 0.05), 0 18px 40px -26px rgb(20 20 40 / 0.35);
+    --shadow-pop: 0 18px 50px -14px rgb(20 20 40 / 0.35), 0 0 0 1px var(--line-2);
+    --scrim: rgb(20 20 30 / 0.45);
+}

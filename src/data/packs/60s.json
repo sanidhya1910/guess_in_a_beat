@@ -1,0 +1,502 @@
+[
+ {
+  "id": 1441133277,
+  "title": "Hey Jude",
+  "artist": "The Beatles",
+  "album": "The Beatles 1967-1970 (The Blue Album)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a6/8b/65/a68b657c-cac6-68e6-3bde-b79d58fbc795/18UMGIM30762.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/08/f5/3d08f5d7-1e0a-99d9-1085-d50ecc972bb9/mzaf_1689604474306790314.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 431
+ },
+ {
+  "id": 1441164589,
+  "title": "Here Comes the Sun",
+  "artist": "The Beatles",
+  "album": "Abbey Road (Remastered)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/df/db/61/dfdb615d-47f8-06e9-9533-b96daccc029f/18UMGIM31076.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/7d/83/cd7d834f-34bf-7be0-1647-0fb0920d25a7/mzaf_5281747653026802926.plus.aac.p.m4a",
+  "year": 1969,
+  "duration": 186
+ },
+ {
+  "id": 1441165136,
+  "title": "Twist and Shout",
+  "artist": "The Beatles",
+  "album": "Please Please Me",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/ff/b5/9cffb5a6-a37f-c84a-7240-0333a071bc92/00602567725275.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a1/da/74/a1da7475-c355-8ecf-f46a-2ba0e8571561/mzaf_6982524764313957424.plus.aac.p.m4a",
+  "year": 1963,
+  "duration": 153
+ },
+ {
+  "id": 1440743544,
+  "title": "(I Can't Get No) Satisfaction",
+  "artist": "The Rolling Stones",
+  "album": "Out of Our Heads",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/6b/8c/5b/6b8c5bc2-cbf3-5d48-ac10-565dd728802b/13ABKIM00023.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/4d/28/ee4d28cd-a465-1334-2863-efda9ea9669b/mzaf_8440807812349084607.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 223
+ },
+ {
+  "id": 1440745782,
+  "title": "Paint It, Black",
+  "artist": "The Rolling Stones",
+  "album": "Aftermath (US Version)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/cd/89/04/cd890449-e58f-7257-2c60-9c8c31f24ce3/13ABKIM00063.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/da/f5/ec/daf5ece2-6853-c6a4-d481-389001453f75/mzaf_3869995397273029315.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 202
+ },
+ {
+  "id": 1442865074,
+  "title": "Good Vibrations",
+  "artist": "The Beach Boys",
+  "album": "Smiley Smile (Mono & Stereo)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/62/6c/94626c44-4657-739e-e639-39ae55e6d2cc/13UABIM03827.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4f/a1/b2/4fa1b2fe-7f99-8a4c-72a9-0804c77f2b58/mzaf_7135940363914090298.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 216
+ },
+ {
+  "id": 1440841243,
+  "title": "Wouldn't It Be Nice",
+  "artist": "The Beach Boys",
+  "album": "Pet Sounds",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/35/bb/c4/35bbc4eb-9387-97b0-b138-64b7a949ea43/13UABIM03512.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d0/fb/61/d0fb618b-d390-e28d-73f6-473fdc789e46/mzaf_17739354464510580563.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 155
+ },
+ {
+  "id": 1443094110,
+  "title": "You Can't Hurry Love",
+  "artist": "The Supremes",
+  "album": "The Supremes A' Go-Go",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/88/de/ba/88debaf6-014b-1c25-197f-f87e9427fa32/14UMGIM62471.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/57/15/3d571535-6159-992d-63eb-208821a9ec8c/mzaf_17116673928935373944.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 167
+ },
+ {
+  "id": 1443150938,
+  "title": "Baby Love",
+  "artist": "The Supremes",
+  "album": "Where Did Our Love Go",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/5d/c2/4d/5dc24de8-15d7-16e0-7585-72a2bcc721de/14UMGIM62198.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/91/9f/72/919f7248-1796-36a8-f85b-27d3c0107d7c/mzaf_8989939591988961158.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 158
+ },
+ {
+  "id": 1423301921,
+  "title": "My Girl",
+  "artist": "The Temptations",
+  "album": "The Temptations Sing Smokey",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/84/2d/f1/842df19d-e5f4-3b9f-9405-6779bbc43fe0/06UMGIM07353.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/b3/ef/99b3ef00-3e74-5dfa-0d2e-4128ef5a9f0c/mzaf_12879689053309664622.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 165
+ },
+ {
+  "id": 1443073952,
+  "title": "I Heard It Through the Grapevine",
+  "artist": "Marvin Gaye",
+  "album": "A Motown Thanksgiving Celebration - EP",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a1/67/26/a1672640-e140-6eaa-3197-8fc9a37a9995/09UMGIM40279.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/52/07/ab/5207ab4e-8181-a316-bebd-de76a99c5c94/mzaf_17478980179707520116.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 196
+ },
+ {
+  "id": 1472134759,
+  "title": "Ain't No Mountain High Enough",
+  "artist": "Marvin Gaye & Tammi Terrell",
+  "album": "15 Favorites",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/5d/c5/ff/5dc5ff8a-47f0-1804-f68c-016ff35c09da/08UMGIM12189.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c7/83/9f/c7839f25-5009-d6d3-715f-245fe183824e/mzaf_16793583082106732655.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 146
+ },
+ {
+  "id": 937107838,
+  "title": "Respect",
+  "artist": "Aretha Franklin",
+  "album": "I Never Loved a Man the Way I Love You",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d1/31/ee/d131eec4-614c-d661-b580-3dc32b8547e8/603497896622.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/99/74/40/997440f5-f543-165d-321a-5a64245a6c1c/mzaf_7740075940996149397.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 148
+ },
+ {
+  "id": 1052538715,
+  "title": "(Sittin' On) The Dock of the Bay",
+  "artist": "Otis Redding",
+  "album": "The Dock of the Bay",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/51/91/8c/51918c0f-1a4e-a570-b34f-7f4277ba1471/mzm.hyvzgqrv.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ae/bd/bf/aebdbfd7-c94f-9ede-2a6d-00df04f9f172/mzaf_427397591805176137.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 167
+ },
+ {
+  "id": 1104054293,
+  "title": "Stand By Me",
+  "artist": "Ben E. King",
+  "album": "The Complete ATCO/Atlantic Singles (Vol. 1: 1960-1966)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0c/84/0f/0c840f68-6611-161d-96e0-8dd4e84c9f7a/603497878475.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/04/86/1e/04861edf-72cc-bf7f-7f39-03c659ad6b79/mzaf_14514875763809946762.plus.aac.p.m4a",
+  "year": 1960,
+  "duration": 177
+ },
+ {
+  "id": 1440495265,
+  "title": "A Change Is Gonna Come",
+  "artist": "Sam Cooke",
+  "album": "A Change Is Gonna Come - EP",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5c/af/dc/5cafdc13-ba15-bcc9-800c-dd42aac696ee/00018771021025.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/ff/87/d4ff8724-2cd8-c5d4-3894-9fef2968177a/mzaf_17538140509361254142.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 191
+ },
+ {
+  "id": 560357039,
+  "title": "Be My Baby",
+  "artist": "The Ronettes",
+  "album": "Dirty Dancing: The Anniversary Edition (Original Motion Picture Soundtrack) [Remastered]",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/87/ef/02/87ef0215-ec63-615c-14f9-f49c761f2bb6/886443523371.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c1/3e/94/c13e949e-bed3-7c0f-a8de-451467828ef4/mzaf_5889020864912524135.plus.aac.p.m4a",
+  "year": 1963,
+  "duration": 159
+ },
+ {
+  "id": 305827145,
+  "title": "You've Lost That Lovin' Feelin'",
+  "artist": "The Righteous Brothers",
+  "album": "Reunion",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/7b/e4/8b/mzi.vbyeouvl.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/ae/69/8aae69a5-6e94-6887-de97-7eef1b99b3f9/mzaf_15037753357902392413.plus.aac.p.m4a",
+  "year": 1990,
+  "duration": 231
+ },
+ {
+  "id": 1440743961,
+  "title": "House of the Rising Sun",
+  "artist": "The Animals",
+  "album": "Retrospective",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/83/3d/40/833d4083-c018-f1bf-5b30-707aa7c2557c/06PNDIM00281.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a8/92/35/a8923560-5099-8443-e7f6-eabd3a04d11b/mzaf_3221556397685255466.plus.aac.p.m4a",
+  "year": 1963,
+  "duration": 270
+ },
+ {
+  "id": 1622186745,
+  "title": "You Really Got Me",
+  "artist": "The Kinks",
+  "album": "Kinks (Deluxe Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/37/45/9a/37459a96-81ef-b10d-2d54-7b377e8bb171/5414939496776.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/f7/d6/c1f7d60c-3da4-1fd4-e911-3c58c65a5f69/mzaf_8854344291049304728.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 134
+ },
+ {
+  "id": 1443238754,
+  "title": "My Generation",
+  "artist": "The Who",
+  "album": "My Generation (50th Anniversary / Super Deluxe)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/7b/89/7c/7b897cef-0ec3-34ed-184f-ffec8655cbbd/16UMGIM66112.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/82/cf/db/82cfdbf1-7310-bbaa-2154-cab5d9aab7cd/mzaf_13586515265429806134.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 200
+ },
+ {
+  "id": 1192962303,
+  "title": "Light My Fire",
+  "artist": "The Doors",
+  "album": "The Doors (50th Anniversary Deluxe Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/43/f6/14/43f61467-931b-21af-6b22-13717edc8ed9/603497870295.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e2/2e/99/e22e9993-9f0c-df04-4aec-133a7045bce5/mzaf_14103368404409074100.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 430
+ },
+ {
+  "id": 357653191,
+  "title": "All Along the Watchtower",
+  "artist": "The Jimi Hendrix Experience",
+  "album": "Electric Ladyland",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a6/b8/45/a6b84589-6ff7-a462-9ff9-170b724980d5/dj.wjkdwlks.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/58/ce/a758ce2a-f3b7-c70f-4d38-8ec933f5c838/mzaf_9944636089902578417.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 241
+ },
+ {
+  "id": 829229243,
+  "title": "Somebody To Love (Original)",
+  "artist": "Jefferson Airplane",
+  "album": "Your Birthday Present - Marty Murray & Guests",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music2/v4/25/2b/74/252b746b-e31b-abaa-140d-debc263e5fad/cover.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f1/25/02/f1250242-0c3e-e35a-476d-f6e5fbefb7d3/mzaf_2285487439361394676.plus.aac.p.m4a",
+  "year": 1943,
+  "duration": 197
+ },
+ {
+  "id": 1509083511,
+  "title": "California Dreamin' (Single Version)",
+  "artist": "The Mamas & The Papas",
+  "album": "60's Gold",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a3/83/1b/a3831b97-0d3c-dfbc-6f31-57212bd4a185/06UMGIM23988.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/cb/7f/facb7f24-5189-5fb3-9505-4b140f91d4f3/mzaf_11855718205997953545.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 159
+ },
+ {
+  "id": 192480260,
+  "title": "The Sound of Silence",
+  "artist": "Simon & Garfunkel",
+  "album": "Sounds of Silence",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f9/8c/fa/f98cfa9e-282b-8a4f-33bd-ff3de9269963/074640926921.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/69/cf/2e/69cf2e60-9b83-7273-e40a-011ef7d43b19/mzaf_6567197042111663365.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 190
+ },
+ {
+  "id": 203304387,
+  "title": "Mrs. Robinson",
+  "artist": "Simon & Garfunkel",
+  "album": "Bookends",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/1c/3c/09/1c3c0934-8ae5-fc87-2647-e104057d41f4/074640952920.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/dc/34/a1/dc34a184-84c0-fc47-712a-bb1ac83dec72/mzaf_4775604353249705315.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 247
+ },
+ {
+  "id": 176080628,
+  "title": "I'm a Believer",
+  "artist": "The Monkees",
+  "album": "More of the Monkees (Deluxe Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d3/10/fb/d310fbca-90ae-3911-4fff-667fa7830f1a/dj.hqvvfwtf.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a0/68/0e/a0680e95-f7a6-2e70-b1c3-0cf69edf22d5/mzaf_13705371680645994642.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 167
+ },
+ {
+  "id": 79087150,
+  "title": "Happy Together",
+  "artist": "The Turtles",
+  "album": "Happy Together",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/28/95/77/289577d1-0b0a-400d-0698-17b784b76c15/dj.kwkktnnd.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/14/48/23/14482339-0094-4661-a759-5a63725d4b64/mzaf_10375692303356175728.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 176
+ },
+ {
+  "id": 1440946827,
+  "title": "Proud Mary",
+  "artist": "Creedence Clearwater Revival",
+  "album": "Bayou Country",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/79/39/6d/79396d4f-53bc-4614-d3e8-b5d42ec4be33/14CMGIM00710.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a3/26/a4/a326a431-d71a-f3ce-7b5e-87dfea60859f/mzaf_10622825217218642309.plus.aac.p.m4a",
+  "year": 1969,
+  "duration": 188
+ },
+ {
+  "id": 1440952840,
+  "title": "Bad Moon Rising",
+  "artist": "Creedence Clearwater Revival",
+  "album": "Green River",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/88/16/20/881620df-9161-61e8-2295-99c6740871b8/00888072355972.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/38/cc/0e/38cc0ecd-6362-406c-a436-cda02b1b2ec6/mzaf_14867378299499617461.plus.aac.p.m4a",
+  "year": 1969,
+  "duration": 142
+ },
+ {
+  "id": 220354741,
+  "title": "Can't Help Falling in Love",
+  "artist": "Elvis Presley",
+  "album": "Platinum - A Life In Music",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/42/9d/31/429d3107-2106-efa0-6c6b-d7c406c8dd2d/contsched.ekegmkjv.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7e/39/58/7e395898-795c-4e8d-7eb8-95a4539eaf03/mzaf_10446012754294234210.plus.aac.p.m4a",
+  "year": 1961,
+  "duration": 178
+ },
+ {
+  "id": 878740968,
+  "title": "Suspicious Minds",
+  "artist": "Elvis Presley",
+  "album": "Bossa Nova Baby: The Ultimate Elvis Party Album",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/de/5d/6e/de5d6ebf-c980-9ab3-a804-d82869e18700/886444614627.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0f/eb/32/0feb32a5-e7cb-0de4-319e-c4e97b2f4b92/mzaf_16598517798605972782.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 261
+ },
+ {
+  "id": 1443424289,
+  "title": "Strangers In the Night",
+  "artist": "Frank Sinatra",
+  "album": "Strangers In the Night (Expanded Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0a/8a/ca/0a8aca52-e1c9-732e-a9e4-8a8e8eea168c/00602537570669.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/70/98/32/709832f6-3e3b-af02-2cbe-54065088f5b3/mzaf_15985141849728897884.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 158
+ },
+ {
+  "id": 1576574977,
+  "title": "These Boots Are Made for Walkin'",
+  "artist": "Nancy Sinatra",
+  "album": "Boots (Bonus Tracks Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/e0/e0/95e0e041-fe07-d5c1-1b28-95e3ccf36f88/196292057867.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/3e/31/343e31db-9746-9ef2-602a-ac16513f0429/mzaf_14538077395875273996.plus.aac.p.m4a",
+  "year": 1966,
+  "duration": 168
+ },
+ {
+  "id": 1440787254,
+  "title": "What a Wonderful World",
+  "artist": "Louis Armstrong",
+  "album": "What a Wonderful World",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2e/8c/2f/2e8c2f46-4148-d40d-61dc-2cc8e2493aab/12UMGIM11012.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/28/3e/f0283e36-b2b5-ae0d-5276-9b55535cbdf4/mzaf_12728860797817529355.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 139
+ },
+ {
+  "id": 169963249,
+  "title": "Ring of Fire",
+  "artist": "Johnny Cash, June Carter & Merle Kilgore",
+  "album": "Super Hits",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features/6b/10/ba/dj.rjaschsa.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/bb/14/bbbb14f8-7b07-8f5a-626a-0a0efa85dbf4/mzaf_12600736982402840248.plus.aac.p.m4a",
+  "year": 1947,
+  "duration": 157
+ },
+ {
+  "id": 201281527,
+  "title": "Like a Rolling Stone",
+  "artist": "Bob Dylan",
+  "album": "Highway 61 Revisited",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f8/ff/c0/f8ffc056-55b4-2033-657d-32492d1eea25/827969239926.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/68/b1/a568b1af-ff36-c4c4-f8b4-f1ffe5484c3a/mzaf_7213634674974695928.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 372
+ },
+ {
+  "id": 153421332,
+  "title": "Mr. Tambourine Man",
+  "artist": "The Byrds",
+  "album": "Mr. Tambourine Man (Reissue Edition with Bonus Tracks)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/d6/b7/81/mzi.mcvxlkfy.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fa/12/d0/fa12d074-a5ed-1b7a-a4c0-284ddd262607/mzaf_4080848081330245947.plus.aac.p.m4a",
+  "year": 1965,
+  "duration": 149
+ },
+ {
+  "id": 1810776338,
+  "title": "Time of the Season (Mono Remastered)",
+  "artist": "The Zombies",
+  "album": "Odessey and Oracle (Mono Remastered)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/21/5a/a5/215aa554-bc35-193a-9d80-08247cac571c/810183320198.png/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/13/31/3d/13313db2-a0e8-84c4-11b0-2846d333f6b1/mzaf_3340483753380264463.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 211
+ },
+ {
+  "id": 1464881091,
+  "title": "Dancing in the Street",
+  "artist": "Martha Reeves & The Vandellas",
+  "album": "Motown: The Complete No. 1's",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6f/8e/50/6f8e5094-44f0-14e9-d966-647acdf64240/08UMGIM28303.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/ab/8c/3dab8c6a-d564-8a82-1a02-8a7905fbe64d/mzaf_1151112938182488641.plus.aac.p.m4a",
+  "year": 1964,
+  "duration": 159
+ },
+ {
+  "id": 1268558701,
+  "title": "Can't Take My Eyes Off You",
+  "artist": "Frankie Valli",
+  "album": "Oldies 60s",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/0c/2a/fa/0c2afade-c05b-b4f4-55e8-a47545d79c18/084247979008.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/b5/db/b6b5db2b-0f95-3df6-7453-8e857cdd613e/mzaf_10625055224248603617.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 204
+ },
+ {
+  "id": 257837972,
+  "title": "Son of a Preacher Man",
+  "artist": "Dusty Springfield",
+  "album": "Dusty In Memphis (Deluxe Edition)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/98/94/d9/9894d98e-da57-774d-d6d3-93c9925594d4/mzi.ydkskcae.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/7a/64/457a64c6-2412-8429-b1dc-f7c440f93a95/mzaf_3693962168989989373.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 149
+ },
+ {
+  "id": 284043506,
+  "title": "The Letter",
+  "artist": "The Box Tops",
+  "album": "The Letter / Neon Rainbow",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9f/12/e2/9f12e2fd-fb2c-6e70-6f62-7534c3ae3c53/mzi.zhfwqhdj.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2e/bd/e2/2ebde224-1003-cec5-c0cf-dc8a5b6e5f67/mzaf_11590402399217273858.plus.aac.p.m4a",
+  "year": 1967,
+  "duration": 116
+ },
+ {
+  "id": 1440860171,
+  "title": "Born to Be Wild",
+  "artist": "Steppenwolf",
+  "album": "Steppenwolf",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ec/b2/63/ecb263f0-55dd-6430-a916-f8c6d14430a6/00602537845194.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/71/33/6d/71336d1f-e008-d0f8-5dff-25fa0974ef8d/mzaf_13245098132834526016.plus.aac.p.m4a",
+  "year": 1968,
+  "duration": 211
+ },
+ {
+  "id": 121695005,
+  "title": "Louie Louie",
+  "artist": "The Kingsmen",
+  "album": "The Best of the Kingsmen",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/60/67/f0/6067f0f4-d7c6-7399-6163-b886e5223912/669910737156.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/63/9c/19/639c19ef-5abe-9291-5a9e-063f3dbff474/mzaf_6815945080907603361.plus.aac.p.m4a",
+  "year": 1963,
+  "duration": 165
+ },
+ {
+  "id": 1278471746,
+  "title": "The Twist",
+  "artist": "Chubby Checker",
+  "album": "The Twist - EP",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/25/90/ed/2590ed2c-465a-9b51-f521-7740a58f644d/888880721990.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f6/68/c2/f668c26a-fb3a-ec64-5769-304d69ed72f7/mzaf_14786262057323594712.plus.aac.p.m4a",
+  "year": 1960,
+  "duration": 157
+ },
+ {
+  "id": 254849757,
+  "title": "Will You Love Me Tomorrow",
+  "artist": "The Shirelles",
+  "album": "Will You Still Love Me Tomorrow",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/fa/21/94fa2101-cdfb-15cf-b69d-2dbe8f49b1c9/ticket.quxfrkob.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/38/bb/23/38bb2371-6310-c7ec-ea80-bee140a22cc0/mzaf_7728268075408233820.plus.aac.p.m4a",
+  "year": 1960,
+  "duration": 160
+ },
+ {
+  "id": 1440839443,
+  "title": "At Last",
+  "artist": "Etta James",
+  "album": "At Last!",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/25/46/17/2546176c-0f7c-b1a0-20b8-5200ebc6c473/16UMGIM27321.rgb.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/03/e5/16/03e516df-cca4-2b80-cb5f-9ed158f884eb/mzaf_211061804880636509.plus.aac.p.m4a",
+  "year": 1960,
+  "duration": 181
+ },
+ {
+  "id": 1090471540,
+  "title": "Space Oddity",
+  "artist": "David Bowie",
+  "album": "ChangesOneBowie (2016 Remaster)",
+  "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1f/d7/ac/1fd7ac86-48f1-b786-9d7e-2fa6da5825e1/190295994068.jpg/100x100bb.jpg",
+  "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/d1/ee/dad1eeb5-7678-c349-9a14-9811495cb4d2/mzaf_10140316768785473353.plus.aac.p.m4a",
+  "year": 1969,
+  "duration": 318
+ }
+]
